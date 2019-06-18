@@ -1,0 +1,169 @@
+page {
+  height: 100%;
+  background: #fff;
+}
+
+.city {
+  display: flex;
+  font-size: 32rpx;
+  color: #333;
+  line-height: 80rpx;
+  margin-top: 10rpx;
+}
+
+.city-left {
+  margin-left: 60rpx;
+  margin-right: 45rpx;
+}
+
+.city-name {
+  margin-right: 24rpx;
+}
+
+.shop {
+  width: 90%;
+  background: #fff;
+  z-index: 10;
+  position: absolute;
+  top: 350rpx;
+  left: 40rpx;
+  border-radius: 12rpx;
+}
+
+.shop-info {
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-around;
+  line-height: 40rpx;
+}
+
+.shop-name {
+  margin-left: 20rpx;
+  font-size: 35rpx;
+  color: #333;
+}
+
+.shop-people {
+  font-size: 24rpx;
+  color: #333;
+  margin-left: 10rpx;
+}
+
+.people-num {
+  font-size: 24rpx;
+  color: rgb(255, 138, 82);
+}
+
+.keysite {
+  outline: none;
+  color: rgb(10, 130, 254);
+  width: 200rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  border: 1px solid rgb(10, 130, 254);
+  line-height: 60rpx;
+  background: none;
+}
+
+.shop-time {
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  color: #ccc;
+}
+
+.shop-site {
+  font-size: 28rpx;
+  color: #333;
+  margin-left: 20rpx;
+  line-height: 40rpx;
+  margin-top: 20rpx;
+}
+
+.service {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.service-item {
+  width: 120rpx;
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 210rpx;
+}
+
+.service-item image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.service-item text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.hr {
+  height: 30rpx;
+  margin-top: 40rpx;
+  background: rgb(241, 241, 241);
+}
+
+.orderBy {
+  font-size: 65rpx;
+  color: #ccc;
+  margin: 100rpx auto 0;
+  width: 95%;
+  text-align: center;
+}
+
+.order-stauts {
+  display: flex;
+  justify-content: space-around;
+  width: 95%;
+  margin: -63rpx auto 0;
+}
+
+.order-stauts image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.repai {
+  margin-top: -53rpx;
+
+}
+.step-repai text{
+  color: rgb(10, 130, 254)
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.other{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+
+}
+.other-left{
+  margin-top: 10rpx;
+}
+.other-right{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}

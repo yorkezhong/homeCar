@@ -1,0 +1,99 @@
+<view class="home">
+  <view class='top'>
+    <view class="city" wx:if="{{!selectCity}}">
+      <view class='city-left' bindtap='selectCity'>
+        <text class='city-name'>{{city}}</text>
+        <text class="cuIcon-unfold"></text>
+      </view>
+      <view class='city-right'>
+        <text class='city-tem'>{{weather}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='banner'>
+    <swiper autoplay="true" indicator-dots="true" indicator-color="#fff" indicator-active-color="#333">
+      <block wx:for="{{[1,2,3]}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="../../../img/banner.png" class="slide-image" mode='scaleToFill' style="width:100%" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='shop'>
+    <view class='shop-info'>
+      <text class='shop-name'>海岸城店</text>
+      <text class='shop-people'>前方排队人数</text>
+      <text class='people-num'>—24人</text>
+      <button class='keysite'>钥匙柜位置</button>
+    </view>
+    <text class='shop-time '>营业时间 9：00-19：00  </text>
+    <view class='shop-site '>
+      <text class="cuIcon-refresh" style='color:rgb(10,130,254);margin-right:5rpx;'></text>深圳市南山区海德二路海岸城小区地下车库 </view>
+  </view>
+
+  <view class='service'>
+    <view class='service-item'>
+      <image src='../../../img/cosmetology.png' mode='aspectFit'></image>
+      <text>美容</text>
+    </view>
+    <view class='service-item'>
+      <image src='../../../img/insurance.png' mode='aspectFit'></image>
+      <text>车险</text>
+    </view>
+    <view class='service-item'>
+      <image src='../../../img/paint.png' mode='aspectFit'></image>
+      <text>喷漆</text>
+    </view>
+    <view class='service-item'>
+      <image src='../../../img/vehicle_tube.png' mode='aspectFit'></image>
+      <text>车管</text>
+    </view>
+  </view>
+
+  <view class='hr'></view>
+  <view class='order'>
+    <view class='orderBy'>
+      --------------------------------
+    </view>
+    <view class='order-stauts'>
+      <view class='step'>
+        <image src='../../../img/circular.png'></image>
+        <text>下单</text>
+        <text>9：00</text>
+      </view>
+      <view class='step'>
+        <image src='../../../img/circular.png'></image>
+        <text>交车</text>
+        <text>10：00</text>
+      </view>
+      <view class='step step-repai'>
+        <image src='../../../img/repai.png' class='repai' style='width:120rpx;height:120rpx'></image>
+        <text>施工中</text>
+        <text>11：00</text>
+      </view>
+      <view class='step'>
+        <image src='../../../img/circular_gray.png'></image>
+        <text>完工</text>
+        <text>18：00</text>
+      </view>
+      <view class='step'>
+        <image src='../../../img/circular_gray.png'></image>
+        <text>交车</text>
+        <text>19：00</text>
+      </view>
+
+    </view>
+  </view>
+  <view class='hr'></view>
+<view class='other'>
+<view class='other-left'>
+<image src='../../../img/car_wash.png' style='width:360rpx;height:180rpx;' mode='aspectFit'></image>
+</view>
+<view class='other-right'>
+<image src='../../../img/recharge.png' style='width:230rpx;height:88rpx;' mode='aspectFit'></image>
+<image src='../../../img/packge.png' style='width:230rpx;height:88rpx;' mode='aspectFit'></image>
+
+</view>
+</view>
+
+</view>
