@@ -12,10 +12,11 @@ Page({
       mycity:"深圳市"
     }
   },
-  onLoad: function (options) {
+  onLoad: function () {
     let that = this;
     let latitude = wx.getStorageSync("latitude");
     let longitude = wx.getStorageSync("longitude")
+    
     that.getCity(latitude, longitude)
     that.setData({
       city: City

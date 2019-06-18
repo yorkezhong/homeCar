@@ -1,0 +1,47 @@
+<view class="car">
+  <view class='car-top'>
+    我的车辆
+  </view>
+  <view class='car-info'>
+    <text class='car-name'>车牌</text>
+    <button class='car-id'>
+      粤BK3A12
+    </button>
+  </view>
+  <text class='add-car'>添加新车</text>
+<view class='car-status'>
+<view class='car-point'>
+<text style='font-size:100rpx;margin-bottom:20rpx'>90%</text>
+<text>车况良好</text>
+</view>
+ <view class='status-info'>● 1个异常项目</view>
+</view>
+
+<view class='car-result'>
+<view class='res-title'>检查情况</view>
+<view class='res-list'>
+<view class='list-item'>
+<text class='item-left selcet'>汽车/美容</text>
+<view class='warn-info'>
+<text class='cuIcon-warn' style='color:rgb(255, 84, 45);margin-right:10rpx'></text>距离上次洗车已有102天,建议进行整车清洁
+</view>
+</view>
+<view class='list-item'>
+<text class='item-left' style='border-top:none'>服务</text>
+<!-- <text class='cuIcon-warn'>距离上次洗车已有102天,建议进行整车清洁</text> -->
+</view>
+<view class='list-item'>
+<text class='item-left' style='border-top:none'>检测</text>
+<!-- <text class='cuIcon-warn'>距离上次洗车已有102天,建议进行整车清洁</text> -->
+</view>
+<view class='list-item'>
+<text class='item-left' style='border-top:none'>车管</text>
+<!-- <text class='cuIcon-warn'>距离上次洗车已有102天,建议进行整车清洁</text> -->
+</view>
+</view>
+
+
+</view>
+
+
+</view>

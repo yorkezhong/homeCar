@@ -4,7 +4,7 @@ Page({
     city: "深圳市",
     weather: "",
   },
-  onLoad: function (options) {
+  onShow: function () {
     let that = this;
       let latitude = wx.getStorageSync("latitude");
       let longitude = wx.getStorageSync("longitude")

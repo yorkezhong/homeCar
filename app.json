@@ -1,9 +1,9 @@
 {
   "pages": [
-    
     "pages/home/index/index",
-     "pages/city/city"
-
+    "pages/city/city",
+    "pages/car/index/index",
+    "pages/order/index/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -29,7 +29,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/home/index/index",
+        "pagePath": "pages/car/index/index",
         "iconPath": "img/car_default.png",
         "selectedIconPath": "img/car_selected.png",
         "text": "车辆"
