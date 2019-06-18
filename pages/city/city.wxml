@@ -1,2 +1,3 @@
-<!--pages/city/city.wxml-->
-<text>pages/city/city.wxml</text>
+ <view class='wrapper'> 
+  <address my-city="{{mycity}}" data="{{city}}" binddetail="bindtap" search="{{value}}"></address>
+ </view> 

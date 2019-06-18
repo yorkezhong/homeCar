@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "address": "../../components/address/address"
+  },
+  "navigationBarTitleText": "选择城市"
 }

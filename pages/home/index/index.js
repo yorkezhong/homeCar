@@ -6,9 +6,9 @@ Page({
   },
   onLoad: function (options) {
     let that = this;
-    let latitude = wx.getStorageSync("latitude");
-    let longitude = wx.getStorageSync("longitude")
-    that.getCity(latitude, longitude)
+      let latitude = wx.getStorageSync("latitude");
+      let longitude = wx.getStorageSync("longitude")
+      that.getCity(latitude, longitude);
   },
   getCity(longitude, latitude) {
     let that = this;
@@ -27,6 +27,10 @@ Page({
     });
   },
 
- 
+  selectCity(){
+    wx.navigateTo({
+      url: '../../city/city',
+    })
+  }
  
 })

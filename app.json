@@ -1,7 +1,9 @@
 {
   "pages": [
+    
     "pages/home/index/index",
-    "pages/city/city"
+     "pages/city/city"
+
   ],
   "permission": {
     "scope.userLocation": {
