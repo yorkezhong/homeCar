@@ -1,2 +1,24 @@
-<!--pages/order/index/index.wxml-->
-<text>pages/order/index/index.wxml</text>
+<view class="order">
+
+  <scroll-view scroll-x class="bg-white nav ">
+    <view class="flex text-center tbr">
+      <view class="cu-item flex-sub {{TabCur==0?'text-orange cur':''}}" bindtap="tabSelect" data-id="0">
+        待付款
+      </view>
+      <view class="cu-item flex-sub {{TabCur==1?'text-orange cur':''}}" bindtap="tabSelect" data-id="1">
+        进行中
+      </view>
+      <view class="cu-item flex-sub {{TabCur==2?'text-orange cur':''}}" bindtap="tabSelect" data-id="2">
+        已完成
+      </view>
+      <view class="cu-item flex-sub {{TabCur==3?'text-orange cur':''}}" bindtap="tabSelect" data-id="3">
+        评价
+      </view>
+      <view class="cu-item flex-sub {{TabCur==4?'text-orange cur':''}}" bindtap="tabSelect" data-id="4">
+        退款/售后
+      </view>
+    </view>
+  </scroll-view>
+
+  <nopay wx:if="TabCur==0"></nopay>
+</view>

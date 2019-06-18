@@ -1,1 +1,11 @@
-/* pages/order/index/index.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.tbr{
+  border-bottom: 1rpx solid rgb(204, 204, 204)
+}
+.text-orange{
+  color: rgb(10, 130, 254)
+}

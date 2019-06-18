@@ -1,0 +1,45 @@
+.list-item {
+  width: 702rpx;
+  height: 370rpx;
+  margin: 20rpx auto;
+  border: 1rpx solid rgb(204, 204, 204);
+  border-radius: 10rpx;
+}
+
+.pay-item {
+  font-size: 30rpx;
+  color: rgb(10, 130, 254);
+  margin-left: 22rpx;
+
+  line-height: 50rpx;
+}
+.pay-car-id {
+  display: inline-block;
+  margin-left: 22rpx;
+  width: 180rpx;
+  height: 50rpx;
+  border: 1rpx solid rgb(10, 135, 245);
+  line-height: 50rpx;
+  font-size: 26rpx;
+  color: #333;
+  text-align: center;
+  border-radius: 10rpx;
+}
+.pay-worker{
+padding-left:22rpx;
+font-size:28rpx;
+color:rgb(102,102,102);
+margin-top: 15rpx;
+}
+.worker-phone{
+  margin-left: 26rpx;
+}
+.order-info{
+  padding-left: 22rpx;
+}
+.order-info text{
+  display: block;
+  font-size: 25rpx;
+  line-height: 40rpx;
+  color: rgb(153, 153, 153)
+}

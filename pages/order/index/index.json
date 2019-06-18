@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "nopay":"../../../components/nopay/nopay"
+  },
+  "navigationBarTitleText": "订单"
 }

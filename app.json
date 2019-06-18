@@ -4,6 +4,7 @@
     "pages/city/city",
     "pages/car/index/index",
     "pages/order/index/index"
+
   ],
   "permission": {
     "scope.userLocation": {
@@ -35,7 +36,7 @@
         "text": "车辆"
       },
       {
-        "pagePath": "pages/home/index/index",
+        "pagePath": "pages/order/index/index",
         "iconPath": "img/order_default.png",
         "selectedIconPath": "img/order_selected.png",
         "text": "订单"
