@@ -19,6 +19,6 @@
       </view>
     </view>
   </scroll-view>
-
-  <nopay wx:if="TabCur==0"></nopay>
+  <nopay wx:if="{{TabCur==0}}"></nopay>
+  <odering wx:if="{{TabCur==1}}"></odering>
 </view>

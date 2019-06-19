@@ -1,7 +1,7 @@
 .list-item {
   width: 702rpx;
   height: 370rpx;
-  margin: 20rpx auto;
+  margin: 24rpx auto;
   border: 1rpx solid rgb(204, 204, 204);
   border-radius: 10rpx;
 }
@@ -10,9 +10,9 @@
   font-size: 30rpx;
   color: rgb(10, 130, 254);
   margin-left: 22rpx;
-
   line-height: 50rpx;
 }
+
 .pay-car-id {
   display: inline-block;
   margin-left: 22rpx;
@@ -25,21 +25,69 @@
   text-align: center;
   border-radius: 10rpx;
 }
-.pay-worker{
-padding-left:22rpx;
-font-size:28rpx;
-color:rgb(102,102,102);
-margin-top: 15rpx;
+
+.pay-worker {
+  padding-left: 22rpx;
+  font-size: 28rpx;
+  color: rgb(102, 102, 102);
+  margin-top: 15rpx;
 }
-.worker-phone{
+
+.worker-phone {
   margin-left: 26rpx;
 }
-.order-info{
+
+.order-info {
   padding-left: 22rpx;
 }
-.order-info text{
+
+.order-info text {
   display: block;
   font-size: 25rpx;
   line-height: 40rpx;
-  color: rgb(153, 153, 153)
+  color: rgb(153, 153, 153);
+}
+.order-footer{
+  display: flex;
+  justify-content: space-between;
+  line-height: 80rpx;
+  align-items: center;
+}
+.order-sum{
+  padding-left:22rpx;
+  font-size: 24rpx;
+  color:  rgb(153, 153, 153);
+}
+.money{
+  font-size: 32rpx;
+  color: rgb(51, 51, 51);
+}
+.order-btn{
+display: flex;
+justify-content: space-around;
+padding-right:26rpx; 
+}
+.cancel{
+  background: none;
+  border: 1rpx solid rgb(204, 204, 204);
+  text-align: center;
+  font-size: 26rpx;
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: rgb(51, 51, 51);
+  border-radius:8rpx;
+  margin-right:20rpx;  
+
+}
+.pay-order{
+  background: rgb(10, 130, 254);
+  border: none;
+  border-radius:8rpx; 
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 26rpx;
 }

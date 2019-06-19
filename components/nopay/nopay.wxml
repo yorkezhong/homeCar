@@ -1,5 +1,5 @@
 <view class="nopay">
-  <view class='pay-list'>
+  <view class='pay-list' wx:for="{{[1,2]}}" wx:key="{{index}}">
     <view class='list-item'>
       <image src='../../img/title.png' style='width:702rpx;height:60rpx' mode='scaleToFill'></image>
       <view class='pay-info'>
@@ -13,18 +13,17 @@
           <text class='order-time'>订单时间：2018-08-15 19:00</text>
           <text class='order-id'>订单编号：201808151900</text>
         </view>
+        <view class='order-footer'>
+          <view class='order-sum'>
+            订单总价：
+            <text class='money'>￥128</text>
+          </view>
+          <view class='order-btn'>
+            <button class='cancel'>取消订单</button>
+            <button class='pay-order'>立即付款</button>
 
-        <view class='order-sum'>
-          订单总价：
-          <text class='money'>￥128</text>
+          </view>
         </view>
-
-        <view class='order-btn'>
-          <button class='cancel'>取消订单</button>
-          <button class='pay-order'>立即付款</button>
-
-        </view>
-
       </view>
     </view>
 

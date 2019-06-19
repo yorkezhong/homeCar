@@ -1,2 +1,68 @@
-<!--components/ordering/ordering.wxml-->
-<text>components/ordering/ordering.wxml</text>
+<view class="ordering">
+  <view class='ordering-list'>
+    <view class='ordering-box'>
+      <image src='../../img/order_bg.png' class="order_bg"></image>
+      <view class='odering-info'>
+        <text class='ordering-item'>洗车</text>
+        <text class='ordering-car-id'>粤BK78164</text>
+        <view class='ordering-worker'>
+          <text class='worker-name'>技工：MARRY</text>
+          <view class='worker-phone'>
+            <image src='../../img/phone.png' class='phone'></image>13268954562</view>
+        </view>
+        <view class='odering-time'>
+          订单时间：2018-08-16 19:20
+        </view>
+        <view class='odering-id'>
+          订单编号：201808161526
+        </view>
+        <view class='pay-method'>支付方式：微信支付</view>
+
+        <view class='ordering-status'>
+          <text class='status-title'>订单状态</text>
+
+
+          <view class='step steping'>
+            <text class='step-biao'>●</text>
+            <text class='status-name steping'>下单</text>
+            <text class='status-time'>8：00</text>
+          </view>
+          <view class='step steping'>
+            <text class='step-biao'>●</text>
+            <text class='status-name steping'>交车</text>
+            <text class='status-time'>8：10</text>
+          </view>
+          <view class='step' style='margin-left:4rpx;'>
+            <text class='step-biao'>●</text>
+            <text class='status-name'>施工中</text>
+            <text class='status-time'>8：10-9：20</text>
+          </view>
+          <view class='step'>
+            <text class='step-biao'>●</text>
+            <text class='status-name'>完工</text>
+            <text class='status-time'>9：30</text>
+          </view>
+           <view class='step'>
+            <text class='step-biao'>●</text>
+            <text class='status-name'>交车</text>
+            <text class='status-time'>10：30</text>
+          </view>
+
+          <view class='time-line'>-----------------------------</view>
+
+        </view>
+      <view class='ordering-footer'>
+      <view class='ordering-sum'>
+      订单总价：<text class='money'>￥128</text><text class='other-info'>(优惠券抵扣10元)</text>
+      </view>
+      <view class='back-money'>退款</view>
+</view>
+         
+
+
+      </view>
+
+    </view>
+  </view>
+
+</view>

@@ -1,1 +1,161 @@
-/* components/ordering/ordering.wxss */
+.ordering-box {
+  width: 702rpx;
+  height: 810rpx;
+  margin: 24rpx auto;
+  border: 1rpx solid rgb(204, 204, 204);
+  border-radius: 8rpx;
+  position: relative;
+}
+
+.order_bg {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  height: 330rpx;
+}
+
+.odering-info {
+  z-index: 10;
+  position: absolute;
+  left: 22rpx;
+  color: #fff;
+  width: 100%;
+}
+
+.ordering-item {
+  display: inline-block;
+  margin-top: 30rpx;
+  color: rgb(255, 133, 82);
+  font-size: 32rpx;
+}
+
+.ordering-car-id {
+  display: inline-block;
+  width: 180rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-left: 25rpx;
+  border: 1rpx solid #fff;
+  border-radius: 8rpx;
+  font-size: 25rpx;
+}
+
+.ordering-worker {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  line-height: 50rpx;
+}
+
+.worker-phone {
+  display: inline-block;
+  margin-left: 40rpx;
+  padding-left: 20rpx;
+}
+
+.phone {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+.odering-time {
+  font-size: 25rpx;
+  line-height: 40rpx;
+}
+
+.odering-id {
+  font-size: 25rpx;
+  line-height: 40rpx;
+}
+
+.pay-method {
+  font-size: 25rpx;
+  line-height: 40rpx;
+}
+
+.ordering-status {
+  color: #333;
+  margin-top: 65rpx;
+  position: relative;
+}
+
+.status-title {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 300;
+}
+
+.time-line {
+  transform: rotate(90deg);
+  position: absolute;
+  top: 205rpx;
+  left: -146rpx;
+  font-size: 35rpx;
+  color: rgb(204, 204, 204);
+}
+
+.step {
+  width: 300rpx;
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  margin-left: 5rpx;
+  position: relative;
+  z-index: 10;
+  margin-top: 20rpx;
+  color: rgb(204, 204, 204);
+}
+
+.step-biao {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+
+.status-name {
+  margin-right: 30rpx;
+  color: rgb(102, 102, 102);
+}
+
+.steping {
+  color: rgb(255, 133, 82) !important;
+}
+
+.ordering-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  line-height: 60rpx;
+  margin-left: -35rpx;
+  margin-top: 20rpx;
+}
+
+.ordering-sum {
+  font-size: 25rpx;
+  color: rgb(204, 204, 204);
+}
+
+.money {
+  color: #333;
+  font-size: 35rpx;
+  font-weight: 300;
+}
+
+.other-info {
+  color: #333;
+  font-size: 25rpx;
+  margin-left: 10rpx;
+}
+
+.back-money {
+  width: 150rpx;
+  height: 60rpx;
+  border: 1rpx solid rgb(102, 102, 102);
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: rgb(102, 102, 102);
+  text-align: center;
+  border-radius: 8rpx;
+}
