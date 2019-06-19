@@ -1,2 +1,35 @@
-<!--components/aftersale/aftersale.wxml-->
-<text>components/aftersale/aftersale.wxml</text>
+<view class="aftersale">
+  <view class='aftersale-list' wx:for="{{[1,2,3]}}" wx:key="{{index}}">
+    <view class='aftersale-box'>
+      <view class='aftersale-top'>
+        <view class='aftersale-left'>
+          <text class='aftersale-item'>美容</text>
+          <text class='aftersale-car-id'>粤BK48631</text>
+
+        </view>
+        <view class='aftersale-right'>正在退款</view>
+
+      </view>
+      <view class='worker-info'>
+        <text>退款原因：下错订单</text>
+      </view>
+
+      <view class='aftersale-time'>订单时间：2018-08-15 19:20</view>
+      <view class='aftersale-id'>订单编号：201908151223</view>
+
+      <view class='aftersale-footer'>
+      <view>
+      <text class='order-sum'>订单总价：</text>
+        <text class='money'>￥128</text>
+        </view>
+        <view class='order-again'>
+        <image src='../../img/phone.png'></image>
+        联系客服</view>
+      </view>
+
+
+    </view>
+
+  </view>
+
+</view>

@@ -21,4 +21,8 @@
   </scroll-view>
   <nopay wx:if="{{TabCur==0}}"></nopay>
   <odering wx:if="{{TabCur==1}}"></odering>
+  <ordered wx:if="{{TabCur==2}}"></ordered>
+  <evaluate wx:if="{{TabCur==3}}"></evaluate>
+<aftersale wx:if="{{TabCur==4}}"></aftersale>
+
 </view>

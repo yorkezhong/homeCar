@@ -1,1 +1,221 @@
-/* components/evaluate/evaluate.wxss */
+
+.evalute-top {
+  width: 702rpx;
+  height: 80rpx;
+  display: flex;
+  border: 1rpx solid rgb(10, 130, 245);
+  border-radius: 8rpx;
+  margin: 25rpx auto;
+}
+
+.doing {
+  color: rgb(10, 130, 245);
+  text-align: center;
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.done {
+  color: rgb(10, 130, 245);
+  text-align: center;
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.active {
+  background: rgb(10, 130, 245) !important;
+  color: #fff !important;
+}
+
+.doing-box {
+  width: 702rpx;
+  height: 280rpx;
+  border: 1rpx solid rgb(204, 204, 204);
+  border-radius: 8rpx;
+  margin: 25rpx auto;
+  padding-left: 22rpx;
+  padding-top: 25rpx;
+}
+
+.doing-item {
+  font-size: 32rpx;
+  color: rgb(255, 133, 82);
+  margin-right: 15rpx;
+  line-height: 50rpx;
+  font-weight: 300;
+}
+
+.doing-car-id {
+  display: inline-block;
+  width: 180rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 1rpx solid rgb(255, 133, 82);
+  border-radius: 8rpx;
+  text-align: center;
+  font-size: 25rpx;
+  color: rgb(102, 102, 102);
+}
+
+.doing-worker {
+  display: flex;
+  align-items: center;
+  line-height: 60rpx;
+  margin-top: 15rpx;
+}
+
+.doing-worker-img {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+
+.dong-worker-name {
+  margin-left: 15rpx;
+  font-size: 28rpx;
+  color: rgb(102, 102, 102);
+}
+
+.doing-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.doing-time {
+  font-size: 25rpx;
+  color: rgb(204, 204, 204);
+  line-height: 50rpx;
+  margin-top: 15rpx;
+}
+
+.doing-id {
+  font-size: 25rpx;
+  color: rgb(204, 204, 204);
+  line-height: 50rpx;
+}
+
+.comment-go {
+  margin-right: 35rpx;
+  border: 1rpx solid rgb(10, 130, 245);
+  color: rgb(10, 130, 245);
+  border-radius: 8rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+  width: 150rpx;
+  text-align: center;
+}
+
+.done-box {
+  width: 702rpx;
+  min-height: 350rpx;
+  border: 1rpx solid rgb(204, 204, 204);
+  margin: 25rpx auto;
+  padding-left: 22rpx;
+  padding-top: 25rpx;
+}
+
+.done-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.done-top-left {
+}
+
+.done-item {
+  font-size: 32rpx;
+  color: rgb(255, 133, 82);
+  margin-right: 15rpx;
+  line-height: 50rpx;
+  font-weight: 300;
+}
+
+.done-car-id {
+  display: inline-block;
+  width: 180rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 1rpx solid rgb(255, 133, 82);
+  border-radius: 8rpx;
+  text-align: center;
+  font-size: 25rpx;
+  color: rgb(102, 102, 102);
+}
+
+.done-top-right {
+  margin-right: 25rpx;
+}
+
+.done-time {
+  font-size: 25rpx;
+  color: rgb(204, 204, 204);
+  line-height: 50rpx;
+}
+
+.done-id {
+  font-size: 25rpx;
+  color: rgb(204, 204, 204);
+  line-height: 50rpx;
+}
+.done-worker{
+  display: flex;
+  align-items: center;
+
+}
+.done-worker text{
+  font-size: 25rpx;
+  color: rgb(102, 102, 102);
+  
+}
+.done-worker-img{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius:50%;
+  margin-right: 20rpx;
+
+}
+
+.done-star{
+  display: flex;
+  align-items: center;
+  line-height: 50rpx;
+}
+.star-title{
+  font-size: 28rpx;
+  color: rgb(102, 102, 102);
+  margin-top: 10rpx;
+  margin-right: 20rpx;
+}
+.i-rate-current{
+  color: rgb(255, 133, 82) !important;
+}
+.done-tag{
+  display: flex;
+  align-content: center;
+  margin-top: 15rpx;
+}
+.done-tag-info{
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border: 1rpx solid rgb(255, 133, 82);
+  border-radius:8rpx; 
+  color: rgb(255, 133, 82);
+  font-size: 26rpx;
+  margin-right: 10rpx;
+}
+.done-comment-info{
+  padding-bottom: 25rpx;
+}
+.comment-detail{
+  font-size: 26rpx;
+  color: rgb(102, 102, 102);
+  display: inline-block;
+  padding: 0 13rpx 0  0;
+
+}

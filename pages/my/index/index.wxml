@@ -1,0 +1,31 @@
+<view class="my">
+  <view class='my-content'>
+    <view class='my-bg'>
+      <image src='../../../img/me_bg.png' class='my-bg-img'></image>
+    </view>
+    <view class='my-info'>
+    <image src='https://pic.qqtn.com/up/2019-6/15603291237213011.jpg!360_360' class='my-info-img'></image>
+    <text class='my-name'>天边一朵云</text>
+    </view>
+  </view>
+  <view class='my-property'>
+  <view class='property-item' style='margin-left:40rpx'>
+<view>
+  <text class='moneny'>100</text><text class='yuan'>元</text>
+  </view>
+  <view class='property-name'>充值卡</view>
+  </view>
+    <view class='property-item'>
+  <view>
+  <text class='moneny'>10</text><text class='yuan'>次</text>
+  </view>
+  <view class='property-name'>套餐卡</view>
+  </view>
+    <view class='property-item' style='border:none'>
+    <view>
+  <text class='moneny'>3</text><text class='yuan'>张</text>
+  </view>
+  <view class='property-name'>优惠券</view>
+  </view>
+  </view>
+</view>

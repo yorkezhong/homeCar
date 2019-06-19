@@ -1,2 +1,31 @@
-<!--components/ordered/ordered.wxml-->
-<text>components/ordered/ordered.wxml</text>
+<view class="ordered">
+  <view class='ordered-list' wx:for="{{[1,2,3]}}" wx:key="{{index}}">
+    <view class='ordered-box'>
+      <view class='ordered-top'>
+        <view class='ordered-left'>
+          <text class='ordered-item'>美容</text>
+          <text class='ordered-car-id'>粤BK48631</text>
+
+        </view>
+        <view class='ordered-right'>订单已完成</view>
+
+      </view>
+      <view class='worker-info'>
+        <image src='https://pic.qqtn.com/up/2019-6/15603291249200575.jpg!360_360' class='worker-img'></image>
+        <text>技工：MARRY</text>
+      </view>
+
+      <view class='ordered-time'>订单时间：2018-08-15 19:20</view>
+      <view class='ordered-id'>订单编号：201908151223</view>
+
+      <view class='ordered-footer'>
+        <text class='money'>￥128</text>
+        <view class='order-again'>再来一单</view>
+      </view>
+
+
+    </view>
+
+  </view>
+
+</view>

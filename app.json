@@ -3,8 +3,8 @@
     "pages/home/index/index",
     "pages/city/city",
     "pages/car/index/index",
-    "pages/order/index/index"
-
+    "pages/order/index/index",
+    "pages/my/index/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -42,7 +42,7 @@
         "text": "订单"
       },
       {
-        "pagePath": "pages/home/index/index",
+        "pagePath": "pages/my/index/index",
         "iconPath": "img/me_default.png",
         "selectedIconPath": "img/me_selected.png",
         "text": "我的"

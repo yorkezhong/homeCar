@@ -1,7 +1,10 @@
 {
   "usingComponents": {
     "nopay":"../../../components/nopay/nopay",
-    "odering":"../../../components/ordering/ordering"
+    "odering":"../../../components/ordering/ordering",
+    "ordered":"../../../components/ordered/ordered",
+    "aftersale":"../../../components/aftersale/aftersale",
+    "evaluate":"../../../components/evaluate/evaluate"
   },
   "navigationBarTitleText": "订单"
 }
