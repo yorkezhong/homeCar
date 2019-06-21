@@ -1,0 +1,8 @@
+<view class="refund">
+<image src='../../../img/time.png' class='refund-img'></image>
+<view class='refund-info'>
+<text class='refund-title'>已成功提交退款申请,请等候商家处理</text>
+<text class='refund-time'>还剩2小时</text>
+
+</view>
+</view>

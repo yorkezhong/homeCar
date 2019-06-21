@@ -1,6 +1,6 @@
 .ordering-box {
   width: 702rpx;
-  height: 810rpx;
+  height: 850rpx;
   margin: 24rpx auto;
   border: 1rpx solid rgb(204, 204, 204);
   border-radius: 8rpx;
@@ -89,19 +89,19 @@
 .time-line {
   transform: rotate(90deg);
   position: absolute;
-  top: 205rpx;
-  left: -146rpx;
+  top: 220rpx;
+  left: -166rpx;
   font-size: 35rpx;
   color: rgb(204, 204, 204);
 }
 
 .step {
-  width: 300rpx;
+  width: 350rpx;
   justify-content: flex-start;
   display: flex;
   align-items: center;
   font-size: 26rpx;
-  margin-left: 5rpx;
+  margin-left: 10rpx;
   position: relative;
   z-index: 10;
   margin-top: 20rpx;

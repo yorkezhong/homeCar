@@ -22,7 +22,7 @@
               订单编号：201808151902
             </view>
           </view>
-          <view class='comment-go'>评价</view>
+          <view class='comment-go' bindtap='Gocomment'>评价</view>
         </view>
 
       </view>

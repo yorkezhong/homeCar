@@ -1,0 +1,24 @@
+page{
+  background: #fff;
+  width: 100%;
+  height: 100%;
+}
+.refund-img{
+  width: 702rpx;
+  margin: 50rpx auto 25rpx;
+  display: block;
+}
+.refund-info{
+  text-align: center;
+  margin-top: 30rpx;
+}
+.refund-title{
+  font-size: 28rpx;
+  color: rgb(102, 102, 102);
+}
+.refund-time{
+  font-size: 28rpx;
+  color: rgb(204, 204, 204);
+  margin-top: 15rpx;
+  display: block;
+}

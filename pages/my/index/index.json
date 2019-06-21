@@ -2,5 +2,7 @@
   "usingComponents": {},
   "navigationBarTitleText": "我的",
   "navigationBarTextStyle": "black",
-  "navigationBarBackgroundColor": "#228EFE"
+  "navigationBarBackgroundColor": "#228EFE",
+  "disableScroll":true
+  
 }

@@ -1,0 +1,9 @@
+<view class="comeshop">
+<view class='come-method'>
+<view class='car-id-method'>取车码取车：<text class='car-id'>SEDFH4645</text></view>
+<view class='car-scan-method'>扫一扫取车:<text class='cuIcon-scan' style='font-size:60rpx;color:rgb(10,130,254);' bindtap='Goscan'></text></view>
+
+</view>
+</view>
+
+

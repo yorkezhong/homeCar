@@ -9,3 +9,12 @@ page{
 .text-orange{
   color: rgb(10, 130, 254)
 }
+
+.order-empty{
+  text-align: center;
+  margin-top: 340rpx;
+}
+.empty-tip{
+  font-size: 36rpx;
+  color: rgb(204, 204, 204);
+}

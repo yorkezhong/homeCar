@@ -25,4 +25,10 @@
   <evaluate wx:if="{{TabCur==3}}"></evaluate>
 <aftersale wx:if="{{TabCur==4}}"></aftersale>
 
+<view class='order-empty'>
+
+<text class='empty-tip'>暂无任何订单</text>
+</view>
+
+
 </view>

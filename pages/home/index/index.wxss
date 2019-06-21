@@ -72,11 +72,14 @@ page {
 }
 
 .shop-site {
-  font-size: 28rpx;
-  color: #333;
-  margin-left: 20rpx;
-  line-height: 40rpx;
-  margin-top: 20rpx;
+  font-size:28rpx;
+color:#333;
+margin-left:20rpx;
+line-height:40rpx;
+margin-top:20rpx;
+display:flex;
+align-items:center;
+
 }
 
 .service {
@@ -114,7 +117,7 @@ page {
 .orderBy {
   font-size: 65rpx;
   color: #ccc;
-  margin: 100rpx auto 0;
+  margin: 80rpx auto 0;
   width: 95%;
   text-align: center;
 }
@@ -123,7 +126,7 @@ page {
   display: flex;
   justify-content: space-around;
   width: 95%;
-  margin: -63rpx auto 0;
+  margin: -70rpx auto 0;
 }
 
 .order-stauts image {

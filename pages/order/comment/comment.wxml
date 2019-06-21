@@ -1,0 +1,49 @@
+<view class="comment">
+  <view class='comment-top'>
+    <view class='worker-img'>
+      <image src='https://pic.qqtn.com/up/2019-6/15603291231830396.jpg!360_360'></image>
+      <text class='worker-name'>海王</text>
+    </view>
+    <view class='comment-star'>
+      <text>评分</text>
+      <i-rate bind:change="changestar" value="{{starnum}}" size="22">
+      </i-rate>
+    </view>
+  </view>
+  <view class='comment-tag'>
+    <text class="tag-info {{tag1==true?'selected':''}}" data-id='0' bindtap='selected'>服务态度好</text>
+    <text class="tag-info {{tag2==true?'selected':''}}" data-id='1' bindtap='selected'>专业细心</text>
+  </view>
+
+  <view class='comment-deatil'>
+
+    <view class='deatil-title'>请对本次服务提供评价</view>
+    <view class="comment-text">
+      <textarea maxlength="100" bindinput="textareaAInput" auto-focus="true" style='padding:28rpx 24rpx;font-size:30rpx;color:rgb(102,102,102);width:100%;line-height:40rpx;'></textarea>
+      <text class='limit'>{{limitNum}} / 100</text>
+    </view>
+
+
+  </view>
+
+  <view class='add-img'>
+    <text class='add-title'>添加照片 （非必要）</text>
+    <view class="cu-form-group myclass">
+      <view class="grid col-4 grid-square flex-sub">
+        <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+          <image src='{{imgList[index]}}' mode='aspectFill'></image>
+          <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+            <text class="cuIcon-close"></text>
+          </view>
+        </view>
+        <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+          <text class="cuIcon-cameraadd"></text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class='submit-comment' bindtap='sumbitComment'>发布</view>
+
+</view>

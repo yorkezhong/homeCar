@@ -1,0 +1,9 @@
+<view class="success">
+<image src='../../../../img/img_evaluate.png' class='success-img'></image>
+<text class='suc-info'>恭喜你评价成功！</text>
+
+<view class='suc-btn'>
+<view class='btn' bindtap='goIndex'>返回首页</view>
+<view class='btn' bindtap='goComment'>查看评价</view>
+</view>
+</view>

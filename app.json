@@ -4,7 +4,12 @@
     "pages/city/city",
     "pages/car/index/index",
     "pages/order/index/index",
-    "pages/my/index/index"
+    "pages/my/index/index",
+    "pages/order/comment/comment",
+    "pages/order/comment/success/success",
+    "pages/car/comeShop/comeShop",
+    "pages/order/refund/refund"
+    
   ],
   "permission": {
     "scope.userLocation": {
