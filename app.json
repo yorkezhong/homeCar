@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/car/addCar/addCar",
+    "pages/my/buyPackage/buyPackage",
+    "pages/order/cancel/cancel",
     "pages/order/submitOrder/submitOrder",
     "pages/my/onlineRecharge/onlineRecharge",
     "pages/order/detail/detail",
@@ -15,8 +18,7 @@
     "pages/order/comment/success/success",
     "pages/car/comeShop/comeShop",
     "pages/order/refund/refund",
-    "pages/home/localkey/localkey",
-    "pages/order/cancel/cancel"
+    "pages/home/localkey/localkey"
   ],
   "permission": {
     "scope.userLocation": {

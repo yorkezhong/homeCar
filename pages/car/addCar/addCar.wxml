@@ -1,0 +1,14 @@
+<view class="add">
+<view class='add-box'>
+<view class='car-type-title'>车辆</view>
+<view class='car-type'>
+<view class='car-left'>
+<image src='../../../img/car_me.png' style='float:left;margin-top:6rpx;margin-right:20rpx;'></image>
+<input placeholder="奥迪 1.4DT 手动" class='carinput'></input>
+</view>
+<image src='../../../img/arrow_r.png'></image>
+
+</view>
+
+</view>
+</view>

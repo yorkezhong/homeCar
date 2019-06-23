@@ -1,0 +1,6 @@
+<view class="buy">
+<view class='buy-title'>购买套餐卡</view>
+<view class='buy-bg'>
+<image src='../../../img/advertisement.png'></image>
+</view>
+</view>

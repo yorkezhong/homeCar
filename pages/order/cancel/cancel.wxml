@@ -1,2 +1,31 @@
-<!--pages/order/cancel/cancel.wxml-->
-<text>pages/order/cancel/cancel.wxml</text>
+<view class="cancel">
+  <view class='cancel-item'>
+    <text class='cancel-name'>美容</text>
+    <view class='cancel-car-id'>粤BK4815</view>
+  </view>
+  <view class='cancel-box'>
+    <view class='order-time'>订单时间：2018-08-15 19：20</view>
+    <view class='order-id'>订单编号：201614611</view>
+    <view class='order-sum'>订单总价：
+      <text class='rmb'>￥</text>
+      <text class='price'>128</text>
+    </view>
+    <view class='order-reason-title'>取消原因：</view>
+    <view class='order-reason'>
+      <view class="reason-item {{select==0?'active':''}}" bindtap='selectReason' data-id='0'>下错订单</view>
+      <view class="reason-item {{select==1?'active':''}}" bindtap='selectReason' data-id='1'>拍多了</view>
+      <view class="reason-item {{select==2?'active':''}}" bindtap='selectReason' data-id='2'>不需要</view>
+      <view class="reason-item {{select==3?'active':''}}" bindtap='selectReason' data-id='3'>切换其他技师</view>
+    </view>
+    <view class='other-reason-title'>其他原因：</view>
+    <view class="reason-text">
+      <textarea bindinput="textareaAInput" auto-height style='padding:28rpx 24rpx;font-size:30rpx;color:rgb(102,102,102);width:100%;line-height:40rpx;'></textarea>
+    </view>
+
+    <view class='link-kefu' bindtap='callphone'>
+      <image src='../../../img/phone.png'></image>
+      <text>联系客服</text>
+    </view>
+    <view class='submit-btn'>提交</view>
+  </view>
+</view>
