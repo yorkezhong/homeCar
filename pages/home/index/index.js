@@ -31,6 +31,11 @@ Page({
     wx.navigateTo({
       url: '../../city/city',
     })
+  },
+  goKey(){
+    wx.navigateTo({
+      url: '../localkey/localkey',
+    })
   }
  
 })

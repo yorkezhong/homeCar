@@ -24,7 +24,7 @@
       <text class='shop-name'>海岸城店</text>
       <text class='shop-people'>前方排队人数</text>
       <text class='people-num'>—24人</text>
-      <button class='keysite'>钥匙柜位置</button>
+      <button class='keysite' bindtap='goKey'>钥匙柜位置</button>
     </view>
     <text class='shop-time '>营业时间 9：00-19：00  </text>
     <view class='shop-site'>

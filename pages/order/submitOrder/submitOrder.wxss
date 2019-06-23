@@ -1,0 +1,56 @@
+page{
+  background: #fff;
+}
+.submit-bg{
+  width: 702rpx;
+  margin: 0 auto;
+  height: 500rpx;
+}
+.submit-bg image{
+  width: 702rpx;
+  height: 500rpx;
+}
+.submit-info{
+  width: 702rpx;
+  margin: 40rpx auto;
+
+  text-align: center;
+ 
+}
+.order-status{
+  font-size: 36rpx;
+  color: #333;
+}
+.order-info{
+  display: flex;
+  justify-content: space-around;
+  font-size: 24rpx;
+  color: rgb(102, 102, 102);
+  margin-top:30rpx; 
+}
+.order-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:30rpx; 
+
+}
+.show-order{
+  width: 270rpx;
+  height: 88rpx;
+  color: rgb(10, 138, 254);
+  border-radius:8rpx;
+  text-align: center;
+  line-height: 88rpx;
+  border: 1rpx solid rgb(10, 138, 254) ;
+  margin-right: 60rpx;
+}
+.again-order{
+   width: 270rpx;
+  height: 88rpx;
+  color: #fff;
+  border-radius:8rpx;
+  text-align: center;
+  line-height: 88rpx;
+  background: rgb(10, 138, 254) ;
+}

@@ -1,0 +1,22 @@
+<view class="worker">
+  <view class='worker-list' wx:for="{{[1,2,3]}}" wx:key="{{index}}">
+    <view class='worker-ranking'>
+      {{index+1}}
+    </view>
+    <view class='worker-img'>
+      <image src='https://pic.qqtn.com/up/2018-2/15194395558057585.jpg'></image>
+    </view>
+    <view class='worker-info'>
+      <view class='worker-name'>刘德华
+        <text class='worker-level'>资深技工</text>
+      </view>
+      <i-rate value="5" size="22">
+      4.5分
+      </i-rate>
+      <view class='worker-bag'>技能包: 打蜡、镀晶</view>
+      <view class='worker-order'>订单 254784 评价 688</view>
+
+
+    </view>
+  </view>
+</view>

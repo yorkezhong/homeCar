@@ -1,0 +1,19 @@
+<view class="online">
+  <view class='online-list'>
+    <view class='list-item'>
+      <view class='pay-title'>充值金额</view>
+      <view class='pay-sum'>1000
+        <text class='yuan'>元</text>
+      </view>
+
+      <view class='pay-other'>
+        <text>赠送200元</text>
+        <text>8折</text>
+
+      </view>
+
+    </view>
+
+  </view>
+    <view class='wx-pay'>微信充值</view>
+</view>

@@ -1,0 +1,17 @@
+<view class="key">
+  <view class='key-list' >
+    <view class='key-list-item' wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+      <view class='ket-img'>
+        <image src='../../../img/cosmetology.png'></image>
+      </view>
+      <view class='key-info'>
+        <text class='key-title'>{{index+1}}号钥匙柜</text>
+        <text class='key-local'>海岸城一楼大厅西北角</text>
+        <view class='key-base'>20个空位,已存10个，剩余
+          <text class='key-num'>10</text>个</view>
+
+
+      </view>
+    </view>
+  </view>
+</view>

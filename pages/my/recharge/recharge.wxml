@@ -1,0 +1,27 @@
+<view class="recharge">
+  <view class='recharge-box'>
+    <view class='box-title'>购买充值卡</view>
+    <view class='recharge-list' bindtap='selectedCard' data-id='0'>
+     <image src='../../../img/selected_card.png' class='selected-img' wx:if="{{tabCur==0}}"></image>
+      <view class='recharge-info'>
+        <view class='recharge-money'>1000<text style='font-size:32rpx'>元</text></view>
+        <view class='recharge-deatil'>
+          <text>赠送200元</text>
+          <text style='margin-top: 12rpx;'>8.5折</text>
+        </view>
+      </view>
+    </view>
+     <view class='recharge-list' bindtap='selectedCard' data-id='1'>
+     <image src='../../../img/selected_card.png' class='selected-img' wx:if="{{tabCur==1}}"></image>
+      <view class='recharge-info'>
+        <view class='recharge-money'>2000<text style='font-size:32rpx'>元</text></view>
+        <view class='recharge-deatil'>
+          <text>赠送500元</text>
+          <text style='margin-top: 12rpx;'>8折</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

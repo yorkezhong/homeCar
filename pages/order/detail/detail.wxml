@@ -1,0 +1,45 @@
+<view class="deatil">
+  <view class='detail-box'>
+    <view class='detail-top'>
+      <view class='detail-item'>
+        <view class='detail-name'>美容</view>
+        <view class='detail-car-id'>粤BK45A45</view>
+      </view>
+      <view class='detail-worker'>服务技师：刘德华</view>
+      <view class='detail-time'>订单时间：2018-08-08 19：20</view>
+      <view class='detail-orderid'>订单编号：201808191823</view>
+    </view>
+
+    <view class='detail-footer'>
+      <view class='footer-title'>支付详情</view>
+      <view class='pay-method'>
+        <text class='pay-left'>支付方式</text>
+        <text class='pay-right'>在线支付</text>
+      </view>
+      <view class='pay-method'>
+        <text class='pay-left'>套餐卡折扣</text>
+        <text class='pay-right'>暂无</text>
+      </view>
+      <view class='pay-method'>
+        <text class='pay-left'>充值卡折扣</text>
+        <text class='pay-right'>暂无</text>
+      </view>
+      <view class='pay-method'>
+        <text class='pay-left'>优惠券折扣</text>
+        <text class='pay-right'>暂无</text>
+      </view>
+    </view>
+    <view class='detiail-sum'>
+      <view class='discount'>
+        <text class='discounted'>已折扣:</text>
+        <text class='rmb'>￥</text>
+        <text class='sum'>0</text>
+      </view>
+       <view class='discount'>
+        <text class='discounted'>订单总价:</text>
+        <text class='rmb'>￥</text>
+        <text class='sum'>128</text>
+      </view>
+    </view>
+  </view>
+</view>

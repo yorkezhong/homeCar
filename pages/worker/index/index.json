@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-rate": "../../../components/rate/index"
+  },
+  "navigationBarTitleText": "技师排名"
+
+}

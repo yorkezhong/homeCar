@@ -1,5 +1,11 @@
 {
   "pages": [
+    "pages/order/submitOrder/submitOrder",
+    "pages/my/onlineRecharge/onlineRecharge",
+    "pages/order/detail/detail",
+    "pages/worker/index/index",
+    "pages/my/recharge/recharge",
+    "pages/my/coupon/coupon",
     "pages/home/index/index",
     "pages/city/city",
     "pages/car/index/index",
@@ -8,8 +14,9 @@
     "pages/order/comment/comment",
     "pages/order/comment/success/success",
     "pages/car/comeShop/comeShop",
-    "pages/order/refund/refund"
-    
+    "pages/order/refund/refund",
+    "pages/home/localkey/localkey",
+    "pages/order/cancel/cancel"
   ],
   "permission": {
     "scope.userLocation": {

@@ -1,0 +1,49 @@
+page {
+  background: #fff;
+}
+
+.box-title {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 400;
+  padding-left: 25rpx;
+}
+
+.recharge-list {
+  border: 1rpx solid rgb(204, 204, 204);
+  border-left: 10rpx solid rgb(10, 138, 254);
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: rgb(248, 248, 248);
+  height: 220rpx;
+  width: 702rpx;
+  margin: 40rpx auto;
+}
+
+.recharge-info {
+  padding-left: 20rpx;
+  display: flex;
+}
+
+.recharge-money {
+  font-size: 60rpx;
+  color: rgb(255, 133, 82);
+}
+
+.recharge-deatil {
+  margin-left: 60rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 32rpx;
+  color: #333;
+  line-height: 40rpx;
+}
+
+.selected-img {
+  width: 112rpx;
+  height: 146rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

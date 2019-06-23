@@ -1,0 +1,52 @@
+page {
+  background: #fff;
+}
+
+.list-item {
+  width: 702rpx;
+  height: 320rpx;
+  border: 1rpx solid rgb(228, 228, 228);
+  background: rgb(248, 248, 248);
+  margin: 20rpx auto;
+  padding-left: 40rpx;
+  padding-right:60rpx; 
+  border-radius:8rpx; 
+
+}
+
+.pay-title {
+  margin-top: 62rpx;
+  font-size: 28rpx;
+  color: rgb(51, 51, 51);
+}
+
+.pay-sum {
+  font-size: 80rpx;
+  margin-top: 25rpx;
+  color: rgb(51, 51, 51);
+  margin-left:-10rpx;
+
+}
+
+.yuan {
+  font-size: 40rpx;
+  display: inline-block;
+  margin-left: 5rpx;
+}
+.pay-other{
+  display: flex;
+  justify-content: space-between;
+  color: rgb(255, 138, 32);
+  font-size: 28rpx;
+  margin-top: 25rpx;
+}
+.wx-pay{
+  width: 702rpx;
+  height: 100rpx;
+  background: rgb(10, 130, 254);
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+  margin:100rpx auto; 
+  border-radius:8rpx; 
+}

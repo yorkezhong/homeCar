@@ -1,0 +1,23 @@
+<view class="coupon">
+<view class='coupon-box' wx:if="{{!empty}}">
+<text class='box-title'>可用优惠券</text>
+<view class='coupon-list' wx:for="{{[1,2,3]}}" wx:key="{{index}}">
+
+<view class='coupon-info'>
+<text class='coupon-num'>满500减200</text>
+<text class='coupon-method'>来源：商家赠送</text>
+</view>
+
+</view>
+
+</view>
+
+
+<view class='coupon-empty' wx:if="{{empty}}">
+<image src='../../../img/undraw_feel.png' class='empty-img'></image>
+<view class="empty-info">
+sorry, 你还没有任何优惠券
+</view>
+
+</view>
+</view>
