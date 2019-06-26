@@ -1,0 +1,141 @@
+page {
+  background: #fff;
+}
+
+.top {
+  padding: 22rpx 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.top image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.worker-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 36rpx;
+}
+
+.worker-name text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.worker-lever {
+  display: inline-block;
+  font-size: 20rpx !important;
+  color: rgb(170, 170, 170) !important;
+  margin-left: 12rpx;
+}
+
+.worker-star {
+  display: flex;
+  font-size: 24rpx;
+  color: rgb(102, 102, 102);
+  margin: 15rpx 0 3rpx 0;
+  margin-left: -5rpx;
+}
+
+.worker-star text {
+  display: inline-block;
+  margin-top: 10rpx;
+}
+
+.worker-skill {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 60rpx;
+}
+.order-info{
+  border-bottom: 1rpx solid rgb(204, 204, 204);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50rpx 0;
+}
+.order-num{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.num{
+  font-size: 48rpx;
+  color: rgb(10, 138, 254);
+}
+.oder-name{
+  font-size: 22rpx;
+  color: rgb(102, 102, 102);
+ line-height: 40rpx;
+}
+.comment{
+  padding: 30rpx 30rpx;
+}
+.comment-title{
+  font-size: 32rpx;
+  color: #333;
+
+}
+.comment-tag{
+  margin: 25rpx 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.tag-item{
+  margin-right: 22rpx;
+  min-width: 180rpx;
+  height: 40rpx;
+  color: rgb(102, 102, 102);
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 40rpx;
+  border: 1rpx dashed rgb(255, 133, 83);
+  border-radius:8rpx; 
+}
+.comment-list{
+  display: flex;
+  min-height: 230rpx;
+  border-bottom: 1rpx solid rgb(204, 204, 204);
+  padding-bottom: 48rpx;
+  padding-top:30rpx; 
+}
+.comment-list image{
+  width: 120px;
+  height:50px;
+  border-radius:50%; 
+}
+.comment-info{
+  margin-left: 35rpx;
+  display: flex;
+  flex-direction: column;
+
+}
+.comment-name{
+  font-size: 28rpx;
+  color: #333;
+
+}
+.comment-star{
+  margin-left: -5rpx;
+  margin-top: 11rpx;
+}
+.comment-mark{
+  display: flex;
+  margin: 12rpx 0 20rpx 0;
+}
+.comment-mark text{
+  display: block;
+  margin-right: 24rpx;
+  font-size: 20rpx;
+  color: rgb(170, 170, 170);
+}
+.comment-detail{
+  font-size: 24rpx;
+  color: rgb(102, 102, 102);
+  line-height: 40rpx;
+}

@@ -1,0 +1,81 @@
+page {
+  background: #fff;
+}
+
+.title {
+  font-size: 32rpx;
+  color: #333;
+  padding-left: 30rpx;
+}
+
+.list-item {
+  padding: 55rpx 30rpx;
+  height: 250rpx;
+  border-bottom: 1rpx solid rgb(204, 204, 204);
+  position: relative;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  float: left;
+}
+
+.left image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.show-comment {
+  color: rgb(10, 138, 255);
+  font-size: 22rpx;
+  line-height: 50rpx;
+}
+
+.middle {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
+  margin-top:5rpx; 
+}
+
+.worker-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.worker-status {
+  font-size: 24rpx;
+  color: #333;
+  margin-left: 12rpx;
+}
+
+.worker-time {
+  margin-left: 12rpx;
+  font-size: 20rpx;
+  color: #333;
+}
+
+.right {
+  position: absolute;
+  width: 150rpx;
+  height: 60rpx;
+  border-radius: 8rpx;
+  background: rgb(10, 138, 255);
+  text-align: center;
+  line-height: 60rpx;
+  color: #fff;
+  right:30rpx;
+top:140rpx;
+
+}
+
+.worker-lever {
+  font-size: 20rpx;
+  color: rgb(170, 170, 170);
+  margin-top: 10rpx;
+}

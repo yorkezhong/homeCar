@@ -1,0 +1,49 @@
+<view class="apply">
+  <view style='flex: 0 0 100rpx;'>
+    <view class="cu-bar search bg-white">
+      <view class="search-form round">
+        <text class="cuIcon-search"></text>
+        <input type="text" placeholder="2018洗车" confirm-type="search" bindinput="searchKey"></input>
+      </view>
+      <view class="action">
+        <button class="cu-btn bg-green shadow-blur round" style='background:rgb(10,138,254);' bindtap="searchBtn">搜索</button>
+      </view>
+    </view>
+  </view>
+  <view class='main'>
+    <scroll-view scroll-y="true" style="height: 100%;position: absolute;left: 0;right: 0;top: 0;bottom: 0rpx;">
+    <block wx:for="{{applyList}}" wx:key="{{index}}">
+      <view class='apply-list'  data-id='{{index}}' bindtap='selectItem'>
+        <view class="apply-select {{item.selected==true||allselect==true?'selected':''}}"></view>
+        <view class="apply-info {{item.selected==true||allselect==true?'selected-apply':''}}" >
+          <view class='apply-info-top'>
+            <view class='apply-item'>洗车</view>
+            <view class='apply-car-id'>粤BK4156</view>
+          </view>
+          <view class='apply-worker'>
+            <view class='worker-name'>技工：MARRY</view>
+            <view class='worker-phone'>电话：13279564231</view>
+          </view>
+          <view class='order-time'>订单时间：2018-08-18 19：20</view>
+          <view class='order-id'>订单编号：201808181920</view>
+          <view class='order-sum'>
+            <text class='order-sum-title'>订单总价：</text>
+            <text class='rmb'>￥</text>
+            <text class='money'>128</text>
+          </view>
+        </view>
+
+
+      </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <view class='footer'>
+    <view class='footer-all' bindtap='allSelected'>全选</view>
+    <view class='footer-submit' bindtap='submitApply'>提交申请</view>
+
+
+  </view>
+
+</view>

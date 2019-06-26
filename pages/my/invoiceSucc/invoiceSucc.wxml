@@ -1,0 +1,15 @@
+<view class="succ">
+<view class='succ-bg'>
+<image src='../../../img/img_submission.png'></image>
+</view>
+<view class='succ-info'>
+<text class='succ-tip'>恭喜你发票申请成功！请前往邮箱查看电子发票</text>
+<view class='succ-btn'>
+<view class='succ-back' bindtap='backIndex'>返回首页</view>
+<view class='succ-back' bindtap='goAgain'>继续申请</view>
+
+</view>
+</view>
+
+
+</view>

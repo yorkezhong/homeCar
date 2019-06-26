@@ -1,0 +1,64 @@
+<view class="detail">
+  <view class='top'>
+    <image src='https://pic.qqtn.com/up/2018-2/15192635181108457.jpg'></image>
+    <view class='worker-info'>
+      <view class='worker-name'>
+        <text>刘德华</text>
+        <text class='worker-lever'>资深技工</text>
+      </view>
+      <view class='worker-star'>
+        <i-rate value="5" size="20"></i-rate>
+        <text>446条评价</text>
+      </view>
+      <view class='worker-skill'>
+        技能包： 打蜡、镀晶
+      </view>
+
+    </view>
+  </view>
+  <view class='order-info'>
+    <view class='order-num'>
+      <text class='num'>25454</text>
+      <text class='oder-name'>订单</text>
+    </view>
+    <view class='order-num'>
+      <text class='num'>3</text>
+      <text class='oder-name'>排名</text>
+    </view>
+
+  </view>
+  <view class='comment'>
+    <view class='comment-title'>技师评价</view>
+
+    <view class='comment-tag'>
+      <view class='tag-item'>
+        耐心尽责
+      </view>
+      <view class='tag-item'>
+        服务热情周到
+      </view>
+    </view>
+
+    <view class='comment-list' wx:for="{{[1,2,3]}}" wx:key="{{index}}">
+    <image src='https://pic.qqtn.com/up/2018-2/15192635184353132.jpg'></image>
+    <view class='comment-info'>
+      <view class='comment-name'>顾客是上帝</view>
+      <view class='comment-star'>
+        <i-rate value="5" size="20"></i-rate>      
+      </view>
+      <view class='comment-mark'>
+      <text>服务： 5.0</text>
+      <text>效果： 5.0</text>
+      <text>专业度： 5.0</text>
+      </view>
+      <view class='comment-detail'>
+      技师非常贴心,车洗的非常干净,一点灰都没有，非常满意的一次体验 技师非常贴心,车洗的非常干净,一点灰都没有，非常满意的一次体验
+      
+      </view>
+    </view>
+    </view>
+
+  </view>
+
+
+</view>

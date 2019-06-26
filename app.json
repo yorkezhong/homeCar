@@ -1,5 +1,14 @@
 {
   "pages": [
+    "pages/my/addAddress/addAddress",
+    "pages/my/emptyAddress/emptyAddress",
+    "pages/my/applyMoney/applyMoney",
+    "pages/my/invoiceSucc/invoiceSucc",
+    "pages/my/applyInvoice/applyInvoice",
+    "pages/my/packageCard/packageCard",
+    "pages/worker/detail/detail",
+    "pages/home/index/index",
+    "pages/worker/cutoverWorker/cutoverWorker",
     "pages/car/addCar/addCar",
     "pages/my/buyPackage/buyPackage",
     "pages/order/cancel/cancel",
@@ -9,7 +18,6 @@
     "pages/worker/index/index",
     "pages/my/recharge/recharge",
     "pages/my/coupon/coupon",
-    "pages/home/index/index",
     "pages/city/city",
     "pages/car/index/index",
     "pages/order/index/index",

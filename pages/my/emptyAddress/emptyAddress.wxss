@@ -1,0 +1,111 @@
+page{
+  background: #fff;
+  
+}
+.empty{
+  margin-top: 80rpx;
+}
+.empty-bg{
+  width: 702rpx;
+  margin: 10rpx auto;
+}
+.empty-bg image{
+  width: 702rpx;
+}
+.empty-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 36rpx;
+  color: rgb(204, 204, 204);
+  line-height: 60rpx;
+}
+.empty-info image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.address-list{
+  width: 702rpx;
+  height: 220rpx;
+  margin: 20rpx auto;
+  border: 1rpx solid rgb(204, 204, 204);
+  border-radius:8rpx;
+  padding: 15rpx 15rpx;  
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.list-top{
+  display: flex;
+  align-items: center;
+  line-height: 40rpx;
+  margin-top: 20rpx;
+}
+.getname{
+  display: block;
+  font-size: 32rpx;
+  color: rgb(51, 51, 51);
+
+}
+.getphone{
+  font-size: 32rpx;
+  color: rgb(102, 102, 102);
+  display: block;
+  margin-left: 22rpx;
+}
+.address-detail{
+  font-size: 24rpx;
+color: rgb(102, 102, 102);
+line-height: 60rpx;
+}
+.default-set{
+  display: flex;
+  align-items: center;
+  line-height: 60rpx;
+
+}
+.set-tag{
+  width: 30rpx;
+  height: 30rpx;
+  border: 1rpx solid rgb(255, 133, 83);
+  border-radius:50%;
+}
+.set-info{
+  font-size: 24rpx;
+  color: rgb(102, 102, 102);
+  margin-left:15rpx;
+}
+
+.oper-btn{
+  position: absolute;
+  display: flex;
+  bottom: 20rpx;
+  right: 30rpx;
+  font-size: 28rpx;
+  color: rgb(102, 102, 102);
+}
+.edit{
+  margin-right: 40rpx;
+  display: flex;
+  align-items: center;
+
+}
+.del{
+    display: flex;
+  align-items: center;
+
+}
+.defaultAddress{
+  background: rgb(255, 133, 83) !important;
+}
+.add-new{
+  width: 702rpx;
+  height: 80rpx;
+  background: rgb(10, 130, 254);
+  border-radius:8rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  margin: 30rpx auto; 
+}

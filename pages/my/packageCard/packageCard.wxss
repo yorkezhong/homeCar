@@ -1,0 +1,120 @@
+page {
+  background: #fff;
+}
+
+.car-bg {
+  width: 702rpx;
+  height: 400rpx;
+  margin: 10rpx auto;
+  position: relative;
+}
+
+.car-bg image {
+  width: 100%;
+  height: 100%;
+}
+
+.car-bg text {
+  display: block;
+  position: absolute;
+  font-size: 32rpx;
+  color: #fff;
+  top: 50rpx;
+  left: 50rpx;
+}
+
+.card-info {
+  display: flex;
+  align-items: center;
+  height: 174rpx;
+text-align: center;
+padding: 20rpx 30rpx;
+justify-content: space-around;
+}
+
+.card-info-item {
+height:115rpx;
+border-right:1rpx solid rgb(204, 204, 204);
+display:flex;
+flex-direction:column;
+text-align:center;
+align-items:center;
+width:250rpx;
+
+
+ 
+}
+.item-num{
+  font-size: 66rpx;
+  color: rgb(255, 133, 82);
+
+}
+.item-name{
+  color: rgb(51, 51, 51);
+  font-size: 26rpx;
+}
+.buy{
+  width: 702rpx;
+  height: 210rpx;
+  margin: 10rpx auto;
+
+}
+.buy image{
+  width: 702rpx;
+  height: 210rpx;
+}
+.record{
+  padding: 10rpx 30rpx;
+}
+.record-title{
+  height:80rpx;
+  line-height: 80rpx;
+  border-bottom:1rpx solid rgb(204, 204, 204); 
+}
+.record-list{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:1rpx solid rgb(204, 204, 204);
+  height: 120rpx; 
+  padding: 0 20rpx;
+
+}
+.list-left{
+  display: flex;
+  align-items: center;
+}
+.list-left image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.list-name{
+  display: flex;
+  flex-direction: column;
+  margin-left: 15rpx;
+}
+.list-card{
+  font-size: 26rpx;
+  color: #333;
+}
+.list-time{
+  font-size: 20rpx;
+  color: rgb(102, 102, 102);
+  line-height: 40rpx;
+}
+.record-right{
+  display: flex;
+
+}
+.record-del{
+  text-decoration:line-through;
+  font-size: 24rpx;
+  color: rgb(102, 102, 102);
+  margin-right: 27rpx;
+
+}
+.record-last{
+  font-size: 26rpx;
+  color: rgb(204, 204, 204);
+  font-weight: 300;
+}

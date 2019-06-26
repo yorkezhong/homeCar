@@ -1,14 +1,31 @@
 <view class="add">
-<view class='add-box'>
-<view class='car-type-title'>车辆</view>
-<view class='car-type'>
-<view class='car-left'>
-<image src='../../../img/car_me.png' style='float:left;margin-top:6rpx;margin-right:20rpx;'></image>
-<input placeholder="奥迪 1.4DT 手动" class='carinput'></input>
-</view>
-<image src='../../../img/arrow_r.png'></image>
+  <view class='add-box'>
+    <view class='car-type-title'>车型</view>
+    <view class='car-type'>
+      <view class='car-left'>
+        <image src='../../../img/car_me.png' style='float:left;margin-top:6rpx;margin-right:20rpx;'></image>
+        <input placeholder="奥迪 1.4DT 手动" class='carinput'></input>
+      </view>
+      <image src='../../../img/arrow_r.png'></image>
 
-</view>
+    </view>
+    <view class='add-car-id-box'>
+      <view class='add-car-title'>车牌号</view>
+      <view class='add-listitem'>
+        <view class="add-car-normal {{selectIndex==0?'active':''}}" bindtap='selectType' data-id='0'>常规</view>
+        <view class="add-car-normal {{selectIndex==1?'active':''}}" bindtap='selectType' data-id='1'>新能源车牌</view>
+      </view>
+      <view class='add-car-id'>
+        <input class='id-item' placeholder="粤BBBBBBB" maxlength="8" bindinput="inputCarId"></input>
 
-</view>
+
+      </view>
+
+      <view class='submit-add'>提交</view>
+
+
+    </view>
+
+
+  </view>
 </view>

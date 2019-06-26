@@ -1,0 +1,41 @@
+<view class="card">
+  <view class='car-bg'>
+    <image src='../../../img/img_card.png'></image>
+    <text>套餐卡</text>
+  </view>
+  <view class='card-info'>
+    <view class='card-info-item'>
+      <text class='item-num'>10</text>
+      <text class='item-name'>普洗(次）</text>
+    </view>
+    <view class='card-info-item'>
+      <text class='item-num'>3</text>
+      <text class='item-name'>精洗(次）</text>
+    </view>
+    <view class='card-info-item' style='border:none'>
+      <text class='item-num'>7</text>
+      <text class='item-name'>除铁(次）</text>
+    </view>
+
+  </view>
+  <view class='buy'>
+    <image src='../../../img/advertisement.png'></image>
+  </view>
+  <view class='record'>
+    <view class='record-title'>交易记录</view>
+    <view class='record-list' wx:for="{{[1,2,3]}}" wx:key="{{index}}">
+      <view class='list-left'>
+        <image src='../../../img/img_transaction.png'></image>
+        <view class='list-name'>
+          <text class='list-card'>消费一张普洗卡</text>
+          <text class='list-time'>2019-06-25</text>
+        </view>
+      </view>
+      <view class='record-right'>
+        <text class='record-del'>￥129</text>
+        <text class='record-last'>剩余4张</text>
+      </view>
+    </view>
+  </view>
+
+</view>

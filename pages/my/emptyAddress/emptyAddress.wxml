@@ -1,0 +1,42 @@
+<view class="address">
+  <view class='empty' wx:if="{{empty}}">
+    <view class='empty-bg'>
+      <image src='../../../img/img_a.png'></image>
+    </view>
+    <view class='empty-info'>
+      <text>空空如也</text>
+      <text>赶紧添加新地址吧</text>
+      <image src='../../../img/plus.png'></image>
+    </view>
+
+  </view>
+
+  <view class='address-box' wx:if="{{!empty}}">
+    <view class='address-list' wx:for="{{[1,2,3,4,5,6]}}" wx:key="{{index}}"  >
+      <view class='list-top'>
+        <text class='getname'>王大锤</text>
+        <text class='getphone'>13897604315</text>
+      </view>
+      <view class='address-detail'>广东省深圳市南山区保利高新技术园区112栋7024</view>
+      <view class='default-set' data-id='{{index}}' bindtap='selectAddress'>
+        <view class="set-tag {{defaultAddress==index?'defaultAddress':''}}"></view>
+        <view class='set-info'>设为默认地址</view>
+      </view>
+      <view class='oper-btn'>
+        <view class='edit'>
+          <text class="cuIcon-edit" style='color:rgb(10,130,254);font-size:40rpx'></text>
+          <text style='display:inline-block;margin-left:10rpx'>编辑</text>
+        </view>
+        <view class='del'>
+          <text class="cuIcon-delete" style='color:rgb(10,130,254);font-size:40rpx'></text>
+          <text style='display:inline-block;margin-left:10rpx'>删除</text>
+        </view>
+      </view>
+
+
+    </view>
+    <view class='add-new'>添加新地址</view>
+
+  </view>
+
+</view>

@@ -1,0 +1,40 @@
+<view class="apply">
+  <view class='type-title'>发票类型</view>
+  <view class='type-box'>
+    <view class="type-item {{typeIndex==0?'active':''}}" data-id='0' bindtap='selectdType'>企业单位</view>
+    <view class="type-item {{typeIndex==1?'active':''}}" data-id='1' bindtap='selectdType'>个人/非企业单位</view>
+  </view>
+  <view class='apply-info'>
+    <view class='apply-info-list'>
+      <text>发票抬头</text>
+      <input class='inputOne' placeholder='请输入发票抬头' placeholder-style="color:rgb(204,204,204)" bindinput="inputOne"></input>
+    </view>
+    <view class='apply-info-list'>
+      <text>纳税人识别</text>
+      <input class='inputOne' placeholder='请输入纳税人识别号' placeholder-style="color:rgb(204,204,204)" bindinput="inputTwo"></input>
+    </view>
+    <view class='apply-info-list' style='border:none;margin-bottom:10rpx;height:50rpx'>
+      <text>接受方式(当前仅支持电子发票方式）</text>
+    </view>
+    <view class='apply-info-list'>
+      <text>电子邮箱</text>
+      <input class='inputOne' placeholder='请输入收取电子发票的邮箱地址' placeholder-style="color:rgb(204,204,204)" bindinput="inputThree"></input>
+    </view>
+    <view class='apply-num'>
+      <text>申请金额</text>
+      <view class='right'>
+        <text>选择要申请的订单</text>
+        <image src='../../../img/arrow_r.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='sum-money'>
+    <text class='sum-name'>总计:</text>
+    <text class='rmb'>￥</text>
+    <text class='amount'>128</text>
+  </view>
+
+  <view class='submit-apply' bindtap='submitApply'>提交申请</view>
+
+</view>

@@ -1,0 +1,27 @@
+<view class="add">
+
+  <view class='add-item'>
+    <text class='item-name'>姓名</text>
+    <input class='name-input' placeholder="请输入名字"></input>
+  </view>
+  <view class='add-item'>
+    <text class='item-name'>电话</text>
+    <input class='name-input' placeholder="请输入联系电话"></input>
+  </view>
+  <view class='add-item' style='padding-right:0;justify-content: space-between'>
+    <text class='item-name'>爱车地址</text>
+    <view class='right' bindtap='selectMap'>
+      <text class='mapaddress'>{{mapAddress}}</text>
+      <text class='tip' wx:if="{{mapAddress==''}}">点击定位地址</text>
+      <image src='../../../img/arrow_r.png'></image>
+    </view>
+  </view>
+<view class='add-item' style='border:none;height:auto'>
+    <text class='item-name'>具体地址</text>
+    <textarea class='detail-input' placeholder='地下停车场-3层'></textarea>
+  </view>
+
+
+<view class='save'>保存为常用地址</view>
+
+</view>

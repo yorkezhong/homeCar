@@ -7,6 +7,7 @@ page{
 .car-type-title{
   color: #333;
   font-size: 32rpx;
+  margin-bottom: 10rpx;
 }
 .car-type{
   display: flex;
@@ -23,5 +24,57 @@ page{
 }
 .carinput{
   float:  left;
-  color: rgb(204, 204, 204);
+  color: rgb(102, 102, 102);
+  width: 500rpx;
+}
+
+.add-car-id-box{
+  margin-top: 60rpx;
+
+}
+.add-car-title{
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+.add-listitem{
+  display: flex;
+}
+.add-car-normal{
+  width: 200rpx;
+  height:60rpx;
+  border: 1rpx solid rgb(10, 138, 254);
+  color: rgb(10, 138, 254);
+  line-height: 60rpx;
+  text-align: center; 
+}
+.active{
+  background: rgb(10, 138, 254) !important;
+  color: #fff !important;
+}
+.add-car-id{
+  display: flex;
+  align-items: center;
+  margin-top: 40rpx;
+
+}
+.id-item{
+  display: block;
+  width: 702rpx;
+  height: 60rpx;
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 300;
+  line-height: 60rpx;
+  border-bottom: 1rpx solid rgb(255, 133, 82);
+}
+.submit-add{
+  height: 80rpx;
+  width: 702rpx;
+  margin: 180rpx auto 0rpx;
+  background: rgb(10, 138, 254);
+  color: #fff;
+  border-radius:8rpx;
+  text-align: center;
+  line-height: 80rpx; 
 }

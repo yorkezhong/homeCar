@@ -1,0 +1,37 @@
+page{
+  background: #fff;
+}
+.succ-bg{
+  width: 702rpx;
+  margin: 20rpx auto;
+}
+.succ-bg image{
+  width: 702rpx;
+}
+.succ-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.succ-tip{
+  font-size: 28rpx;
+  color: rgb(255, 133, 82);
+
+}
+.succ-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top:80rpx; 
+}
+.succ-back{
+  width: 220rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: rgb(10, 138, 254);
+  border: 1rpx solid rgb(10, 138, 254);
+  text-align: center;
+  margin-right: 40rpx;
+  border-radius:8rpx; 
+}

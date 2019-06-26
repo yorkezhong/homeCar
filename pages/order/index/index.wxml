@@ -27,7 +27,7 @@
 
 <view class='order-empty'>
 
-<text class='empty-tip'>暂无任何订单</text>
+<text class='empty-tip' wx:if="{{empty}}">暂无任何订单</text>
 </view>
 
 

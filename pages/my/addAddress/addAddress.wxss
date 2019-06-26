@@ -1,0 +1,70 @@
+page {
+  background: #fff;
+}
+
+.add-item {
+  height: 100rpx;
+  width: 702rpx;
+  margin: 0 auto;
+  border-bottom: 1rpx solid rgb(204, 204, 204);
+  display: flex;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.item-name {
+  float: left;
+  font-size: 28rpx;
+  color: #333;
+  display: block;
+  margin-top: 50rpx;
+  width: 180rpx;
+}
+
+.name-input {
+  float: left;
+  color: rgb(10, 130, 254);
+  font-size: 28rpx;
+  width: 80%;
+  margin-top: 40rpx;
+}
+
+.right {
+  display: flex;
+  margin-top: 38rpx;
+  align-items: center;
+}
+
+.right image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.tip {
+  font-size: 24rpx;
+  color: rgb(204, 204, 204);
+}
+
+.save {
+  width: 702rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: rgb(10, 130, 254);
+  border-radius: 8rpx;
+  margin: 30rpx auto 0rpx;
+  color: #fff;
+}
+
+.detail-input {
+  width: 80%;
+  margin-top: 56rpx;
+  color: rgb(10, 130, 254);
+}
+.mapaddress{
+  font-size: 24rpx;
+  color: rgb(10, 130, 254);
+  display: inline-block;
+  padding-bottom: 5rpx;
+
+}
