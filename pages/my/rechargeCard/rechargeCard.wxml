@@ -1,0 +1,38 @@
+<view class="card">
+  <view class='card-info'>
+    <image src='../../../img/rechargeable_card.png'></image>
+    <view class='card-pay'>
+      <view class='card-name'>充值卡</view>
+      <view class='card-acount'>
+        <text class='rmb-name'>余额</text>
+        <text class='rmb'>￥</text>
+        <text class='rmb-num'>1000</text>
+      </view>
+
+      <view class='recharge-btn' bindtap='goRecharge'>充值</view>
+
+    </view>
+
+  </view>
+
+  <view class='pay-list'>
+    <view class='title'>交易记录</view>
+    <view class='list-item' wx:for="{{[1,2,3,4]}}" wx:key="{{index}}">
+      <view class='left'>
+        <image src='../../../img/img_transaction.png'></image>
+        <view class='item-name'>
+          <view class='pay-name'>洗车</view>
+          <view class='pay-time'>2019-06-27</view>
+        </view>
+      </view>
+      <view class='right'>
+      <view class='up'>-</view>
+      <view class='yuan'>￥</view>
+      <view class='pay-num'>129</view>
+      </view>
+
+    </view>
+  </view>
+
+
+</view>

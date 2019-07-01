@@ -41,6 +41,11 @@ Page({
     this.setData({
       allselect: !this.data.allselect
     })
+  },
+  submitApply(){
+    wx.navigateTo({
+      url: '../invoiceSucc/invoiceSucc',
+    })
   }
 
 })

@@ -114,3 +114,28 @@ height: 94rpx;
   width: 40rpx;
   height: 40rpx;
 }
+.share{
+  display:block;
+background:none;
+padding:0;
+margin:0;
+border:none;
+border-radius:0rpx !important;
+position:static;
+height: 94rpx;
+-webkit-tap-highlight-color:#fff;
+}
+.share::after{
+  border: none;
+  border-radius:0rpx; 
+}
+.item-list-share{
+   display:flex;
+justify-content:space-between;
+align-items:center;
+line-height:50rpx;
+padding-left:22rpx;
+padding-right:35rpx;
+border-bottom:1rpx solid rgb(204, 204, 204); 
+height: 94rpx;
+}

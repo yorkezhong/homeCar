@@ -1,0 +1,178 @@
+<view class='content' style='display: flex; flex-direction: column;width: 100%; height:100%;'>
+  <view class="wash" style=' flex: 1;position: relative; margin-bottom: 0rpx;'>
+    <scroll-view scroll-y="true" style="height: 100%;position: absolute;left: 0;right: 0;top: 0;bottom: 0rpx;">
+      <view class='wash-top'>
+        <view class='wash-info'>
+          <view class='wash-shop'>
+            回家养车海岸城店
+          </view>
+          <view class='wash-right' bindtap='switchHome'>
+            <image src='../../../img/repeat_w.png'></image>
+            <text class='switch'>切换小区</text>
+          </view>
+        </view>
+        <view class='shop-address'>
+          <image src='../../../img/address_car_wash.png'></image>
+          <text class='address-info'>深圳市南山区天利中央广场d地下车库2楼l欧哦奋斗奋斗</text>
+        </view>
+      </view>
+
+      <view class='my-car'>
+        <view class='my-car-title'>我的车辆</view>
+        <view class='my-car-list'>
+          <block wx:for="{{[1,2]}}" wx:key="{{index}}">
+            <view class="list-item {{carIndex==index?'selectCar':''}}" data-id='{{index}}' bindtap='selectCar'>
+              粤BK45A1
+      <text class='cuIcon-roundclose del' bindtap='delCar'></text>
+            </view>
+          </block>
+          <view class='add-car' bindtap='addNewCar'>
+            <image src='../../../img/add_car.png'></image>
+          </view>
+        </view>
+
+      </view>
+
+      <view class='hr'></view>
+
+      <view class='wash-box'>
+        <view class='wash-item'>洗车</view>
+
+        <view class='wash-car-box'>
+          <view class='wash-box-list'>
+          <block wx:for="{{shopServerList}}" wx:key="{{index}}">
+            <text style="border-bottom:none;{{shopServerList.length>2?'height:60rpx':'height:100rpx'}}" data-serverIndex='{{index}}' bindtap='selectServer' 
+            class="{{serverIndex==index?'selectItem':''}}">{{item}}</text>
+            </block>
+          </view>
+          <view class='wash-car-detail'>
+          <block wx:for="{{detailServerList[serverIndex]}}" wx:key="{{index}}">
+            <view class='detail-item'>
+              <text class="{{detailItem==index?'selectdeatil':''}}" data-detailindex='{{index}}' bindtap='selectDetail'>{{item.catalogDetailName}}</text>
+              <view class='detail-footer'>
+                <text class='yuan'>￥</text>
+                <text class='pay-num'>{{item.price}}</text>
+                <text class='link-detail' bindtap='goDetail' data-detailid='{{index}}'>详情</text>
+              </view>
+            </view>
+            </block>
+          
+
+          </view>
+
+
+        </view>
+
+
+
+
+      </view>
+
+      <view class='getcar'>
+        <view class='getcar-title'>接车时间</view>
+
+        <view class='getcar-list'>
+          <view class='getcar-box' data-selecttime='0' bindtap='selectTime'>
+            <view class="getcar-item {{timeIndex==0?'selectTime':''}}">到店服务</view>
+            <view class='getcar-tip' wx:if="{{timeIndex==0}}">前面等待6位</view>
+          </view>
+          <view class='getcar-box' data-selecttime='1' bindtap='selectTime'>
+            <view class="getcar-item {{timeIndex==1?'selectTime':''}}">夜洗晨取</view>
+            <view class='getcar-tip' wx:if="{{timeIndex==1}}">前面等待6位</view>
+
+
+          </view>
+          <view class='getcar-box' data-selecttime='2' bindtap='selectTime'>
+            <view class="getcar-item {{timeIndex==2?'selectTime':''}}">上门自取</view>
+            <view class='getcar-tip' wx:if="{{timeIndex==2}}">前面等待6位</view>
+
+          </view>
+
+        </view>
+
+      </view>
+      <view class='worker-title'>技师</view>
+      <view class='getworker'>
+
+        <view class='worker-info'>
+          <image src='https://pic.qqtn.com/up/2018-2/15194353633920408.jpg'></image>
+          <view class='worker-name'>
+            <view class='worker-top'>
+              <text>刘明明</text>
+              <i-rate value="5" size="18">
+              </i-rate>
+            </view>
+            <view class='worker-phone'>
+              <image src='../../../img/phone.png'></image>
+              <text>1379641234</text>
+            </view>
+          </view>
+        </view>
+        <view class='switch-worker' bindtap='switchWorker'>
+          <image src='../../../img/repeat.png'></image>
+          <text>切换技师</text>
+        </view>
+
+      </view>
+      <view class='hr'></view>
+
+      <view class='settlement'>
+        <view class='settlement-item' >
+          <view class='settlement-item-name'>套餐卡</view>
+          <view class='settlement-item-info'  bindtap='goPackage'>购买套餐卡折上折
+            <image src='../../../img/arrow_r.png'></image>
+          </view>
+        </view>
+        <view class='settlement-item'  >
+          <view class='settlement-item-name'>充值卡</view>
+          <view class='settlement-item-info' bindtap='goRecharge'>充1000送200
+            <image src='../../../img/arrow_r.png'></image>
+          </view>
+        </view>
+        <view class='settlement-item'  >
+          <view class='settlement-item-name'>优惠券</view>
+          <view class='settlement-item-info' bindtap='goCoupon'>暂无可用优惠券
+            <image src='../../../img/arrow_r.png'></image>
+          </view>
+        </view>
+
+      </view>
+
+
+
+    </scroll-view>
+  </view>
+  <view class='mask' wx:if="{{mask}}">
+    <view class='mask-main'>
+      <view class='mask-box'>
+        <view class='mask-top'>{{detailServerList[serverIndex][detailid].catalogDetailName}}</view>
+
+        <view class='mask-detail'>
+          <view class='mask-item'>
+            <view class='mask-title'>服务时长</view>
+            <view class='mask-info'>{{detailServerList[serverIndex][detailid].serviceTime}}</view>
+          </view>
+          <view class='mask-item'>
+            <view class='mask-title'>服务耗材</view>
+            <view class='mask-info'>{{detailServerList[serverIndex][detailid].serviceIntroduce}}</view>
+          </view>
+          <view class='mask-item'>
+            <view class='mask-title'>服务介绍</view>
+            <view class='mask-info'>{{detailServerList[serverIndex][detailid].serviceConsumeMaterial}}</view>
+          </view>
+        </view>
+
+      </view>
+      <view class='close' bindtap='closeMask'>
+        <image src='../../../img/close_popup.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='footer'>
+    <view class='footer-all' bindtap='allSelected'>
+      <text class='yuan' style='font-size:30rpx'>￥</text>68.8</view>
+    <view class='footer-submit' bindtap='submitApply'>微信支付</view>
+  </view>
+
+</view>

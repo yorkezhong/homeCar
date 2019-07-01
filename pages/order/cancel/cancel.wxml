@@ -26,6 +26,6 @@
       <image src='../../../img/phone.png'></image>
       <text>联系客服</text>
     </view>
-    <view class='submit-btn'>提交</view>
+    <view class='submit-btn' bindtap='submitCancel'>提交</view>
   </view>
 </view>

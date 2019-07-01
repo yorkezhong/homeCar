@@ -19,5 +19,15 @@ Page({
      }
 
     })
+  },
+  saveAddress(){
+    wx.showToast({
+      title: '保存成功',
+    })
+    setTimeout(()=>{
+   wx.navigateTo({
+     url: '../emptyAddress/emptyAddress',
+   })
+    },2000)
   }
 })

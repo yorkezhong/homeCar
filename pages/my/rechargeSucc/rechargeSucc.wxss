@@ -1,0 +1,18 @@
+page{
+  background: 100%;
+}
+.succ{
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+.succ-bg{
+  width: 504rpx;
+  height: 504rpx;
+  margin: 150rpx auto 20rpx;
+}
+.succ-bg image{
+  width: 504rpx;
+  height: 504rpx;
+}

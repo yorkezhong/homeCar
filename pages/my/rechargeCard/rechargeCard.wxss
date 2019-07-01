@@ -1,0 +1,112 @@
+page {
+  background: #fff;
+}
+
+.card-info {
+  width: 702rpx;
+  height: 340rpx;
+  margin: 5rpx auto 20rpx;
+  position: relative;
+}
+
+.card-info image {
+  width: 100%;
+  height: 100%;
+}
+
+.card-pay {
+  position: absolute;
+  top: 54rpx;
+  color: #fff;
+  left: 40rpx;
+}
+
+.card-name {
+  font-size: 36rpx;
+}
+
+.card-acount {
+  margin-top: 10rpx;
+}
+
+.rmb-name {
+  font-size: 28rpx;
+}
+
+.rmb {
+  display: inline-block;
+  margin-left: 28rpx;
+  margin-right: 5rpx;
+}
+
+.rmb-num {
+  font-size: 88rpx;
+}
+.recharge-btn{
+  width: 162rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background: rgb(236, 162, 12);
+  border-radius:8rpx; 
+  margin-top:25rpx; 
+}
+.pay-list{
+  padding: 20rpx 22rpx;
+}
+.title{
+  height: 80rpx;
+  border-bottom:1rpx solid rgb(204, 204, 204);
+  font-size: 36rpx;
+  color: #333; 
+}
+.list-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 148rpx;
+  border-bottom:1rpx solid rgb(204, 204, 204); 
+}
+.left{
+  display: flex;
+  align-items: center;
+}
+.left image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 15rpx;
+}
+.item-name{
+  display: flex;
+  flex-direction: column;
+}
+.pay-name{
+  font-size: 32rpx;
+  color: #333}
+
+  .pay-time{
+    font-size: 24rpx;
+    color: rgb(102, 102, 102);
+    margin-top: 10rpx;
+  }
+  .right{
+    display: flex;
+    align-items: center;
+
+  }
+  .up{
+    font-size: 48rpx;
+    color: rgb(10, 130, 254);
+  }
+  .yuan{
+    margin-left: 20rpx;
+    color: rgb(10, 130, 254);
+    font-size: 24rpx;
+    margin-top:10rpx;
+  }
+  .pay-num{
+    font-size: 48rpx;
+    color: rgb(10, 130, 254);
+    margin-left: 5rpx;
+  }
+

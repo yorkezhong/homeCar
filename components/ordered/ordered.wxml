@@ -20,7 +20,7 @@
 
       <view class='ordered-footer'>
         <text class='money'>￥128</text>
-        <view class='order-again'>再来一单</view>
+        <view class='order-again' bindtap='againOrder'>再来一单</view>
       </view>
 
 

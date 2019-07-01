@@ -12,23 +12,24 @@
   </view>
   <view class='banner'>
     <swiper autoplay="true" indicator-dots="true" indicator-color="#fff" indicator-active-color="#333">
-      <block wx:for="{{[1,2,3]}}" wx:key="{{index}}">
+      <block wx:for="{{banner}}" wx:key="{{index}}">
         <swiper-item>
-          <image src="../../../img/banner.png" class="slide-image" mode='scaleToFill' style="width:100%" />
+          <image src="{{item.imgUrl}}" class="slide-image" mode='scaleToFill' style="width:100%" />
         </swiper-item>
       </block>
     </swiper>
   </view>
   <view class='shop'>
     <view class='shop-info'>
-      <text class='shop-name'>海岸城店</text>
+      <text class='shop-name'>{{currtshop.name}}</text>
       <text class='shop-people'>前方排队人数</text>
-      <text class='people-num'>—24人</text>
+      <text class='people-num' bindtap='showMask'>—{{lineNum}}人</text>
       <button class='keysite' bindtap='goKey'>钥匙柜位置</button>
     </view>
-    <text class='shop-time '>营业时间 9：00-19：00  </text>
-    <view class='shop-site'>
-      <image src='../../../img/repeat.png' style='width:40rpx;height:40rpx;margin-right:10rpx;'></image>深圳市南山区海德二路海岸城小区地下车库 </view>
+    <text class='shop-time '>营业时间 {{currtshop.startTime}}-{{currtshop.endTime}}  </text>
+    <view class='shop-site' bindtap='switchShop'>
+      <image src='../../../img/repeat.png' style='width:40rpx;height:40rpx;margin-right:10rpx;'></image>
+     <text class='currtshop'> {{currtshop.address}}</text> </view>
   </view>
 
   <view class='service'>
@@ -53,7 +54,7 @@
   <view class='hr'></view>
   <view class='order'>
     <view class='orderBy'>
-     ----------------------------
+      ----------------------------
     </view>
     <view class='order-stauts'>
       <view class='step'>
@@ -85,15 +86,39 @@
     </view>
   </view>
   <view class='hr'></view>
-<view class='other'>
-<view class='other-left'>
-<image src='../../../img/car_wash.png' style='width:360rpx;height:180rpx;' mode='aspectFit'></image>
-</view>
-<view class='other-right'>
-<image src='../../../img/recharge.png' style='width:230rpx;height:88rpx;' mode='aspectFit'></image>
-<image src='../../../img/packge.png' style='width:230rpx;height:88rpx;' mode='aspectFit'></image>
+  <view class='other'>
+    <view class='other-left'>
+      <image src='../../../img/car_wash.png' style='width:360rpx;height:180rpx;' mode='aspectFit' bindtap='goWashCar'></image>
+    </view>
+    <view class='other-right'>
+      <image src='../../../img/recharge.png' style='width:230rpx;height:88rpx;' mode='aspectFit' bindtap='goRecharge'></image>
+      <image src='../../../img/packge.png' style='width:230rpx;height:88rpx;' mode='aspectFit' bindtap='goPackage'></image>
 
-</view>
-</view>
+    </view>
+  </view>
+
+  <view class='mask' wx:if="{{mask}}">
+    <view class='mask-box'>
+      <view class='mask-top'>洗车排队进度</view>
+      <view class='mask-item' wx:for="{{[1,2,3,4]}}" wx:key="{{index}}">
+        <view class='mask-worker'>
+          <image src='https://pic.qqtn.com/up/2018-2/15195209116319273.jpg'></image>
+          <view class='line-info'>
+            <view class='worker-name'>波西米亚</view>
+            <view class='line-num'>前面有4人</view>
+          </view>
+        </view>
+        <view class='car-list'>
+          <view class='line-list' wx:for="{{[1,2,3,4]}}" wx:key="{{index}}">
+            <view class='car-id'>粤BKA454</view>
+            <view class='time'>预计等待11分钟</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='close' bindtap='closeMask'>
+      <image src='../../../img/close_popup.png'></image>
+    </view>
+  </view>
 
 </view>

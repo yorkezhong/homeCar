@@ -55,7 +55,7 @@
       <view class='ordering-sum'>
       订单总价：<text class='money'>￥128</text><text class='other-info'>(优惠券抵扣10元)</text>
       </view>
-      <view class='back-money'>退款</view>
+      <view class='back-money' bindtap='backPay'>退款</view>
 </view>
          
 

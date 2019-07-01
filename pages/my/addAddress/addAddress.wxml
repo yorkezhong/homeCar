@@ -8,10 +8,10 @@
     <text class='item-name'>电话</text>
     <input class='name-input' placeholder="请输入联系电话"></input>
   </view>
-  <view class='add-item' style='padding-right:0;justify-content: space-between'>
-    <text class='item-name'>爱车地址</text>
+  <view class='add-item' style='padding-right:0;justify-content: space-between;min-height:100rpx'>
+    <text class='item-name' style='margin-right:10rpx;width:220rpx;'>爱车地址</text>
     <view class='right' bindtap='selectMap'>
-      <text class='mapaddress'>{{mapAddress}}</text>
+      <text class='mapaddress' wx:if="{{mapAddress!=''}}">{{mapAddress}}</text>
       <text class='tip' wx:if="{{mapAddress==''}}">点击定位地址</text>
       <image src='../../../img/arrow_r.png'></image>
     </view>
@@ -22,6 +22,6 @@
   </view>
 
 
-<view class='save'>保存为常用地址</view>
+<view class='save' bindtap='saveAddress'>保存为常用地址</view>
 
 </view>

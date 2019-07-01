@@ -19,7 +19,7 @@
             <text class='money'>￥128</text>
           </view>
           <view class='order-btn'>
-            <button class='cancel'>取消订单</button>
+            <button class='cancel' bindtap='cancelOrder'>取消订单</button>
             <button class='pay-order'>立即付款</button>
 
           </view>

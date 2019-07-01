@@ -9,5 +9,10 @@ Page({
       defaultAddress: e.currentTarget.dataset.id
     })
   },
+  addNewAddress(){
+    wx.navigateTo({
+      url: '../addAddress/addAddress',
+    })
+  }
   
 })

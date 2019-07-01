@@ -1,0 +1,67 @@
+page {
+  background: #fff;
+}
+
+.shop {
+  padding: 0rpx 0rpx 20rpx 24rpx;
+}
+
+.city-left {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  line-height: 50rpx;
+}
+
+.city-name {
+  font-size: 32rpx;
+  color: #333;
+  display: block;
+  margin-right: 34rpx;
+  font-weight: 300;
+}
+.shop-list{
+  margin-top:30rpx; 
+}
+.title{
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 300;
+}
+.shop-name{
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.shop-item{
+  border: 1rpx solid rgb(204, 204, 204);
+  border-radius:8rpx;
+  color: rgb(51, 51, 51);
+  line-height: 88rpx;
+  text-align: center;
+  height: 88rpx;
+  width: 200rpx;
+  margin-right: 42rpx;
+  font-weight: 200; 
+  margin-bottom: 40rpx;
+}
+.selected{
+  border: none !important;
+  background: rgb(10, 138, 254) !important;
+  color: #fff !important;
+}
+
+.empty{
+  width: 702prx;
+  margin: 50rpx auto;
+}
+.empty image{
+  width: 702rpx;
+}
+.emptyshop{
+  font-size: 36rpx;
+  color: rgb(102, 102, 102);
+  text-align: center;
+
+}

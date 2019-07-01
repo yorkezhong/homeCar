@@ -10,7 +10,7 @@ Page({
   },
   goComment(){
     wx.navigateTo({
-      url: '',
+      url: '../../../worker/detail/detail',
     })
   }
 

@@ -30,9 +30,12 @@ page {
 }
 
 .right {
-  display: flex;
-  margin-top: 38rpx;
-  align-items: center;
+  display:flex;
+align-items:center;
+padding-bottom:20rpx;
+padding-top:30rpx;
+justify-content: space-between;
+  
 }
 
 .right image {
@@ -62,9 +65,10 @@ page {
   color: rgb(10, 130, 254);
 }
 .mapaddress{
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: rgb(10, 130, 254);
   display: inline-block;
+  width: 500rpx;
   padding-bottom: 5rpx;
 
 }

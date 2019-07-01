@@ -1,9 +1,5 @@
-// pages/order/cancel/cancel.js
-Page({
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
   select:0,
   reason:""
@@ -22,6 +18,11 @@ Page({
   callphone(){
     wx.makePhoneCall({
       phoneNumber: '1340000' 
+    })
+  },
+  submitCancel(){
+    wx.navigateTo({
+      url: '../submitOrder/submitOrder',
     })
   }
 

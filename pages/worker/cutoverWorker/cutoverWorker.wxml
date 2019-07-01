@@ -4,7 +4,7 @@
     <view class='list-item' wx:for="{{[1,2,3,4]}}" wx:key="{{index}}">
       <view class='left'>
         <image src='https://pic.qqtn.com/up/2018-2/15192635184353132.jpg'></image>
-        <view class='show-comment'>查看评价</view>
+        <view class='show-comment' bindtap='showComment'>查看评价</view>
       </view>
       <view class='middle'>
         <view class='mid-top'>
@@ -15,7 +15,7 @@
         <view class='worker-lever'>资深技工</view>
         <view style='margin-top:10rpx;margin-left:-5rpx;'><i-rate value="5" size="20"></i-rate></view>
       </view>
-      <view class='right'>
+      <view class='right' bindtap='switchWorker'>
       确认更换
       </view>
 

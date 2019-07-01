@@ -1,18 +1,29 @@
 <view class="submit">
-<view class='submit-bg'>
-<image src='../../../img/img_cancel.png'></image>
-</view>
+  <view class='submit-cancel' wx:if="{{cancel}}">
+    <view class='submit-bg'>
+      <image src='../../../img/img_cancel.png'></image>
+    </view>
+    <view class='submit-info'>
+      <view class='order-status'>订单已取消!</view>
+      <view class='order-info'>
+        <text>订单编号：2314512545</text>
+        <text>订单时间：2019-05-26 19：20</text>
+      </view>
+      <view class='order-btn'>
+        <view class='show-order' bindtap='showOrder'>查看订单</view>
+        <view class='again-order' bindtap='againOrder'>再次预定</view>
+      </view>
+    </view>
+  </view>
 
-<view class='submit-info'>
-<view class='order-status'>订单已取消!</view>
-<view class='order-info'>
-<text>订单编号：2314512545</text>
-<text>订单时间：2019-05-26 19：20</text>
-</view>
-<view class='order-btn'>
-<view class='show-order'>查看订单</view>
-<view class='again-order'>再次预定</view>
-</view>
-</view>
+  <view class='sumbit-succ' wx:if="{{!cancel}}">
+    <image src='../../../img/undraw_complet.png'></image>
+    <view class='succ-info'>恭喜你订单提交成功</view>
+    <view class='key'>
+      <view class='key-name'>存钥匙码：</view>
+      <view class='key-id'>BDEFCAA</view>
+    </view>
+    <view class='goindex'>返回首页</view>
+  </view>
 
 </view>

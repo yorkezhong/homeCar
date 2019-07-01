@@ -24,12 +24,22 @@ page{
   background: none;
   border: 1rpx solid rgb(255, 84, 45);
   width: 180rpx;
-  height: 60rpx;
+  height: 50rpx;
   font-size: 24rpx;
-  line-height: 60rpx;
-  text-align: left;
+  line-height: 50rpx;
+  text-align: center;
   color: #333;
   margin-left: 27rpx;
+  position:relative;
+border-radius:8rpx;
+
+}
+.del{
+  position:absolute;
+right:-12rpx;
+top:-25rpx;
+font-size:35rpx;
+color: #333 !important;
 }
 .add-car{
  float:right;

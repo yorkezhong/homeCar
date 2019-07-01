@@ -151,3 +151,8 @@ page {
 .selected-apply{
   border-color:rgb(255, 133, 83) !important; 
 }
+
+.dontall{
+  background: rgb(255, 133, 83) !important;
+    color: #fff !important;
+}

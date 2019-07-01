@@ -60,13 +60,15 @@ page{
 }
 .id-item{
   display: block;
-  width: 702rpx;
+  width: 60rpx;
   height: 60rpx;
   color: #333;
   font-size: 28rpx;
   font-weight: 300;
   line-height: 60rpx;
-  border-bottom: 1rpx solid rgb(255, 133, 82);
+  text-align: center;
+  border:1rpx solid rgb(255, 133, 82);
+  margin-right: 20rpx;
 }
 .submit-add{
   height: 80rpx;

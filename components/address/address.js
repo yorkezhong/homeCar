@@ -25,7 +25,7 @@ Component({
       type:String,
       value:"",
       observer: function (newVal, oldVal) { 
-        console.log(newVal)
+       
         this.value = newVal;
         this.searchMt();
       }
@@ -75,15 +75,21 @@ Component({
     jumpMt(e) {
       let jumpNum = e.currentTarget.dataset.id;
       this.setData({jumpNum:jumpNum});
-      console.log(this.data.jumpNum,'jumpNum')
+      
     },
     // 列表点击事件
     detailMt(e) {
       let detail = e.currentTarget.dataset.detail;
+      let gps = wx.getStorageSync("gps");
+      let latitude = gps.latitude;
+      let longitude = gps.longitude;
+
       if(e.currentTarget.dataset.mycity){
         var mycity = {
           name:detail,
-          key:'我的城市'
+          key:'我的城市',
+          latitude,
+          longitude
         }
         detail = mycity
       }
@@ -150,7 +156,7 @@ Component({
       this._search();
     },
     _search(){
-      console.log("搜索")
+     
       let data = this.data.data;
       let newData = [];
       for (let i = 0; i < data.length; i++) {

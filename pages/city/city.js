@@ -6,18 +6,19 @@ Page({
     config: {
       horizontal: true,
       animation: true,
-      search: true, 
-      searchHeight: 45, 
-      suctionTop: true, 
-      mycity:"深圳市"
+      search: true,
+      searchHeight: 45,
+      suctionTop: true,
+      mycity: "深圳市",
+      value:""
     }
   },
   onLoad: function () {
     let that = this;
     let latitude = wx.getStorageSync("latitude");
-    let longitude = wx.getStorageSync("longitude")
-    
-    that.getCity(latitude, longitude)
+    let longitude = wx.getStorageSync("longitude");
+    let gps = wx.getStorageSync("gps")
+    that.getCity(gps.latitude, gps.longitude);
     that.setData({
       city: City
     })
@@ -42,8 +43,8 @@ Page({
     let longitude = e.detail.longitude;
     wx.setStorageSync("latitude", latitude)
     wx.setStorageSync("longitude", longitude)
-    wx.switchTab({
-      url: '../home/index/index',
+    wx.navigateTo({
+      url: '../home/switchShop/switchShop',
     })
   },
 

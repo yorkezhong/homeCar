@@ -35,7 +35,7 @@
 
 
     </view>
-    <view class='add-new'>添加新地址</view>
+    <view class='add-new' bindtap='addNewAddress'>添加新地址</view>
 
   </view>
 

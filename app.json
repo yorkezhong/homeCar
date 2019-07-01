@@ -1,18 +1,22 @@
 {
   "pages": [
+    "pages/home/index/index",
+    "pages/my/applyMoney/applyMoney",
+    "pages/car/addCar/addCar",
+    "pages/my/rechargeSucc/rechargeSucc",
+    "pages/car/washCar/washCar",
+    "pages/order/submitOrder/submitOrder",
+    "pages/home/switchShop/switchShop",
+    "pages/my/rechargeCard/rechargeCard",
     "pages/my/addAddress/addAddress",
     "pages/my/emptyAddress/emptyAddress",
-    "pages/my/applyMoney/applyMoney",
     "pages/my/invoiceSucc/invoiceSucc",
     "pages/my/applyInvoice/applyInvoice",
     "pages/my/packageCard/packageCard",
     "pages/worker/detail/detail",
-    "pages/home/index/index",
     "pages/worker/cutoverWorker/cutoverWorker",
-    "pages/car/addCar/addCar",
     "pages/my/buyPackage/buyPackage",
     "pages/order/cancel/cancel",
-    "pages/order/submitOrder/submitOrder",
     "pages/my/onlineRecharge/onlineRecharge",
     "pages/order/detail/detail",
     "pages/worker/index/index",
@@ -37,7 +41,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
   },
   "tabBar": {
     "backgroundColor": "#fff",

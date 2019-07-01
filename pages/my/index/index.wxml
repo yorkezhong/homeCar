@@ -4,27 +4,27 @@
       <image src='../../../img/me_bg.png' class='my-bg-img'></image>
     </view>
     <view class='my-info'>
-      <image src='https://pic.qqtn.com/up/2019-6/15603291237213011.jpg!360_360' class='my-info-img'></image>
-      <text class='my-name'>天边一朵云</text>
+      <image src="{{userinfo.avatarUrl}}" class='my-info-img'></image>
+      <text class='my-name'>{{userinfo.nickName}}</text>
     </view>
   </view>
   <view class='my-property'>
     <view class='property-item' style='margin-left:40rpx'>
-      <view>
+      <view bindtap='goRecharge'>
         <text class='moneny'>100</text>
         <text class='yuan'>元</text>
       </view>
       <view class='property-name'>充值卡</view>
     </view>
     <view class='property-item'>
-      <view>
+      <view bindtap='goPackage'>
         <text class='moneny'>10</text>
         <text class='yuan'>次</text>
       </view>
       <view class='property-name'>套餐卡</view>
     </view>
     <view class='property-item' style='border:none'>
-      <view>
+      <view bindtap='goCoupon'>
         <text class='moneny'>3</text>
         <text class='yuan'>张</text>
       </view>
@@ -33,7 +33,7 @@
   </view>
 
   <view class='my-item'>
-    <view class='item-list'>
+    <view class='item-list' bindtap='myOrder'>
       <view class='item-list-left'>
         <image src='../../../img/order_me.png' class='item-list-left-img'></image>
         <text class='item-list-left-name'>我的订单</text>
@@ -42,7 +42,8 @@
         <image src='../../../img/arrow_r.png' class='item-list-right-img'></image>
       </view>
     </view>
-<view class='item-list'>
+
+    <view class='item-list' bindtap='myCar'>
       <view class='item-list-left'>
         <image src='../../../img/car_me.png' class='item-list-left-img'></image>
         <text class='item-list-left-name'>我的车辆</text>
@@ -51,7 +52,8 @@
         <image src='../../../img/arrow_r.png' class='item-list-right-img'></image>
       </view>
     </view>
-    <view class='item-list'>
+
+    <view class='item-list' bindtap='myAddress'>
       <view class='item-list-left'>
         <image src='../../../img/address.png' class='item-list-left-img'></image>
         <text class='item-list-left-name'>地址管理</text>
@@ -60,7 +62,8 @@
         <image src='../../../img/arrow_r.png' class='item-list-right-img'></image>
       </view>
     </view>
-    <view class='item-list'>
+
+    <view class='item-list' bindtap='myInvoice'>
       <view class='item-list-left'>
         <image src='../../../img/invoice.png' class='item-list-left-img'></image>
         <text class='item-list-left-name'>发票管理</text>
@@ -69,15 +72,22 @@
         <image src='../../../img/arrow_r.png' class='item-list-right-img'></image>
       </view>
     </view>
-    <view class='item-list'>
-      <view class='item-list-left'>
-        <image src='../../../img/share.png' class='item-list-left-img'></image>
-        <text class='item-list-left-name'>分享好友</text>
-      </view>
-      <view class='item-list-right'>
-        <image src='../../../img/arrow_r.png' class='item-list-right-img'></image>
-      </view>
+<view style='position:relative;'>
+    <button open-type='share' class='share'>
+      <view class='item-list-share' bindtap='share'>
+        <view class='item-list-left' open-type="share">
+          <image src='../../../img/share.png' class='item-list-left-img'></image>
+          <text class='item-list-left-name'>分享好友</text>
+        </view>
+        <view class='item-list-right'>
+          <image src='../../../img/arrow_r.png' class='item-list-right-img'></image>
+        </view>
+       </view>
+    </button>
     </view>
+
+
   </view>
+
 
 </view>

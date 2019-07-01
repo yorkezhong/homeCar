@@ -1,9 +1,6 @@
-// pages/order/comment/comment.js
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     starnum: 0,
     tag1: false,

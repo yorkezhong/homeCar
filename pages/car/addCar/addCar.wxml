@@ -15,13 +15,28 @@
         <view class="add-car-normal {{selectIndex==0?'active':''}}" bindtap='selectType' data-id='0'>常规</view>
         <view class="add-car-normal {{selectIndex==1?'active':''}}" bindtap='selectType' data-id='1'>新能源车牌</view>
       </view>
-      <view class='add-car-id'>
-        <input class='id-item' placeholder="粤BBBBBBB" maxlength="8" bindinput="inputCarId"></input>
-
+      <view class='add-car-id' wx:if="{{selectIndex==0}}">
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[0]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[1]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[2]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[3]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[4]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[5]}}</view>
+      </view>
+       <view class='add-car-id'  wx:if="{{selectIndex==1}}">
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[0]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[1]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[2]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[3]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[4]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[5]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[6]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[7]}}</view>
 
       </view>
 
-      <view class='submit-add'>提交</view>
+
+      <view class='submit-add' bindtap='submitAdd'>提交</view>
 
 
     </view>
@@ -29,3 +44,5 @@
 
   </view>
 </view>
+
+<plate-number-keyboard show="{{showKeyboard}}" bind:getResult="setNumber" initValue="{{plateNumber}}"></plate-number-keyboard>

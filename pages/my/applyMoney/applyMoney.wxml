@@ -40,7 +40,7 @@
   </view>
 
   <view class='footer'>
-    <view class='footer-all' bindtap='allSelected'>全选</view>
+    <view class="footer-all {{allselect==true?'dontall':''}}" bindtap='allSelected'>全选</view>
     <view class='footer-submit' bindtap='submitApply'>提交申请</view>
 
 
