@@ -1,40 +1,48 @@
 import {
-  storeList, storeInfo, banner, lineNum, getCarBands
+  storeList,
+  storeInfo,
+  banner,
+  lineNum,
+  getCarBands
 } from "../../../pages/request.js"
 Page({
   data: {
     city: "深圳市",
-    weather: "",
+    weather: "多云 28℃",
     mask: false,
     currtshop: null,
-    banner:[],
-    lineNum:0
+    banner: [],
+    lineNum: 0,
+    unlogin: false
   },
-  storeInfo(uid){
-    storeInfo({uid}).then((res)=>{
-     console.log(res)
+  storeInfo(uid) {
+    storeInfo({
+      uid
+    }).then((res) => {
+      console.log(res)
     })
   },
-  lineNum(storeId){
-    lineNum({ storeId }).then((res)=>{
-   this.setData({
-     lineNum:res.data.sort
-   })
+  lineNum(storeId) {
+    lineNum({
+      storeId
+    }).then((res) => {
+      this.setData({
+        lineNum: res.data.sort
+      })
     })
   },
-  onShow(){
+  onShow() {
     let that = this;
     let latitude = wx.getStorageSync("latitude");
     let longitude = wx.getStorageSync("longitude");
     let currtshop = wx.getStorageSync("currtshop");
-    console.log(wx.getStorageSync("userinfo"))
-    if (Boolean(currtshop)==true) {
+    if (Boolean(currtshop) == true) {
       this.setData({
         currtshop: currtshop
       })
       this.storeInfo(currtshop.id)
       this.lineNum(currtshop.id)
-    }else{
+    } else {
       storeList({
         lng: longitude,
         lat: latitude,
@@ -50,17 +58,81 @@ Page({
     }
     that.getCity(latitude, longitude);
   },
-  onLoad(){
-    let that=this;
+  onLoad() {
+    let that = this;
     //轮播图
-    banner().then((res)=>{
+    let userinfo = wx.getStorageSync("userinfo");
+    if (Boolean(userinfo) == false) {
       that.setData({
-       banner:res.data
-     })
+        unlogin: true
+      })
+      wx.hideTabBar();
+    }
+    banner().then((res) => {
+      that.setData({
+        banner: res.data
+      })
     })
-    getCarBands().then((res)=>{
-          console.log(res)
+    getCarBands().then((res) => {
+      console.log(res)
     })
+  },
+  submitLogin() {
+    let that = this;
+    wx.getUserInfo({
+        success: res => {
+          wx.setStorageSync("userinfo", res.userInfo);
+          wx.showTabBar();
+          this.setData({
+            unlogin: false
+          })
+          wx.login({
+            success(res) {
+              if (res.code) {
+                wx.request({
+                  url: 'http://120.78.53.79:8081/car-api/api/weixin/login',
+                  method: "POST",
+                  data: {
+                    code: res.code,
+                    userInfo: wx.getStorageInfoSync("userinfo")
+                  }
+                })
+              }
+            },
+            fail(err) {
+              wx.showToast({
+                title: '网络请求失败,请重试！',
+              })
+            }
+          })
+        }
+      }),
+      wx.getLocation({
+        type: 'wgs84',
+        success(res) {
+          const latitude = res.latitude
+          const longitude = res.longitude
+          wx.setStorageSync("gps", {
+            latitude,
+            longitude
+          })
+          wx.setStorageSync("latitude", latitude);
+          wx.setStorageSync("longitude", longitude);
+          that.getCity(latitude, longitude);
+        }
+      })
+
+  },
+  cancelLogin() {
+    let that = this;
+    that.setData({
+      unlogin: false
+    })
+    setTimeout(() => {
+      that.setData({
+        unlogin: true
+      })
+    }, 2000)
   },
   showMask() {
     this.setData({
@@ -80,13 +152,18 @@ Page({
     wx.request({
       url: url,
       success(res) {
-        let city = res.data.results[0].currentCity;
-        let weather = res.data.results[0].weather_data[0].weather;
-        let temp = parseInt(res.data.results[0].weather_data[0].temperature);
-        that.setData({
-          city: city,
-          weather: weather + " " + temp + "°"
-        })
+        if (res.data.error){
+          return 
+        }else{
+          let city = res.data.results[0].currentCity;
+          let weather = res.data.results[0].weather_data[0].weather;
+          let temp = parseInt(res.data.results[0].weather_data[0].temperature);
+          that.setData({
+            city: city,
+            weather: weather + " " + temp + "°"
+          })
+        }
+      
       }
     });
   },
@@ -116,7 +193,7 @@ Page({
       url: '../../my/buyPackage/buyPackage',
     })
   },
-  switchShop(){
+  switchShop() {
     wx.navigateTo({
       url: '../switchShop/switchShop',
     })

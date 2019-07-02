@@ -29,7 +29,7 @@
     <text class='shop-time '>营业时间 {{currtshop.startTime}}-{{currtshop.endTime}}  </text>
     <view class='shop-site' bindtap='switchShop'>
       <image src='../../../img/repeat.png' style='width:40rpx;height:40rpx;margin-right:10rpx;'></image>
-     <text class='currtshop'> {{currtshop.address}}</text> </view>
+      <text class='currtshop'> {{currtshop.address}}</text> </view>
   </view>
 
   <view class='service'>
@@ -97,6 +97,21 @@
     </view>
   </view>
 
+  <view class='login' wx:if="{{unlogin}}">
+
+    <view class='login-box'>
+
+      <view class='login-title'>登录提示</view>
+
+      <view class='login-tip'>未登录不能正常使用,请先登录！</view>
+
+      <view class='login-btn'>
+        <button class='login-cancel' bindtap='cancelLogin'>取消</button>
+        <button class='login-submit'  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="submitLogin">登录</button>
+      </view>
+    </view>
+
+  </view>
   <view class='mask' wx:if="{{mask}}">
     <view class='mask-box'>
       <view class='mask-top'>洗车排队进度</view>
