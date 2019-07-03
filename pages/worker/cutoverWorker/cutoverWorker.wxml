@@ -1,21 +1,21 @@
 <view class="cutover">
   <view class='title'>选择技师</view>
   <view class='cutover-list'>
-    <view class='list-item' wx:for="{{[1,2,3,4]}}" wx:key="{{index}}">
+    <view class='list-item' wx:for="{{staffList}}" wx:key="{{index}}">
       <view class='left'>
-        <image src='https://pic.qqtn.com/up/2018-2/15192635184353132.jpg'></image>
-        <view class='show-comment' bindtap='showComment'>查看评价</view>
+        <image src="{{item.image_url==null?'../../../img/user-unlogin.png':item.image_url}}"></image>
+        <view class='show-comment' bindtap='showComment' data-commentid='{{index}}'>查看评价</view>
       </view>
       <view class='middle'>
         <view class='mid-top'>
-          <text class='worker-name'>刘德华</text>
+          <text class='worker-name'>{{item.name}}</text>
           <text class='worker-status'>洗车排队人数:2人</text>
           <text class='worker-time'>预计 8：00 交车</text>
         </view>
-        <view class='worker-lever'>资深技工</view>
-        <view style='margin-top:10rpx;margin-left:-5rpx;'><i-rate value="5" size="20"></i-rate></view>
+        <view class='worker-lever'>{{item.level==null?'高级技工':item.level}}</view>
+        <view style='margin-top:10rpx;margin-left:-5rpx;'><i-rate value="{{item.starLevel}}" size="20"></i-rate></view>
       </view>
-      <view class='right' bindtap='switchWorker'>
+      <view class='right' bindtap='switchWorker' data-commentid='{{index}}'>
       确认更换
       </view>
 

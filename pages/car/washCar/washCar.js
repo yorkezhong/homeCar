@@ -1,91 +1,118 @@
-import { serviceList} from "../../../pages/request.js"
+import {
+  serviceList,
+  staffList
+} from "../../../pages/request.js"
 Page({
   data: {
-    carIndex:null,
-    serverIndex:0,
-    detailItem:0,
-    timeIndex:0,
-    detailid:0,
-    mask:false,
-    shopServerList:[],
-    detailServerList:[]
+    carIndex: null,
+    serverIndex: 0,
+    detailItem: 0,
+    timeIndex: 0,
+    detailid: 0,
+    mask: false,
+    shopServerList: [],
+    detailServerList: [],
+    currStaff: [],
+    currtshop: {}
   },
-  onLoad(){
-    let storeId = wx.getStorageSync("currtshop").id;
-    let detailServerList=[];
-    serviceList({ storeId}).then((res)=>{
+  onLoad() {
+    let currtshop = wx.getStorageSync("currtshop");
+    this.setData({
+      currtshop: currtshop
+    })
+    let storeId = currtshop.id;
+    let detailServerList = [];
+    serviceList({
+      storeId
+    }).then((res) => {
       this.setData({
-        shopServerList:Object.keys(res.data)
+        shopServerList: Object.keys(res.data)
       })
-      let keyArry=Object.keys(res.data)
-      for (var i = 0; i < keyArry.length;i++){
+      let keyArry = Object.keys(res.data)
+      for (var i = 0; i < keyArry.length; i++) {
         detailServerList.push(res.data[keyArry[i]])
       }
       this.setData({
-        detailServerList:detailServerList
+        detailServerList: detailServerList
       })
+    });
+    staffList({
+      storeId
+    }).then((res) => {
+      if (Boolean(wx.getStorageSync("currtindex")) == true) {
+        this.setData({
+          currStaff: res.data[wx.getStorageSync("currtindex")]
+        })
+        console.log(wx.getStorageSync("currtindex"))
+      } else {
+        this.setData({
+          currStaff: res.data[0]
+        })
+      }
+    })
+
+
+  },
+  selectCar(e) {
+    this.setData({
+      carIndex: e.currentTarget.dataset.id
     })
   },
-  selectCar(e){
-  this.setData({
-    carIndex: e.currentTarget.dataset.id
-  })
-  },
-  selectServer(e){
+  selectServer(e) {
     this.setData({
       serverIndex: e.currentTarget.dataset.serverindex
     })
   },
-  selectDetail(e){
+  selectDetail(e) {
     this.setData({
       detailItem: e.currentTarget.dataset.detailindex
 
     })
   },
-  selectTime(e){
+  selectTime(e) {
     this.setData({
       timeIndex: e.currentTarget.dataset.selecttime
 
     })
   },
-  closeMask(){
+  closeMask() {
     this.setData({
-      mask:false
+      mask: false
     })
   },
-  goDetail(e){
+  goDetail(e) {
     this.setData({
       mask: true,
       detailid: e.currentTarget.dataset.detailid
     })
-    
+
   },
-  switchWorker(){
+  switchWorker() {
     wx.navigateTo({
       url: '../../worker/cutoverWorker/cutoverWorker',
     })
   },
-  addNewCar(){
+  addNewCar() {
     wx.navigateTo({
       url: '../addCar/addCar',
     })
   },
-  goPackage(){
+  goPackage() {
     wx.navigateTo({
       url: '../../my/buyPackage/buyPackage',
     })
   },
-  goRecharge(){
+  goRecharge() {
     wx.navigateTo({
       url: '../../my/recharge/recharge',
     })
   },
-  goCoupon(){
+  goCoupon() {
     wx.navigateTo({
       url: '../../my/coupon/coupon',
     })
   },
-  switchHome(){
+  switchHome() {
     wx.navigateTo({
       url: '../../home/switchShop/switchShop',
     })

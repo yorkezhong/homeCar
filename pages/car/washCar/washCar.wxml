@@ -4,16 +4,16 @@
       <view class='wash-top'>
         <view class='wash-info'>
           <view class='wash-shop'>
-            回家养车海岸城店
+            {{currtshop.name}}
           </view>
           <view class='wash-right' bindtap='switchHome'>
             <image src='../../../img/repeat_w.png'></image>
-            <text class='switch'>切换小区</text>
+            <text class='switch'>切换门店</text>
           </view>
         </view>
         <view class='shop-address'>
           <image src='../../../img/address_car_wash.png'></image>
-          <text class='address-info'>深圳市南山区天利中央广场d地下车库2楼l欧哦奋斗奋斗</text>
+          <text class='address-info'>{{currtshop.address}}</text>
         </view>
       </view>
 
@@ -95,16 +95,16 @@
       <view class='getworker'>
 
         <view class='worker-info'>
-          <image src='https://pic.qqtn.com/up/2018-2/15194353633920408.jpg'></image>
+          <image src="{{currStaff.image_url==null?'../../../img/user-unlogin.png':currStaff.image_url}}"></image>
           <view class='worker-name'>
             <view class='worker-top'>
-              <text>刘明明</text>
-              <i-rate value="5" size="18">
+              <text>{{currStaff.name}}</text>
+              <i-rate value="{{currStaff.starLevel}}" size="18">
               </i-rate>
             </view>
             <view class='worker-phone'>
               <image src='../../../img/phone.png'></image>
-              <text>1379641234</text>
+              <text>{{currStaff.name}}</text>
             </view>
           </view>
         </view>

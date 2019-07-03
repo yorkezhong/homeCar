@@ -15,17 +15,17 @@ Page({
     lineNum: 0,
     unlogin: false
   },
-  storeInfo(uid) {
+  storeInfo(storeId, token) {
     storeInfo({
-      uid
-    }).then((res) => {
+      storeId
+    }, token).then((res) => {
       console.log(res)
     })
   },
-  lineNum(storeId) {
+  lineNum(storeId, token) {
     lineNum({
       storeId
-    }).then((res) => {
+    }, token).then((res) => {
       this.setData({
         lineNum: res.data.sort
       })
@@ -36,31 +36,46 @@ Page({
     let latitude = wx.getStorageSync("latitude");
     let longitude = wx.getStorageSync("longitude");
     let currtshop = wx.getStorageSync("currtshop");
-    if (Boolean(currtshop) == true) {
-      this.setData({
-        currtshop: currtshop
-      })
-      this.storeInfo(currtshop.id)
-      this.lineNum(currtshop.id)
-    } else {
-      storeList({
-        lng: longitude,
-        lat: latitude,
-        page: 1,
-        limit: 10
-      }).then((res) => {
+    let token = wx.getStorageSync("userAuth").token;
+    if (Boolean(token) == true) {
+      if (Boolean(currtshop) == true) {
         this.setData({
-          currtshop: res.data.list[0]
+          currtshop: currtshop
         })
-        this.storeInfo(this.data.currtshop.id);
-        this.lineNum(this.data.currtshop.id)
-      })
+        this.storeInfo(currtshop.id, token)
+        this.lineNum(currtshop.id, token)
+      } else {
+        this.shopList(longitude, latitude, token)
+      }
     }
     that.getCity(latitude, longitude);
+  },
+  shopList(longitude, latitude, token) {
+    storeList({
+      lng: longitude,
+      lat: latitude,
+      page: 1,
+      limit: 10
+    }, token).then((res) => {
+      this.setData({
+        currtshop: res.data.list[0]
+      })
+      wx.setStorageSync("currtshop", res.data.list[0])
+      this.storeInfo(this.data.currtshop.id, token);
+      this.lineNum(this.data.currtshop.id, token)
+    })
   },
   onLoad() {
     let that = this;
     //轮播图
+    wx.checkSession({
+      success(res) {
+        //登录状态有效
+      },
+      fail(err) {
+        that.submitLogin()
+      }
+    })
     let userinfo = wx.getStorageSync("userinfo");
     if (Boolean(userinfo) == false) {
       that.setData({
@@ -73,55 +88,66 @@ Page({
         banner: res.data
       })
     })
-    getCarBands().then((res) => {
-      console.log(res)
-    })
   },
   submitLogin() {
     let that = this;
     wx.getUserInfo({
-        success: res => {
-          wx.setStorageSync("userinfo", res.userInfo);
-          wx.showTabBar();
-          this.setData({
-            unlogin: false
-          })
-          wx.login({
-            success(res) {
-              if (res.code) {
-                wx.request({
-                  url: 'http://120.78.53.79:8081/car-api/api/weixin/login',
-                  method: "POST",
-                  data: {
-                    code: res.code,
-                    userInfo: wx.getStorageInfoSync("userinfo")
-                  }
-                })
-              }
-            },
-            fail(err) {
-              wx.showToast({
-                title: '网络请求失败,请重试！',
+      success: res => {
+        wx.setStorageSync("userinfo", res.userInfo);
+        wx.showTabBar();
+        that.setData({
+          unlogin: false
+        })
+        wx.login({
+          success(res) {
+            if (res.code) {
+              wx.request({
+                url: 'http://120.78.53.79:8081/car-api/api/weixin/login',
+                method: "POST",
+                data: {
+                  code: res.code,
+                  userInfo: wx.getStorageInfoSync("userinfo")
+                },
+                success(res) {
+                  new Promise((resolve, reject) => {
+                    wx.setStorageSync("userAuth", {
+                      openid: res.data.data.openid,
+                      session_key: res.data.data.session_key,
+                      token: res.data.data.token
+                    })
+                    let token = res.data.data.token
+                    resolve({ token });
+                  }).then(({ token }) => {
+                    wx.getLocation({
+                      type: 'wgs84',
+                      success(res) {
+                        const latitude = res.latitude
+                        const longitude = res.longitude
+                        wx.setStorageSync("gps", {
+                          latitude,
+                          longitude
+                        })
+                        that.shopList(longitude, latitude, token)
+                        wx.setStorageSync("latitude", latitude);
+                        wx.setStorageSync("longitude", longitude);
+                        that.getCity(latitude, longitude);
+                      }
+                    })
+                  })
+
+
+                }
               })
             }
-          })
-        }
-      }),
-      wx.getLocation({
-        type: 'wgs84',
-        success(res) {
-          const latitude = res.latitude
-          const longitude = res.longitude
-          wx.setStorageSync("gps", {
-            latitude,
-            longitude
-          })
-          wx.setStorageSync("latitude", latitude);
-          wx.setStorageSync("longitude", longitude);
-          that.getCity(latitude, longitude);
-        }
-      })
-
+          },
+          fail(err) {
+            wx.showToast({
+              title: '网络请求失败,请重试！',
+            })
+          }
+        })
+      }
+    })
   },
   cancelLogin() {
     let that = this;
@@ -134,6 +160,7 @@ Page({
       })
     }, 2000)
   },
+
   showMask() {
     this.setData({
       mask: true
@@ -152,9 +179,9 @@ Page({
     wx.request({
       url: url,
       success(res) {
-        if (res.data.error){
-          return 
-        }else{
+        if (res.data.error) {
+          return
+        } else {
           let city = res.data.results[0].currentCity;
           let weather = res.data.results[0].weather_data[0].weather;
           let temp = parseInt(res.data.results[0].weather_data[0].temperature);
@@ -163,7 +190,7 @@ Page({
             weather: weather + " " + temp + "°"
           })
         }
-      
+
       }
     });
   },

@@ -1,8 +1,9 @@
 import ajax from "../utils/ajax.js"
+let token=wx.getStorageSync("userAuth").token;
 //查找所有的门店
-export function storeList(data) {
+export function storeList(data,token) {
   return new Promise((resolve, reject) => {
-    ajax.request("storeList","POST",data, function (res) {
+    ajax.request("storeList", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -13,7 +14,7 @@ export function storeList(data) {
 //当前门店
 export function storeInfo(data) {
   return new Promise((resolve, reject) => {
-    ajax.request("storeInfo", "POST", data, function (res) {
+    ajax.request("storeInfo", "POST", data, token,  function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -25,7 +26,7 @@ export function storeInfo(data) {
 export function banner(data) {
   data=data||{}
   return new Promise((resolve, reject) => {
-    ajax.request("banner", "POST", data, function (res) {
+    ajax.request("banner", "POST", data, "",  function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -34,10 +35,10 @@ export function banner(data) {
 }
 
 //排队人数
-export function lineNum(data) {
+export function lineNum(data,token) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("order/findNormarQueue", "GET", data, function (res) {
+    ajax.request("order/findNormarQueue", "GET", data, token,  function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -49,7 +50,7 @@ export function lineNum(data) {
 export function saveOrder(data) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("order/saveOrder", "POST", data, function (res) {
+    ajax.request("order/saveOrder", "POST", data, token,  function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -60,7 +61,7 @@ export function saveOrder(data) {
 export function orderList(data) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("order/list", "GET", data, function (res) {
+    ajax.request("order/list", "GET", data, token,  function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -71,7 +72,7 @@ export function orderList(data) {
 export function cancelOrder(data) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("order/cancelOrder", "POST", data, function (res) {
+    ajax.request("order/cancelOrder", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -82,7 +83,7 @@ export function cancelOrder(data) {
 export function commentOrder(data) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("order/commentOrder", "POST", data, function (res) {
+    ajax.request("order/commentOrder", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -94,7 +95,7 @@ export function commentOrder(data) {
 export function serviceList(data) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("store/service/list", "GET", data, function (res) {
+    ajax.request("store/service/list", "GET", data, token,  function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -106,7 +107,19 @@ export function serviceList(data) {
 export function staffList(data) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("staff/list", "GET", data, function (res) {
+    ajax.request("staff/list", "GET", data, token,  function (res) {
+      resolve(res);
+    }, function (err) {
+      reject(err);
+    })
+  })
+}
+
+//获取门店技师详情
+export function staffDetail(data) {
+  data = data || {}
+  return new Promise((resolve, reject) => {
+    ajax.request("staff/detail", "GET", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -118,7 +131,7 @@ export function staffList(data) {
 export function getCarBands(data) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("getCarBands", "POST", data, function (res) {
+    ajax.request("getCarBands", "POST", data, token,function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -130,7 +143,7 @@ export function getCarBands(data) {
 export function addCars(data) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("addCars", "POST", data, function (res) {
+    ajax.request("addCars", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -142,7 +155,7 @@ export function addCars(data) {
 export function myCars(data) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("myCars", "GET", data, function (res) {
+    ajax.request("myCars", "GET", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -154,7 +167,7 @@ export function myCars(data) {
 export function getDisplacement(data) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("getDisplacement", "POST", data, function (res) {
+    ajax.request("getDisplacement", "POST", data, token,  function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -166,7 +179,7 @@ export function getDisplacement(data) {
 export function deleteCar(data) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("deleteCar", "POST", data, function (res) {
+    ajax.request("deleteCar", "POST", data, token,  function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -178,7 +191,7 @@ export function deleteCar(data) {
 export function login_by_weixin(data) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("login_by_weixin", "POST", data, function (res) {
+    ajax.request("login_by_weixin", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);

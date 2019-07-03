@@ -4,7 +4,7 @@ import {
 Page({
   data: {
     city: "深圳市",
-    selectedIndex: 0,
+    selectedIndex: null,
     storeList: null
   },
   selectCity() {
@@ -15,14 +15,16 @@ Page({
   onShow() {
     let that = this;
     let latitude = wx.getStorageSync("latitude");
-    let longitude = wx.getStorageSync("longitude")
+    let longitude = wx.getStorageSync("longitude");
+    let token = wx.getStorageSync("userAuth").token
     //请求
     storeList({
       lng: longitude,
       lat: latitude,
       page: 1,
       limit: 10
-    }).then((res) => {
+    },token).then((res) => {
+      console.log(res)
       this.setData({
         storeList: res.data.list
       })

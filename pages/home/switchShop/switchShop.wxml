@@ -4,7 +4,7 @@
     <text class="cuIcon-unfold"></text>
   </view>
 
-  <view class='shop-list' wx:if="{{storeList.length==0}}">
+  <view class='shop-list' wx:if="{{storeList.length!=0}}">
     <view class='title'>门店选择</view>
     <view class='shop-name'>
     <block  wx:for="{{storeList}}" wx:key="{{index}}">
@@ -17,7 +17,7 @@
        
 
   </view>
-   <view class='empty' wx:if="{{storeList.length!=0}}">
+   <view class='empty' wx:if="{{storeList.length==0}}">
     <image src='../../../img/img_a.png'></image>
         <view class='emptyshop' >sorry，你所在的城市暂未开通门店！</view>
     </view>

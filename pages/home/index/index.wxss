@@ -325,12 +325,16 @@ page {
   align-items: center;
 }
 .login-btn button{
-  width: 200rpx;
-  height: 60rpx;
-  border-radius:8rpx;
-  line-height: 60rpx;
+  width: 50%;
+  height: 70rpx;
+  line-height: 70rpx;
   text-align: center; 
   font-size: 26rpx;
+  border-radius:0rpx; 
+
+}
+.login-btn button::after{
+  border-radius:0rpx; 
 }
 .login-cancel{
   background: rgb(255, 138, 82);

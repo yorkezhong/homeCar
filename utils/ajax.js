@@ -1,16 +1,15 @@
 const baseUrl = "http://120.78.53.79:8081/car-api/api/";
 const token = "";
 const ajax = {
-  request: function(action, method, data, successCb, errorCb) {
-
+  request: function(action, method, data,token, successCb, errorCb) {
+    token=token||""
     wx.request({
       url: baseUrl + action,
       method: method,
       data: data,
-      // header: {
-      //   'content-type': method == 'POST' ? 'application/json' : 'application/x-www-form-urlencoded',
-      //   'Authorization': 'token'
-      // },
+      header: {
+        'token': token
+      },
       success(res) {
         successCb(res.data)
       },
