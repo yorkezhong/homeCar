@@ -1,11 +1,19 @@
-
+import { myCars} from "../../../pages/request.js"
 Page({
   data: {
     
   },
+  onLoad(){
+    this.findAllCar();
+  },
   addNewCar(){
     wx.navigateTo({
       url: '../addCar/addCar',
+    })
+  },
+  findAllCar(){
+    myCars().then((res)=>{
+      console.log(res)
     })
   },
   delCar(){

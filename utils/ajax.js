@@ -1,4 +1,4 @@
-const baseUrl = "http://120.78.53.79:8081/car-api/api/";
+const baseUrl = "https://www.carwo.com.cn/car-api/api/";
 const token = "";
 const ajax = {
   request: function(action, method, data,token, successCb, errorCb) {

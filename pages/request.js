@@ -1,7 +1,6 @@
 import ajax from "../utils/ajax.js"
-let token=wx.getStorageSync("userAuth").token;
 //查找所有的门店
-export function storeList(data,token) {
+export function storeList(data, token) {
   return new Promise((resolve, reject) => {
     ajax.request("storeList", "POST", data, token, function (res) {
       resolve(res);
@@ -13,8 +12,9 @@ export function storeList(data,token) {
 
 //当前门店
 export function storeInfo(data) {
+  let token = wx.getStorageSync("userAuth").token;
   return new Promise((resolve, reject) => {
-    ajax.request("storeInfo", "POST", data, token,  function (res) {
+    ajax.request("storeInfo", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -24,9 +24,11 @@ export function storeInfo(data) {
 
 //轮播图
 export function banner(data) {
-  data=data||{}
+  data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+
   return new Promise((resolve, reject) => {
-    ajax.request("banner", "POST", data, "",  function (res) {
+    ajax.request("banner", "POST", data, "", function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -35,10 +37,10 @@ export function banner(data) {
 }
 
 //排队人数
-export function lineNum(data,token) {
+export function lineNum(data, token) {
   data = data || {}
   return new Promise((resolve, reject) => {
-    ajax.request("order/findNormarQueue", "GET", data, token,  function (res) {
+    ajax.request("order/findNormarQueue", "GET", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -49,8 +51,9 @@ export function lineNum(data,token) {
 //线上下单
 export function saveOrder(data) {
   data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
   return new Promise((resolve, reject) => {
-    ajax.request("order/saveOrder", "POST", data, token,  function (res) {
+    ajax.request("order/saveOrder", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -60,8 +63,9 @@ export function saveOrder(data) {
 //查询订单信息
 export function orderList(data) {
   data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
   return new Promise((resolve, reject) => {
-    ajax.request("order/list", "GET", data, token,  function (res) {
+    ajax.request("order/list", "GET", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -71,6 +75,7 @@ export function orderList(data) {
 //取消订单
 export function cancelOrder(data) {
   data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
   return new Promise((resolve, reject) => {
     ajax.request("order/cancelOrder", "POST", data, token, function (res) {
       resolve(res);
@@ -82,6 +87,8 @@ export function cancelOrder(data) {
 //订单评论
 export function commentOrder(data) {
   data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+
   return new Promise((resolve, reject) => {
     ajax.request("order/commentOrder", "POST", data, token, function (res) {
       resolve(res);
@@ -94,8 +101,10 @@ export function commentOrder(data) {
 //查询门店服务列表
 export function serviceList(data) {
   data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+
   return new Promise((resolve, reject) => {
-    ajax.request("store/service/list", "GET", data, token,  function (res) {
+    ajax.request("store/service/list", "GET", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -106,8 +115,10 @@ export function serviceList(data) {
 //获取门店技师列表
 export function staffList(data) {
   data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+
   return new Promise((resolve, reject) => {
-    ajax.request("staff/list", "GET", data, token,  function (res) {
+    ajax.request("staff/list", "GET", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -118,6 +129,8 @@ export function staffList(data) {
 //获取门店技师详情
 export function staffDetail(data) {
   data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+
   return new Promise((resolve, reject) => {
     ajax.request("staff/detail", "GET", data, token, function (res) {
       resolve(res);
@@ -130,8 +143,10 @@ export function staffDetail(data) {
 //汽车品牌
 export function getCarBands(data) {
   data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+
   return new Promise((resolve, reject) => {
-    ajax.request("getCarBands", "POST", data, token,function (res) {
+    ajax.request("getCarBands", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -142,6 +157,8 @@ export function getCarBands(data) {
 //增加我的车辆
 export function addCars(data) {
   data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+
   return new Promise((resolve, reject) => {
     ajax.request("addCars", "POST", data, token, function (res) {
       resolve(res);
@@ -154,8 +171,10 @@ export function addCars(data) {
 //我的车辆
 export function myCars(data) {
   data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+
   return new Promise((resolve, reject) => {
-    ajax.request("myCars", "GET", data, token, function (res) {
+    ajax.request("myCars", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -166,8 +185,10 @@ export function myCars(data) {
 //获取车辆所有规格
 export function getDisplacement(data) {
   data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+
   return new Promise((resolve, reject) => {
-    ajax.request("getDisplacement", "POST", data, token,  function (res) {
+    ajax.request("getDisplacement", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -178,8 +199,10 @@ export function getDisplacement(data) {
 //删除我的车辆
 export function deleteCar(data) {
   data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+
   return new Promise((resolve, reject) => {
-    ajax.request("deleteCar", "POST", data, token,  function (res) {
+    ajax.request("deleteCar", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -187,16 +210,5 @@ export function deleteCar(data) {
   })
 }
 
-//微信登录
-export function login_by_weixin(data) {
-  data = data || {}
-  return new Promise((resolve, reject) => {
-    ajax.request("login_by_weixin", "POST", data, token, function (res) {
-      resolve(res);
-    }, function (err) {
-      reject(err);
-    })
-  })
-}
 
 

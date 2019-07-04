@@ -102,7 +102,7 @@ Page({
           success(res) {
             if (res.code) {
               wx.request({
-                url: 'http://120.78.53.79:8081/car-api/api/weixin/login',
+                url: 'https://www.carwo.com.cn/car-api/api/weixin/login',
                 method: "POST",
                 data: {
                   code: res.code,

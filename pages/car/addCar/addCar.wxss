@@ -10,10 +10,13 @@ page{
   margin-bottom: 10rpx;
 }
 .car-type{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom:1rpx solid rgb(204, 204, 204) 
+ display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1rpx solid rgb(204, 204, 204);
+margin-bottom:50rpx;
+margin-top:28rpx;
+
 }
 .car-type image{
   width: 40rpx;
