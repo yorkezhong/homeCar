@@ -10,7 +10,24 @@ Page({
     city: "深圳市",
     weather: "多云 28℃",
     mask: false,
-    currtshop: null,
+    currtshop: {
+      "id": 1000001,
+      "name": "海岸城店",
+      "number": 10001,
+      "phone": "0755-12345678",
+      "startTime": "00:00",
+      "endTime": "24:00",
+      "province": 110000,
+      "city": 110200,
+      "area": 110200,
+      "address": "大厅",
+      "lat": 113.93549,
+      "lng": 22.51694,
+      "status": 1,
+      "createTime": 1555300462000,
+      "updateTime": 1554818336000,
+      "img": null
+    },
     banner: [],
     lineNum: 0,
     unlogin: false
@@ -223,6 +240,13 @@ Page({
   switchShop() {
     wx.navigateTo({
       url: '../switchShop/switchShop',
+    })
+  },
+  scanCode(){
+    wx.scanCode({
+      success(res) {
+        console.log(res)
+      }
     })
   }
 

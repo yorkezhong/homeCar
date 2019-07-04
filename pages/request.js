@@ -146,7 +146,7 @@ export function getCarBands(data) {
   let token = wx.getStorageSync("userAuth").token;
 
   return new Promise((resolve, reject) => {
-    ajax.request("getCarBands", "POST", data, token, function (res) {
+    ajax.request("car/brand/list", "GET", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -160,7 +160,7 @@ export function addCars(data) {
   let token = wx.getStorageSync("userAuth").token;
 
   return new Promise((resolve, reject) => {
-    ajax.request("addCars", "POST", data, token, function (res) {
+    ajax.request("car/save", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -174,13 +174,27 @@ export function myCars(data) {
   let token = wx.getStorageSync("userAuth").token;
 
   return new Promise((resolve, reject) => {
-    ajax.request("myCars", "POST", data, token, function (res) {
+    ajax.request("car/userCarList", "GET", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
     })
   })
 }
+//  根据车辆品牌id查询车辆列表
+export function getCarById(data) {
+  data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+
+  return new Promise((resolve, reject) => {
+    ajax.request("car/brand/findListByBrandId", "GET", data, token, function (res) {
+      resolve(res);
+    }, function (err) {
+      reject(err);
+    })
+  })
+}
+
 
 //获取车辆所有规格
 export function getDisplacement(data) {
@@ -200,9 +214,8 @@ export function getDisplacement(data) {
 export function deleteCar(data) {
   data = data || {}
   let token = wx.getStorageSync("userAuth").token;
-
   return new Promise((resolve, reject) => {
-    ajax.request("deleteCar", "POST", data, token, function (res) {
+    ajax.request("car/deleteUserCar", "POST", data, token, function (res) {
       resolve(res);
     }, function (err) {
       reject(err);
@@ -212,3 +225,43 @@ export function deleteCar(data) {
 
 
 
+//查询钥匙柜位置
+export function findKeyList(data) {
+  data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+  return new Promise((resolve, reject) => {
+    ajax.request("store/key/list", "GET", data, token, function (res) {
+      resolve(res);
+    }, function (err) {
+      reject(err);
+    })
+  })
+}
+
+
+//查询用户套餐卡列表
+export function userCardList(data) {
+  data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+  return new Promise((resolve, reject) => {
+    ajax.request("card/userCardList", "GET", data, token, function (res) {
+      resolve(res);
+    }, function (err) {
+      reject(err);
+    })
+  })
+}
+
+
+//查询用户优惠券信息
+export function userCouponList(data) {
+  data = data || {}
+  let token = wx.getStorageSync("userAuth").token;
+  return new Promise((resolve, reject) => {
+    ajax.request("coupon/userCouponList", "POST", data, token, function (res) {
+      resolve(res);
+    }, function (err) {
+      reject(err);
+    })
+  })
+}

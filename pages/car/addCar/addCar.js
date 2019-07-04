@@ -1,4 +1,4 @@
-import { addCars, getDisplacement} from "../../../pages/request.js"
+import { addCars, getDisplacement, getCarBands, getCarById} from "../../../pages/request.js"
 Page({
   data: {
     selectIndex:0,
@@ -6,17 +6,29 @@ Page({
     plateNumber: '' ,
   },
   onLoad(){
-    this.addCars("粤BK85464","奥迪","黑色","常规");
-    this.getDisplacement(1,10)
+    this.addCars("粤BK85464", 1, 197, "宝马","116i");
+    this.getDisplacement(1,10);
+    this.getCarBands();
+    this.getCarById(197);
   },
-  addCars(number, brand, color, carType){
-    addCars({ number, brand, color, carType}).then((res)=>{
+  getCarById(brandId){
+    getCarById({ brandId}).then((res)=>{
+       console.log(res)
+    })
+  },
+  addCars(carNumber, status, brandId, brandName, carModel){
+    addCars({ carNumber , status, brandId, brandName, carModel}).then((res)=>{
       console.log(res)
     })
   },
   getDisplacement(page, limit){
     getDisplacement({ page, limit}).then((res)=>{
           console.log(res)
+    })
+  },
+  getCarBands(){
+    getCarBands().then((res)=>{
+        console.log(res)
     })
   },
   selectType(e){

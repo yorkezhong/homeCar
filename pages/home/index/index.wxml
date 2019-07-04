@@ -9,6 +9,7 @@
         <text class='city-tem'>{{weather}}</text>
       </view>
     </view>
+    <text class='cuIcon-scan scan' bindtap='scanCode'></text>
   </view>
   <view class='banner'>
     <swiper autoplay="true" indicator-dots="true" indicator-color="#fff" indicator-active-color="#333">
@@ -33,7 +34,7 @@
   </view>
 
   <view class='service'>
-    <view class='service-item'>
+    <view class='service-item' bindtap='goWashCar'>
       <image src='../../../img/cosmetology.png' mode='aspectFit'></image>
       <text>美容</text>
     </view>

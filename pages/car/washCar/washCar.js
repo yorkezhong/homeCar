@@ -1,6 +1,10 @@
 import {
   serviceList,
-  staffList
+  staffList,
+  myCars,
+  saveOrder,
+  userCardList,
+  userCouponList
 } from "../../../pages/request.js"
 Page({
   data: {
@@ -15,8 +19,12 @@ Page({
     currStaff: [],
     currtshop: {}
   },
+
   onLoad() {
     let currtshop = wx.getStorageSync("currtshop");
+    this.saveOrder(1, "宝马", "869856a083064c2db95957435643526d", 1, 1000001, "a5f0e1218bd744aeb5d63d3e52d3096a", "刘德华", "13579607815", "多加辣少汤", "179", "i116", "粤B63675",[{ storeServiceId: "000346a382484b97bb422a689700a011", serviceTime: 20, price:188}],0)
+    this.userCardList(0, 1000001, "粤B56675","3b36f991e4f948a1b14afbb5ac5901da");
+    this.userCouponList("粤B98675", 1000001)
     this.setData({
       currtshop: currtshop
     })
@@ -50,8 +58,26 @@ Page({
         })
       }
     })
+  },
+  saveOrder(orderSource, carBrandName, conStaffId, orderType, storeId, userId
+    , userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard) {
+    saveOrder({
+      orderSource, carBrandName, conStaffId, orderType, storeId, userId
+      , userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard
+    }).then((res) => {
+      console.log(res)
 
-
+    })
+  },
+  userCardList(type, storeId, carNumber, serviceId){
+    userCardList({ type, storeId, carNumber, serviceId}).then((res)=>{
+               console.log(res)
+    })
+  },
+  userCouponList(carNumber, storeId){
+    userCouponList({ carNumber, storeId}).then((res)=>{
+        console.log(res)
+    })
   },
   selectCar(e) {
     this.setData({

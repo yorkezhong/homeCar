@@ -1,14 +1,20 @@
-import { myCars} from "../../../pages/request.js"
+import { myCars, deleteCar} from "../../../pages/request.js"
 Page({
   data: {
     
   },
   onLoad(){
     this.findAllCar();
+    this.deleteCar("a8d5633f-a3bf-473f-9a04-8fe37f4f53c9")
   },
   addNewCar(){
     wx.navigateTo({
       url: '../addCar/addCar',
+    })
+  },
+  deleteCar(carIds){
+    deleteCar({ carIds}).then((res)=>{
+   console.log(res)
     })
   },
   findAllCar(){
