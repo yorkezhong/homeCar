@@ -2,6 +2,5 @@
   "usingComponents": {
     "plate-number-keyboard":"../../../components/plate-number-keyboard/plate-number-keyboard"
   },
-  "navigationBarTitleText": "添加车辆",
-  "disableScroll": true
+  "navigationBarTitleText": "添加车辆"
 }

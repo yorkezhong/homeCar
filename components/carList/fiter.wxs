@@ -1,0 +1,14 @@
+var fiters = {
+  carname: function (name) {
+    name = name.split('-')[1];
+    return name
+  }
+}
+
+
+
+
+
+module.exports = {
+  carname: fiters.carname
+};

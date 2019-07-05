@@ -1,0 +1,6 @@
+<view class="selectCar">
+<view class='selectBrand'>
+<selectcar  data="{{city}}" binddetail="bindtap"></selectcar>
+</view>
+
+</view>

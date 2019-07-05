@@ -35,6 +35,8 @@ page{
 }
 
 .list-name {
+  display:flex;
+align-items:center;
   position: relative;
   font-size: 28rpx;
   padding: 30rpx;
@@ -145,6 +147,8 @@ page{
   font-size:30rpx;
   color:#333;
   position: static;
+display:flex;
+justify-content:center;
 
 }
 

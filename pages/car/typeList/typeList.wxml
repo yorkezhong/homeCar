@@ -1,0 +1,23 @@
+
+<view class="type">
+  <view class='car-box'>
+    <view class='car-title'>当前选择的车辆品牌</view>
+    <view class='car-item' bindtap='goBack'>
+      <image src='{{car.remoteLogo}}'></image>{{car.name}}</view>
+  </view>
+  <view class='list-search-box'>
+    <icon type="search" size="15" color="#ccc" />
+    <input placeholder-style="color:#ccc;font-size:30rpx;" placeholder="输入您要搜索的型号" bindinput='inputsearch' value="{{inputValue}}" />
+    <icon bindtap="clear" type="clear" size="15" color="#ccc" />
+  </view>
+  <view class='type-box' wx:if="{{typeList.length>0}}">
+    <view class='type-item' wx:for="{{typeList}}" wx:key="{{index}}" bindtap='selectType' data-type='{{item}}'>
+      <text>{{item}}</text>
+      <image src='../../../img/arrow_r.png'></image>
+    </view>
+  </view>
+
+
+  
+
+</view>

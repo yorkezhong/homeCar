@@ -1,30 +1,123 @@
 <view class="add">
-  <view class='add-box'>
-    <view class='car-type-title'>车型</view>
-    <view class='car-type'>
-      <view class='car-left'>
-        <image src='../../../img/car_me.png' style='float:left;margin-top:6rpx;margin-right:20rpx;'></image>
-        <input placeholder="品牌（如：奥迪/宝马）" class='carinput'></input>
-      </view>
-      <image src='../../../img/arrow_r.png'></image>
 
-    </view>
-    <view class='car-type'>
-      <view class='car-left'>
-        <image src='../../../img/car_me.png' style='float:left;margin-top:6rpx;margin-right:20rpx;'></image>
-        <input placeholder="规格（如：1.7L）" class='carinput'></input>
+  <view class='add-box' id='j_page'>
+    <view class='car-type-title'>添加车辆</view>
+    <view class="cu-form-group" bindtap='goselectCar'>
+      <view class="title" style='display:flex;align-items:center;'>品牌型号
+      <image src='{{carImg}}' wx:if="{{carImg!=''}}" style='width:50rpx;height:50rpx;margin:0rpx 10rpx'></image>
+        <text class='warn'>{{carBrand}}</text>
       </view>
-      <image src='../../../img/arrow_r.png'></image>
-
+      <text class='cuIcon-right'></text>
     </view>
-      <view class='car-type'>
-      <view class='car-left'>
-        <image src='../../../img/car_me.png' style='float:left;margin-top:6rpx;margin-right:20rpx;'></image>
-        <input placeholder="颜色（如：黑）" class='carinput'></input>
+     <view class='more-btn' bindtap='moreInput'wx:if="{{!more}}">
+     填写更多车辆资料，获取精细服务
+     </view>
+
+     <view class='more-input' wx:if="{{more}}">
+    <view class="cu-form-group">
+      <view class="title">车架号</view>
+      <input placeholder="选填"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">车排量</view>
+      <input placeholder="选填"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">进气形式</view>
+      <input placeholder="选填"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">
+        燃油类型</view>
+      <input placeholder="选填"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">
+        车型级别
       </view>
-      <image src='../../../img/arrow_r.png'></image>
-
+      <input placeholder="选填"></input>
     </view>
+    <view class="cu-form-group">
+      <view class="title">排放标准
+      </view>
+      <input placeholder="选填"></input>
+    </view>
+
+    <view class="cu-form-group">
+      <view class="title">年款
+      </view>
+      <input placeholder="选填"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">机油升数
+      </view>
+      <input placeholder="选填"></input>
+    </view>
+
+    <view class="cu-form-group">
+      <view class="title">车挡位
+      </view>
+      <input placeholder="选填"></input>
+    </view>
+
+    <view class="cu-form-group">
+      <view class="title">前轮胎
+      </view>
+      <input placeholder="选填"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">后轮胎
+      </view>
+      <input placeholder="选填"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">是否国产</view>
+      <switch></switch>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">
+        发动机号
+      </view>
+      <input placeholder="选填"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">
+        行驶公里数
+      </view>
+      <input placeholder="选填"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">
+        保养到期公里数
+      </view>
+      <input placeholder="选填"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">保险到期</view>
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">年审到期</view>
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">绿标到期</view>
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+</view>
+
     <view class='add-car-id-box'>
       <view class='add-car-title'>车牌号</view>
       <view class='add-listitem'>
@@ -39,7 +132,7 @@
         <view class='id-item' bindtap='handleFocus'>{{plateNumber[4]}}</view>
         <view class='id-item' bindtap='handleFocus'>{{plateNumber[5]}}</view>
       </view>
-       <view class='add-car-id'  wx:if="{{selectIndex==1}}">
+      <view class='add-car-id' wx:if="{{selectIndex==1}}">
         <view class='id-item' bindtap='handleFocus'>{{plateNumber[0]}}</view>
         <view class='id-item' bindtap='handleFocus'>{{plateNumber[1]}}</view>
         <view class='id-item' bindtap='handleFocus'>{{plateNumber[2]}}</view>
@@ -52,13 +145,15 @@
       </view>
 
 
-      <view class='submit-add' bindtap='submitAdd'>提交</view>
+      <view class='submit-add' bindtap='submitAdd'>提交保存</view>
 
 
     </view>
 
 
   </view>
+  <view class='keyboard' style='hight:250px;margin-top:100rpx;'>
+  <plate-number-keyboard show="{{showKeyboard}}" bind:getResult="setNumber" initValue="{{plateNumber}}"></plate-number-keyboard>
+  </view>
 </view>
 
-<plate-number-keyboard show="{{showKeyboard}}" bind:getResult="setNumber" initValue="{{plateNumber}}"></plate-number-keyboard>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "selectcar":"../../../components/carList/carList"
+  },
+  "navigationBarTitleText": "选择品牌"
+}

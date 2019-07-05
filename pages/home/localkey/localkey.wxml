@@ -1,17 +1,19 @@
 <view class="key">
-  <view class='key-list' >
-    <view class='key-list-item' wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+  <view class='key-list' wx:if="{{keyList.length!=0}}">
+    <view class='key-list-item' wx:for="{{keyList}}" wx:key="{{index}}">
       <view class='ket-img'>
-        <image src='../../../img/cosmetology.png'></image>
+        <image src="{{item.picture==null?'../../../img/cosmetology.png':item.picture}}"></image>
       </view>
       <view class='key-info'>
-        <text class='key-title'>{{index+1}}号钥匙柜</text>
-        <text class='key-local'>海岸城一楼大厅西北角</text>
-        <view class='key-base'>20个空位,已存10个，剩余
-          <text class='key-num'>10</text>个</view>
+        <text class='key-title'>{{item.name}}</text>
+        <text class='key-local'>{{item.address}}</text>
+        <view class='key-base'>{{item.detail.total}}个空位,已存{{item.detail.use}}个，剩余
+          <text class='key-num'>{{(item.detail.total)-(item.detail.use)}}</text>个</view>
 
 
       </view>
     </view>
   </view>
+
+  <view class='key-empty'>sorry，钥匙柜列表暂时为空！</view>
 </view>

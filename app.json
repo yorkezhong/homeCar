@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/home/index/index",
+    "pages/car/carList/carList",
+    "pages/city/city",
     "pages/my/applyMoney/applyMoney",
     "pages/car/addCar/addCar",
     "pages/my/rechargeSucc/rechargeSucc",
@@ -22,7 +24,6 @@
     "pages/worker/index/index",
     "pages/my/recharge/recharge",
     "pages/my/coupon/coupon",
-    "pages/city/city",
     "pages/car/index/index",
     "pages/order/index/index",
     "pages/my/index/index",
@@ -30,7 +31,8 @@
     "pages/order/comment/success/success",
     "pages/car/comeShop/comeShop",
     "pages/order/refund/refund",
-    "pages/home/localkey/localkey"
+    "pages/home/localkey/localkey",
+    "pages/car/typeList/typeList"
   ],
   "permission": {
     "scope.userLocation": {

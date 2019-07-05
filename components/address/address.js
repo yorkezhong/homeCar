@@ -52,6 +52,7 @@ Component({
     // 数据重新渲染
     resetRight(data) {
       let rightArr = []
+      console.log(data)
       for (let i in data) {
         rightArr.push(data[i].title.substr(0, 1));
       }

@@ -2,14 +2,15 @@ import { findKeyList} from "../../../pages/request.js"
 Page({
 
   data: {
-    
+    keyList:[]
   },
   onLoad(){
-    this.findKeyList("10001")
+    let storeid = wx.getStorageSync("currtshop").id;
+    this.findKeyList(storeid)
   },
   findKeyList(storeId){
     findKeyList({ storeId}).then((res)=>{
-         console.log(res)
+        keyList:res.data
     })
   }
 
