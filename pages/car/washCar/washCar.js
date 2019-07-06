@@ -9,6 +9,7 @@ import {
 Page({
   data: {
     carIndex: null,
+    userCarList: [],
     serverIndex: 0,
     detailItem: 0,
     timeIndex: 0,
@@ -17,14 +18,21 @@ Page({
     shopServerList: [],
     detailServerList: [],
     currStaff: [],
-    currtshop: {}
+    currtshop: {},
+    selectCarInfo: {},
+    userName: "",
+    mobile: "",
+    remark: "",
+    cuurtDetail: {},
+    sumMoreny: 0,
+    userCardList:[],
+    userCouponList: [],
+    rechargeCarList: [],
   },
 
   onLoad() {
     let currtshop = wx.getStorageSync("currtshop");
-    this.saveOrder(1, "宝马", "869856a083064c2db95957435643526d", 1, 1000001, "a5f0e1218bd744aeb5d63d3e52d3096a", "刘德华", "13579607815", "多加辣少汤", "179", "i116", "粤B63675",[{ storeServiceId: "000346a382484b97bb422a689700a011", serviceTime: 20, price:188}],0)
-    this.userCardList(0, 1000001, "粤B56675","3b36f991e4f948a1b14afbb5ac5901da");
-    this.userCouponList("粤B98675", 1000001)
+    this.findAllCar();
     this.setData({
       currtshop: currtshop
     })
@@ -33,16 +41,25 @@ Page({
     serviceList({
       storeId
     }).then((res) => {
-      this.setData({
-        shopServerList: Object.keys(res.data)
-      })
-      let keyArry = Object.keys(res.data)
-      for (var i = 0; i < keyArry.length; i++) {
-        detailServerList.push(res.data[keyArry[i]])
+      if (JSON.stringify(res.data) == "{}") {
+        console.log("没有服务数据")
+      } else {
+        this.setData({
+          shopServerList: Object.keys(res.data)
+        })
+        let keyArry = Object.keys(res.data);
+        for (var i = 0; i < keyArry.length; i++) {
+          detailServerList.push(res.data[keyArry[i]])
+        }
+        this.setData({
+          detailServerList: detailServerList,
+          detailItem: res.data[keyArry[0]][0].id,
+          cuurtDetail: res.data[keyArry[0]][0],
+          sumMoreny: res.data[keyArry[0]][0].price
+
+        })
       }
-      this.setData({
-        detailServerList: detailServerList
-      })
+
     });
     staffList({
       storeId
@@ -52,6 +69,8 @@ Page({
           currStaff: res.data[wx.getStorageSync("currtindex")]
         })
         console.log(wx.getStorageSync("currtindex"))
+      } else if (res.data.length == 0) {
+        console.log("没有员工数据")
       } else {
         this.setData({
           currStaff: res.data[0]
@@ -59,30 +78,112 @@ Page({
       }
     })
   },
-  saveOrder(orderSource, carBrandName, conStaffId, orderType, storeId, userId
-    , userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard) {
+  saveOrder(orderSource, carBrandName, conStaffId, orderType, storeId, userId, userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard) {
     saveOrder({
-      orderSource, carBrandName, conStaffId, orderType, storeId, userId
-      , userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard
+      orderSource,
+      carBrandName,
+      conStaffId,
+      orderType,
+      storeId,
+      userId,
+      userName,
+      mobile,
+      remark,
+      carBrandId,
+      carModel,
+      carNumber,
+      detail,
+      hasCard,
+      detail
     }).then((res) => {
-      console.log(res)
-
+      if (res.code == 200) {
+        wx.showToast({
+          title: '保存订单成功',
+        })
+      } else {
+        wx.showToast({
+          title: '保存订单失败',
+        })
+      }
     })
   },
-  userCardList(type, storeId, carNumber, serviceId){
-    userCardList({ type, storeId, carNumber, serviceId}).then((res)=>{
-               console.log(res)
+  findAllCar() {
+    myCars().then((res) => {
+      this.setData({
+        userCarList: res.data,
+        carIndex: res.data[0].id
+      })
     })
   },
-  userCouponList(carNumber, storeId){
-    userCouponList({ carNumber, storeId}).then((res)=>{
-        console.log(res)
+  userCardList(type, storeId, carNumber, serviceId) {
+    userCardList({
+      type,
+      storeId,
+      carNumber,
+      serviceId
+    }).then((res) => {
+     if(type==0){
+       this.setData({
+         rechargeCarList:res.data
+       })
+     }else{
+       this.setData({
+         userCardList: res.data
+       })
+     }
     })
+  },
+  userCouponList(carNumber, storeId) {
+    userCouponList({
+      carNumber,
+      storeId
+    }).then((res) => {
+      this.setData({
+        userCouponList:res.data
+      })
+    })
+  },
+  //保存订单
+  submitApply() {
+    let {
+      shopServerList,
+      detailServerList,
+      currStaff,
+      currtshop,
+      selectCarInfo,
+      userName,
+      mobile,
+      remark,
+      timeIndex,
+      cuurtDetail
+    } = this.data;
+    let that = this;
+    if (userName == "" || mobile == "") {
+      wx.showModal({
+        title: '提示',
+        content: '请填写姓名或手机号',
+      })
+    } else {
+      that.saveOrder(2, selectCarInfo.brandName, currStaff.id, timeIndex, currtshop.id, userName, mobile, remark, selectCarInfo.id, selectCarInfo.carModel, selectCarInfo.number, {
+        storeServiceId: cuurtDetail.id,
+        serviceTime: cuurtDetail.serviceTime,
+        price: cuurtDetail.price
+      }, 0)
+    }
   },
   selectCar(e) {
+    let {
+      currtshop,
+      cuurtDetail
+    } = this.data
     this.setData({
-      carIndex: e.currentTarget.dataset.id
+      carIndex: e.currentTarget.dataset.id.id,
+      selectCarInfo: e.currentTarget.dataset.id
     })
+    this.userCouponList(e.currentTarget.dataset.id.id, currtshop.id);
+    this.userCardList(1, currtshop.id, e.currentTarget.dataset.id.number, cuurtDetail.id)
+    this.userCardList(0, currtshop.id, e.currentTarget.dataset.id.number, cuurtDetail.id)
+
   },
   selectServer(e) {
     this.setData({
@@ -90,10 +191,21 @@ Page({
     })
   },
   selectDetail(e) {
+    let {
+      currtshop,
+      selectCarInfo
+    } = this.data
     this.setData({
-      detailItem: e.currentTarget.dataset.detailindex
-
+      detailItem: e.currentTarget.dataset.detailindex.id,
+      cuurtDetail: e.currentTarget.dataset.detailindex,
+      sumMoreny: e.currentTarget.dataset.detailindex.price
     })
+
+    this.userCardList(1, currtshop.id, selectCarInfo.number, e.currentTarget.dataset.detailindex.id)
+    this.userCardList(0, currtshop.id, selectCarInfo.number, e.currentTarget.dataset.detailindex.id)
+
+
+
   },
   selectTime(e) {
     this.setData({
@@ -155,5 +267,20 @@ Page({
       }
     })
 
-  }
+  },
+  userName(e) {
+    this.setData({
+      userName: e.detail.value
+    })
+  },
+  mobile(e) {
+    this.setData({
+      mobile: e.detail.value
+    })
+  },
+  remark(e) {
+    this.setData({
+      remark: e.detail.value
+    })
+  },
 })

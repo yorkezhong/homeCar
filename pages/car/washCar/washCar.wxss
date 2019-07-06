@@ -78,6 +78,8 @@ page {
   color: #333;
   font-weight: 400;
   margin-bottom: 30rpx;
+  display: flex;
+  justify-content: space-between;
 }
 
 .my-car-list {
@@ -97,13 +99,15 @@ page {
   margin-right: 48rpx;
   position: relative;
 }
-.del{
-  position:absolute;
-right:-16rpx;
-top:-30rpx;
-font-size:35rpx;
-color: #333 !important;
+
+.del {
+  position: absolute;
+  right: -16rpx;
+  top: -30rpx;
+  font-size: 35rpx;
+  color: #333 !important;
 }
+
 .add-car {
   width: 200rpx;
   height: 60rpx;
@@ -155,8 +159,8 @@ color: #333 !important;
   color: rgb(102, 102, 102);
   width: 120rpx;
   height: 60rpx;
- align-items: center; 
- justify-content: center;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   border: 1rpx solid rgb(204, 204, 204);
 }
@@ -442,7 +446,7 @@ color: #333 !important;
   line-height: 120rpx;
   text-align: center;
   background: rgb(10, 130, 254);
-  border-radius:8rpx 8rpx 0 0rpx; 
+  border-radius: 8rpx 8rpx 0 0rpx;
 }
 
 .mask-detail {
@@ -465,7 +469,7 @@ color: #333 !important;
 .mask-info {
   font-size: 24rpx;
   color: rgb(102, 102, 102);
-  margin-top:10rpx;
+  margin-top: 10rpx;
   line-height: 40rpx;
 }
 
@@ -478,4 +482,53 @@ color: #333 !important;
 .close image {
   width: 80rpx;
   height: 80rpx;
+}
+
+.car-id {
+  border: 1rpx solid rgb(10, 138, 245);
+  width: 180rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: #333;
+  margin-left: 27rpx;
+  position: relative;
+  border-radius: 8rpx;
+  display: inline-block;
+  margin: 20rpx;
+}
+
+.car-id image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 5rpx;
+}
+
+.del {
+  position: absolute;
+  right: -12rpx;
+  top: -25rpx;
+  font-size: 35rpx;
+  color: #333 !important;
+}
+
+.scroll_box {
+  width: 100%;
+  white-space: nowrap;
+  margin-left: -16rpx;
+}
+.carSelect{
+  background:rgb(10, 138, 245) !important;
+color:#fff  !important;
+}
+
+.hidden-Data{
+  font-size: 36rpx;
+  color: rgb(102, 102, 102);
+  text-align: center;
+  margin-top: 150rpx;
+}
+.canuse{
+  color: rgb(10, 138, 245) !important;
 }

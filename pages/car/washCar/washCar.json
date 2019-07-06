@@ -2,5 +2,5 @@
   "usingComponents": {
     "i-rate": "../../../components/rate/index"
   },
-  "navigationBarTitleText": "洗车"
+  "navigationBarTitleText": "下订单"
 }

@@ -248,6 +248,11 @@ Page({
         console.log(res)
       }
     })
+  },
+  goOderDetail(){
+    wx.navigateTo({
+      url: '../../order/detail/detail',
+    })
   }
 
 

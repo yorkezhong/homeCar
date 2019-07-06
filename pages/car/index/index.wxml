@@ -2,13 +2,23 @@
   <view class='car-top'>
     我的车辆
   </view>
-  <view class='car-info'>
-    <text class='car-name'>车牌</text>
-    <view class='car-id'>
-      粤BK3A12
-      <text class='cuIcon-roundclose del' bindtap='delCar'></text>
-    </view>
+  <view class="scroll_box">
+    <scroll-view class="scroll-view_x" scroll-x="true" style=" white-space: nowrap; display: flex;">
+   <block wx:for="{{userCarList}}" wx:key="{{index}}">
+      <view class="car-id {{carIndex==index?'carSelect':''}}" bindtap='selectCar'  data-id='{{index}}'>
+        <view style='display:flex;align-items:center;justify-content:center;'>
+          <image src="{{item.remoteLogo==null?'https://img3.tuhu.org/Images/Logo/aerfa%C2%B7luomiou.png':item.remoteLogo}}"></image>
+          <text>{{item.number==null?'暂无':item.number}}</text>
+        </view>
+        <text class='cuIcon-roundclose del' bindtap='delCar' data-carid='{{item.id}}'></text>
+      </view>
+</block>
+    </scroll-view>
   </view>
+
+
+
+
   <text class='add-car' bindtap='addNewCar'>添加新车</text>
   <view class='car-status'>
     <view class='car-point'>

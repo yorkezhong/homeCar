@@ -18,127 +18,159 @@
       </view>
 
       <view class='my-car'>
-        <view class='my-car-title'>我的车辆</view>
-        <view class='my-car-list'>
-          <block wx:for="{{[1,2]}}" wx:key="{{index}}">
-            <view class="list-item {{carIndex==index?'selectCar':''}}" data-id='{{index}}' bindtap='selectCar'>
-              粤BK45A1
-      <text class='cuIcon-roundclose del' bindtap='delCar'></text>
-            </view>
-          </block>
-          <view class='add-car' bindtap='addNewCar'>
-            <image src='../../../img/add_car.png'></image>
-          </view>
+        <view class='my-car-title'>
+          <text>我的车辆</text>
+          <text style='color:rgb(10,138,245)' bindtap='addNewCar'>增加车辆</text>
+        </view>
+        <view class="scroll_box">
+          <scroll-view class="scroll-view_x" scroll-x="true" style=" white-space: nowrap; display: flex;">
+            <block wx:for="{{userCarList}}" wx:key="{{index}}">
+              <view class="car-id  {{carIndex==item.id?'carSelect':''}}" bindtap='selectCar' data-id='{{item}}'>
+                <view style='display:flex;align-items:center;justify-content:center;'>
+                  <image src="{{item.remoteLogo==null?'https://img3.tuhu.org/Images/Logo/aerfa%C2%B7luomiou.png':item.remoteLogo}}"></image>
+                  <text>{{item.number==null?'暂无':item.number}}</text>
+                </view>
+                <text class='cuIcon-roundclose del' bindtap='delCar' data-carid='{{item.id}}'></text>
+              </view>
+            </block>
+
+          </scroll-view>
         </view>
 
       </view>
 
       <view class='hr'></view>
 
-      <view class='wash-box'>
-        <view class='wash-item'>洗车</view>
+      <view class='datashow' wx:if="{{shopServerList.length!=0}}">
+        <view class='wash-box'>
+          <view class='wash-item'>洗车</view>
 
-        <view class='wash-car-box'>
-          <view class='wash-box-list'>
-          <block wx:for="{{shopServerList}}" wx:key="{{index}}">
-            <text style="border-bottom:none;{{shopServerList.length>2?'height:60rpx':'height:100rpx'}}" data-serverIndex='{{index}}' bindtap='selectServer' 
-            class="{{serverIndex==index?'selectItem':''}}">{{item}}</text>
-            </block>
+          <view class='wash-car-box'>
+            <view class='wash-box-list'>
+              <block wx:for="{{shopServerList}}" wx:key="{{index}}">
+                <text style="border-bottom:none;{{shopServerList.length>2?'height:60rpx':'height:100rpx'}}" data-serverIndex='{{index}}' bindtap='selectServer' class="{{serverIndex==index?'selectItem':''}}">{{item}}</text>
+              </block>
+            </view>
+            <view class='wash-car-detail'>
+              <block wx:for="{{detailServerList[serverIndex]}}" wx:key="{{index}}">
+                <view class='detail-item'>
+                  <text class="{{detailItem==item.id?'selectdeatil':''}}" data-detailindex='{{item}}' bindtap='selectDetail'>{{item.catalogDetailName}}</text>
+                  <view class='detail-footer'>
+                    <text class='yuan'>￥</text>
+                    <text class='pay-num'>{{item.price}}</text>
+                    <text class='link-detail' bindtap='goDetail' data-detailid='{{index}}'>详情</text>
+                  </view>
+                </view>
+              </block>
+
+
+            </view>
+
+
           </view>
-          <view class='wash-car-detail'>
-          <block wx:for="{{detailServerList[serverIndex]}}" wx:key="{{index}}">
-            <view class='detail-item'>
-              <text class="{{detailItem==index?'selectdeatil':''}}" data-detailindex='{{index}}' bindtap='selectDetail'>{{item.catalogDetailName}}</text>
-              <view class='detail-footer'>
-                <text class='yuan'>￥</text>
-                <text class='pay-num'>{{item.price}}</text>
-                <text class='link-detail' bindtap='goDetail' data-detailid='{{index}}'>详情</text>
+
+
+
+
+        </view>
+
+        <view class='getcar'>
+          <view class='getcar-title'>接车时间</view>
+
+          <view class='getcar-list'>
+            <view class='getcar-box' data-selecttime='0' bindtap='selectTime'>
+              <view class="getcar-item {{timeIndex==0?'selectTime':''}}">到店服务</view>
+              <view class='getcar-tip' wx:if="{{timeIndex==0}}">前面等待6位</view>
+            </view>
+            <view class='getcar-box' data-selecttime='1' bindtap='selectTime'>
+              <view class="getcar-item {{timeIndex==1?'selectTime':''}}">夜洗晨取</view>
+              <view class='getcar-tip' wx:if="{{timeIndex==1}}">前面等待6位</view>
+
+
+            </view>
+            <view class='getcar-box' data-selecttime='2' bindtap='selectTime'>
+              <view class="getcar-item {{timeIndex==2?'selectTime':''}}">上门自取</view>
+              <view class='getcar-tip' wx:if="{{timeIndex==2}}">前面等待6位</view>
+
+            </view>
+
+          </view>
+
+        </view>
+        <view class='worker-title'>技师</view>
+        <view class='getworker'>
+
+          <view class='worker-info'>
+            <image src="{{currStaff.image_url==null?'../../../img/user-unlogin.png':currStaff.image_url}}"></image>
+            <view class='worker-name'>
+              <view class='worker-top'>
+                <text>{{currStaff.name}}</text>
+                <i-rate value="{{currStaff.starLevel}}" size="18">
+                </i-rate>
+              </view>
+              <view class='worker-phone'>
+                <image src='../../../img/phone.png'></image>
+                <text>{{currStaff.name}}</text>
               </view>
             </view>
-            </block>
-          
-
           </view>
-
-
-        </view>
-
-
-
-
-      </view>
-
-      <view class='getcar'>
-        <view class='getcar-title'>接车时间</view>
-
-        <view class='getcar-list'>
-          <view class='getcar-box' data-selecttime='0' bindtap='selectTime'>
-            <view class="getcar-item {{timeIndex==0?'selectTime':''}}">到店服务</view>
-            <view class='getcar-tip' wx:if="{{timeIndex==0}}">前面等待6位</view>
-          </view>
-          <view class='getcar-box' data-selecttime='1' bindtap='selectTime'>
-            <view class="getcar-item {{timeIndex==1?'selectTime':''}}">夜洗晨取</view>
-            <view class='getcar-tip' wx:if="{{timeIndex==1}}">前面等待6位</view>
-
-
-          </view>
-          <view class='getcar-box' data-selecttime='2' bindtap='selectTime'>
-            <view class="getcar-item {{timeIndex==2?'selectTime':''}}">上门自取</view>
-            <view class='getcar-tip' wx:if="{{timeIndex==2}}">前面等待6位</view>
-
+          <view class='switch-worker' bindtap='switchWorker'>
+            <image src='../../../img/repeat.png'></image>
+            <text>切换技师</text>
           </view>
 
         </view>
-
-      </view>
-      <view class='worker-title'>技师</view>
-      <view class='getworker'>
-
-        <view class='worker-info'>
-          <image src="{{currStaff.image_url==null?'../../../img/user-unlogin.png':currStaff.image_url}}"></image>
-          <view class='worker-name'>
-            <view class='worker-top'>
-              <text>{{currStaff.name}}</text>
-              <i-rate value="{{currStaff.starLevel}}" size="18">
-              </i-rate>
+        <view class="cu-form-group margin-top">
+          <view class="title">提车人姓名</view>
+          <input placeholder="必填" value='{{userName}}' bindinput="userName"></input>
+        </view>
+        <view class="cu-form-group">
+          <view class="title">手机号码</view>
+          <input placeholder="必填" value='{{mobile}}' bindinput="mobile"></input>
+          <view class="cu-capsule radius">
+            <view class="cu-tag bg-blue">
+              +86
             </view>
-            <view class='worker-phone'>
-              <image src='../../../img/phone.png'></image>
-              <text>{{currStaff.name}}</text>
+            <view class="cu-tag line-blue">
+              中国大陆
             </view>
           </view>
         </view>
-        <view class='switch-worker' bindtap='switchWorker'>
-          <image src='../../../img/repeat.png'></image>
-          <text>切换技师</text>
+        <view class="cu-form-group">
+          <textarea maxlength="-1" bindinput="remark" placeholder="订单备注(给技师留言，获取更多服务)" value='{{remark}}'></textarea>
         </view>
+        <view class='hr'></view>
 
+        <view class='settlement'>
+          <view class='settlement-item'>
+            <view class='settlement-item-name'>套餐卡</view>
+            <view class='settlement-item-info' bindtap='goPackage'>
+              <text class="{{userCardList.length==0?'':'canuse'}}">{{userCardList.length==0?'购买套餐卡折上折':'剩余'+userCardList[0].total+'次'}}</text>
+              <image src='../../../img/arrow_r.png'></image>
+            </view>
+          </view>
+          <view class='settlement-item'>
+            <view class='settlement-item-name'>充值卡</view>
+            <view class='settlement-item-info' bindtap='goRecharge'>
+              <text class="{{rechargeCarList.length==0?'':'canuse'}}"> {{rechargeCarList.length==0?'充1000送200':'剩余'+rechargeCarList[0].total+'次'}}</text>
+              <image src='../../../img/arrow_r.png'></image>
+            </view>
+          </view>
+          <view class='settlement-item'>
+            <view class='settlement-item-name'>优惠券</view>
+            <view class='settlement-item-info' bindtap='goCoupon'>
+              <text class="{{userCardList.length==0?'':'canuse'}}">{{userCardList.length==0?'暂无优惠券':'优惠券ID'+userCouponList[0].couponId}}</text>
+              <image src='../../../img/arrow_r.png'></image>
+            </view>
+          </view>
+
+        </view>
       </view>
-      <view class='hr'></view>
 
-      <view class='settlement'>
-        <view class='settlement-item' >
-          <view class='settlement-item-name'>套餐卡</view>
-          <view class='settlement-item-info'  bindtap='goPackage'>购买套餐卡折上折
-            <image src='../../../img/arrow_r.png'></image>
-          </view>
-        </view>
-        <view class='settlement-item'  >
-          <view class='settlement-item-name'>充值卡</view>
-          <view class='settlement-item-info' bindtap='goRecharge'>充1000送200
-            <image src='../../../img/arrow_r.png'></image>
-          </view>
-        </view>
-        <view class='settlement-item'  >
-          <view class='settlement-item-name'>优惠券</view>
-          <view class='settlement-item-info' bindtap='goCoupon'>暂无可用优惠券
-            <image src='../../../img/arrow_r.png'></image>
-          </view>
-        </view>
 
+      <view class='hidden-Data' wx:if="{{shopServerList.length==0}}">
+        sorry,当前门店暂时无任何服务!
       </view>
-
-
 
     </scroll-view>
   </view>
@@ -171,8 +203,8 @@
 
   <view class='footer'>
     <view class='footer-all' bindtap='allSelected'>
-      <text class='yuan' style='font-size:30rpx'>￥</text>68.8</view>
-    <view class='footer-submit' bindtap='submitApply'>微信支付</view>
+      <text class='yuan' style='font-size:30rpx'>￥</text>{{sumMoreny}}</view>
+    <view class='footer-submit' bindtap='submitApply'>保存订单</view>
   </view>
 
 </view>

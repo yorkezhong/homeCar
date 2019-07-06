@@ -1,6 +1,6 @@
 <view class="cutover">
   <view class='title'>选择技师</view>
-  <view class='cutover-list'>
+  <view class='cutover-list' wx:if="{{staffList.length!=0}}">
     <view class='list-item' wx:for="{{staffList}}" wx:key="{{index}}">
       <view class='left'>
         <image src="{{item.image_url==null?'../../../img/user-unlogin.png':item.image_url}}"></image>
@@ -21,5 +21,8 @@
 
     </view>
 
+  </view>
+  <view class='empty-worker'  wx:if="{{staffList.length==0}}">
+  sorry，当前门店暂无技师选择！
   </view>
 </view>

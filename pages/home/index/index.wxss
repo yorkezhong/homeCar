@@ -376,6 +376,6 @@ align-items:center;
   justify-content: center;
   position: absolute;
   right: 10rpx;
-  top:-30rpx;
+  top:-50rpx;
 
 }

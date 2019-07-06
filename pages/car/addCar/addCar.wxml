@@ -16,103 +16,103 @@
      <view class='more-input' wx:if="{{more}}">
     <view class="cu-form-group">
       <view class="title">车架号</view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{frameNo}}" bindinput='frameNo'></input>
     </view>
     <view class="cu-form-group">
       <view class="title">车排量</view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{displacement}}" bindinput='displacement'></input>
     </view>
     <view class="cu-form-group">
       <view class="title">进气形式</view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{intakeForm}}" bindinput='intakeForm'></input>
     </view>
     <view class="cu-form-group">
       <view class="title">
         燃油类型</view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{fuelType}}" bindinput='fuelType'></input>
     </view>
     <view class="cu-form-group">
       <view class="title">
         车型级别
       </view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{vehicleGrade}}" bindinput='vehicleGrade'></input>
     </view>
     <view class="cu-form-group">
       <view class="title">排放标准
       </view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{dischargeStandard}}" bindinput='dischargeStandard'></input>
     </view>
 
     <view class="cu-form-group">
       <view class="title">年款
       </view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{issueYear}}" bindinput='issueYear'></input>
     </view>
     <view class="cu-form-group">
       <view class="title">机油升数
       </view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{oilLift}}" bindinput='oilLift'></input>
     </view>
 
     <view class="cu-form-group">
       <view class="title">车挡位
       </view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{gear}}" bindinput='gear'></input>
     </view>
 
     <view class="cu-form-group">
       <view class="title">前轮胎
       </view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{frontTire}}" bindinput='frontTire'></input>
     </view>
     <view class="cu-form-group">
       <view class="title">后轮胎
       </view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{backTire}}" bindinput='backTire'></input>
     </view>
     <view class="cu-form-group">
       <view class="title">是否国产</view>
-      <switch></switch>
+      <switch checked="{{domestic==0?true:false}}" bindchange="domestic"></switch>
     </view>
     <view class="cu-form-group">
       <view class="title">
         发动机号
       </view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{engineNo}}" bindinput='engineNo'></input>
     </view>
     <view class="cu-form-group">
       <view class="title">
         行驶公里数
       </view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{travelNumber}}" bindinput='travelNumber'></input>
     </view>
     <view class="cu-form-group">
       <view class="title">
         保养到期公里数
       </view>
-      <input placeholder="选填"></input>
+      <input placeholder="选填" value="{{maintainNumber}}" bindinput='maintainNumber'></input>
     </view>
     <view class="cu-form-group">
       <view class="title">保险到期</view>
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+      <picker mode="date" value="{{insuranceExpireDate}}" start="2015-09-01" end="2028-09-01" bindchange="insuranceExpireDate">
         <view class="picker">
-          {{date}}
+          {{insuranceExpireDate}}
         </view>
       </picker>
     </view>
     <view class="cu-form-group">
       <view class="title">年审到期</view>
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+      <picker mode="date" value="{{annualReviewExpireDate}}" start="2015-09-01" end="2028-09-01" bindchange="annualReviewExpireDate">
         <view class="picker">
-          {{date}}
+          {{annualReviewExpireDate}}
         </view>
       </picker>
     </view>
     <view class="cu-form-group">
       <view class="title">绿标到期</view>
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+      <picker mode="date" value="{{greenLabelExpireDate}}" start="2015-09-01" end="2028-09-01" bindchange="greenLabelExpireDate">
         <view class="picker">
-          {{date}}
+          {{greenLabelExpireDate}}
         </view>
       </picker>
     </view>

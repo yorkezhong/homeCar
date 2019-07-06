@@ -1,11 +1,11 @@
 import { myCars, deleteCar} from "../../../pages/request.js"
 Page({
   data: {
-    
+    userCarList:[],
+    carIndex:0
   },
   onLoad(){
     this.findAllCar();
-    this.deleteCar("a8d5633f-a3bf-473f-9a04-8fe37f4f53c9")
   },
   addNewCar(){
     wx.navigateTo({
@@ -14,20 +14,38 @@ Page({
   },
   deleteCar(carIds){
     deleteCar({ carIds}).then((res)=>{
-   console.log(res)
+        if(res.code==200){
+          wx.showToast({
+            title: '移除成功',
+          })
+          this.findAllCar();
+        }else{
+          wx.showToast({
+            title: '移除失败',
+            icon:"none"
+          })
+        }
     })
   },
   findAllCar(){
     myCars().then((res)=>{
-      console.log(res)
+     this.setData({
+       userCarList:res.data
+     })
     })
   },
-  delCar(){
+  selectCar(e) {
+    this.setData({
+      carIndex: e.currentTarget.dataset.id
+    })
+  },
+  delCar(e){
+    let that=this;
     wx.showModal({
       title: '移除提示',
       content: '你确定要移除本辆爱车吗？',
       success(res){
-         console.log(res)
+        that.deleteCar(e.currentTarget.dataset.carid)
       },
       fail(err){
         console.log(err)

@@ -7,6 +7,8 @@ page{
   font-size: 32rpx;
   color: #333;
   margin-left: 20rpx;
+  margin-bottom: 15rpx
+
 }
 .car-info{
   float: left;
@@ -21,18 +23,24 @@ page{
 
 }
 .car-id{
-  background: none;
   border: 1rpx solid rgb(255, 84, 45);
-  width: 180rpx;
-  height: 50rpx;
+ width: 200rpx; height: 60rpx;
   font-size: 24rpx;
-  line-height: 50rpx;
+  line-height: 60rpx;
   text-align: center;
   color: #333;
   margin-left: 27rpx;
   position:relative;
-border-radius:8rpx;
+  border-radius:8rpx;
+  display: inline-block;
+  margin:20rpx;
 
+
+}
+.car-id image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 5rpx;
 }
 .del{
   position:absolute;
@@ -45,7 +53,7 @@ color: #333 !important;
  float:right;
 font-size:28rpx;
 color:rgb(10,130,254);
-margin-top:50rpx; 
+margin-top:20rpx; 
 margin-right: 30rpx;
 }
 
@@ -58,8 +66,8 @@ margin-right: 30rpx;
  
 }
 .car-point{
-  width: 400rpx;
-  height: 400rpx;
+  width: 350rpx;
+  height: 350rpx;
   border-radius:50%;
   border: 20rpx solid rgb(255, 84, 45);
   color:  rgb(255, 84, 45);
@@ -117,4 +125,19 @@ line-height:60rpx;
   padding-left: 20rpx;
   font-size: 24rpx;
   border-left:none; 
+}
+.scroll_box{
+width: 100%;
+white-space: nowrap;
+}
+.item_list{
+width: 160rpx;
+height: auto;
+margin-right: 23rpx;
+display: inline-block;
+}
+
+.carSelect{
+  background: rgb(255, 84, 45) !important;
+  color: #fff !important;
 }
