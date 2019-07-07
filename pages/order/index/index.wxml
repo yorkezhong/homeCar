@@ -19,16 +19,13 @@
       </view>
     </view>
   </scroll-view>
-  <nopay wx:if="{{TabCur==0}}"></nopay>
-  <odering wx:if="{{TabCur==1}}"></odering>
-  <ordered wx:if="{{TabCur==2}}"></ordered>
-  <evaluate wx:if="{{TabCur==3}}"></evaluate>
-<aftersale wx:if="{{TabCur==4}}"></aftersale>
+  <nopay wx:if="{{TabCur==0}}" nopayList="{{nopayList}}"></nopay>
+  <odering wx:if="{{TabCur==1}}" orderingList="{{orderingList}}"></odering>
+  <ordered wx:if="{{TabCur==2}}" orderedList="{{orderedList}}"></ordered>
+  <evaluate wx:if="{{TabCur==3}}" commentList="{{commentList}}" commentedList="{{commentedList}}"></evaluate>
+  <aftersale wx:if="{{TabCur==4}}" afterList="{{afterList}}"></aftersale>
 
-<view class='order-empty'>
 
-<text class='empty-tip' wx:if="{{empty}}">暂无任何订单</text>
-</view>
 
 
 </view>

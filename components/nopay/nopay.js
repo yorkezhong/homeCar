@@ -1,25 +1,28 @@
-
 Component({
   properties: {
-
+    nopayList: {
+      type: Array,
+      value:[]
+    },
   },
-
   data: {
-
+  orderinfoList:[]
   },
-  
+
   methods: {
-    cancelOrder(){
+    cancelOrder() {
+      let orderinfo = e.currentTarget.dataset.orderid;
+      orderinfo = JSON.stringify(orderinfo)
       wx.navigateTo({
-        url: '../../order/cancel/cancel',
+        url: '../../order/cancel/cancel?orderinfo=' + orderinfo,
       })
-    }
+    },
+   
   },
   lifetimes: {
-    attached: function () {
-      // 在组件实例进入页面节点树时执行
+    attached() {
     },
-    detached: function () {
+    detached() {
       // 在组件实例被从页面节点树移除时执行
     },
   },

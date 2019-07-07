@@ -1,14 +1,34 @@
 var fiters = {
-  carname: function (name) {
-   var  car = name.split('-')[1];
-    return car
-  }
+    carname: function(name) {
+      var car = name.split('-')[1];
+      return car
+    },
+    orderType: function(num) {
+      var type = "立即服务";
+      if (num == 1) {
+        type = "夜洗晨取"
+      } else if (num == 2) {
+        type = "下班取车"
+
+      }
+      return type;
+    },
+  payType:function(type){
+    var typename="微信";
+    if (type==2){
+   typename="支付宝"
+    }else if(type==3){
+      typename="现金"
+    }else if(type==4){
+        typename="余额"
+    }
+
+    return typename;
+  },
 }
 
-
-
-
-
-module.exports = {
-  carname: fiters.carname
-};
+    module.exports = {
+      carname: fiters.carname,
+      orderType: fiters.orderType,
+      payType: fiters.payType
+    }

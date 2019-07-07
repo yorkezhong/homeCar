@@ -2,7 +2,14 @@
 Component({
  
   properties: {
-
+    commentList:{
+      type:Array,
+      value:[]
+    },
+    commentedList:{
+      type:Array,
+      value:[]
+    }
   },
 
   data: {
@@ -16,9 +23,11 @@ Component({
         tabCur: e.target.dataset.id
       })
     },
-    Gocomment(){
+    Gocomment(e){
+  let goinfo=e.currentTarget.dataset.staff;
+  goinfo=JSON.stringify(goinfo);
       wx.navigateTo({
-        url: '../../order/comment/comment',
+        url: '../../order/comment/comment?orderinfo='+goinfo,
       })
     }
     

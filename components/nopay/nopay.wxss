@@ -91,3 +91,10 @@ padding-right:26rpx;
   color: #fff;
   font-size: 26rpx;
 }
+.pay-empty{
+  font-size: 36rpx;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 200rpx;
+  color: rgb(102, 102, 102)
+}

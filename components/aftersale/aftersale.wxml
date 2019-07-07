@@ -1,35 +1,41 @@
+<wxs src="../../pages/fiter.wxs" module="fiter" />
 <view class="aftersale">
-  <view class='aftersale-list' wx:for="{{[1,2,3]}}" wx:key="{{index}}">
+<view wx:if="{{afterList.length!=0}}">
+  <view class='aftersale-list' wx:for="{{afterList}}" wx:key="{{index}}">
     <view class='aftersale-box'>
       <view class='aftersale-top'>
         <view class='aftersale-left'>
-          <text class='aftersale-item'>美容</text>
-          <text class='aftersale-car-id'>粤BK48631</text>
+          <text class='aftersale-item'>{{fiter.orderType(item.orderType)}}</text>
+          <text class='aftersale-car-id'>{{item.carNumber}}</text>
 
         </view>
         <view class='aftersale-right'>正在退款</view>
 
       </view>
       <view class='worker-info'>
-        <text>退款原因：下错订单</text>
+        <text>退款原因：{{item.cancelReason}}</text>
       </view>
 
-      <view class='aftersale-time'>订单时间：2018-08-15 19:20</view>
-      <view class='aftersale-id'>订单编号：201908151223</view>
+      <view class='aftersale-time'>订单时间：{{item.createTime}}</view>
+      <view class='aftersale-id'>订单编号：{{item.createTime}}</view>
 
       <view class='aftersale-footer'>
-      <view>
-      <text class='order-sum'>订单总价：</text>
-        <text class='money'>￥128</text>
+        <view>
+          <text class='order-sum'>订单总价：</text>
+          <text class='money'>￥{{item.payMoney}}</text>
         </view>
         <view class='order-again'>
-        <image src='../../img/phone.png'></image>
-        联系客服</view>
+          <image src='../../img/phone.png'></image>
+          联系客服</view>
       </view>
 
 
     </view>
 
+  </view>
+</view>
+<view class='pay-empty' wx:if="{{afterList.length==0}}">
+    暂时没有退款/售后订单
   </view>
 
 </view>

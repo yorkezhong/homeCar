@@ -2,7 +2,11 @@
 Component({
 
   properties: {
-
+    orderedList:{
+      type:Array,
+      value:[]
+      
+    }
   },
   data: {
 

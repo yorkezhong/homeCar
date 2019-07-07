@@ -1,18 +1,49 @@
-
+import {
+  commentOrder
+} from "../../request.js"
 Page({
-
   data: {
     starnum: 0,
     tag1: false,
-    tag1: false,
-    commentinfo: "",
-    limitNum:0,
-    imgList: [],
+    tag2: false,
 
+    commentinfo: "",
+    limitNum: 0,
+    imgList: [],
+    orderinfo: {}
   },
 
-  onLoad: function(options) {
+  onLoad(options) {
+    let orderinfo = JSON.parse(options.orderinfo);
+    this.setData({
+      orderinfo: orderinfo
+    })
+  },
+  commentOrder(orderId, starLevel, tags, comment, picUrls) {
+    commentOrder({
+      orderId,
+      starLevel,
+      tags,
+      comment,
+      picUrls
+    }).then((res) => {
+      if (res.code == 200) {
+        wx.showToast({
+          title: '评论成功',
+        })
+        setTimeout(() => {
+          wx.navigateTo({
+            url: './success/success',
+          })
+        }, 2000)
 
+      } else {
+        wx.showToast({
+          title: '评论失败',
+          icon: "none"
+        })
+      }
+    })
   },
   changestar(e) {
     const index = e.detail.index;
@@ -21,7 +52,7 @@ Page({
     })
   },
   selected(e) {
-    var tagid = e.target.dataset.id;
+    var tagid = e.currentTarget.dataset.id;
     if (tagid == 0) {
       this.setData({
         tag1: !this.data.tag1
@@ -36,9 +67,9 @@ Page({
   textareaAInput(e) {
     this.setData({
       commentinfo: e.detail.value,
-      limitNum:e.detail.cursor
+      limitNum: e.detail.cursor
     })
-    
+
   },
   ViewImage(e) {
     wx.previewImage({
@@ -64,9 +95,9 @@ Page({
   },
   ChooseImage() {
     wx.chooseImage({
-      count: 4, //默认9
-      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album'], //从相册选择
+      count: 1, //默认9
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'], //从相册选择
       success: (res) => {
         if (this.data.imgList.length != 0) {
           this.setData({
@@ -80,10 +111,21 @@ Page({
       }
     });
   },
-  sumbitComment(){
-    wx.navigateTo({
-      url: './success/success',
-    })
+  sumbitComment() {
+    let {
+      orderinfo,
+      imgList,
+      commentinfo,
+      tag1,
+      tag2,
+      starnum
+    } = this.data;
+    let tags = "服务态度好"
+    if (tag1 == true && tag2 == true) {
+      tags = "专业细心、服务态度好"
+    } else if (tag2 == true) {
+      tags = "专业细心"
+    }
+    this.commentOrder(orderinfo.id, starnum, tags, commentinfo, imgList[imgList.length - 1]);
   }
-
 })

@@ -1,28 +1,29 @@
+<wxs src="../../pages/fiter.wxs" module="fiter" />
 <view class="evalute">
   <view class='evalute-top'>
-    <text class="doing {{tabCur==0?'active':''}}" data-id='0' bindtap="tabselect">待评价 ● 2</text>
+ <text class="doing {{tabCur==0?'active':''}}" data-id='0' bindtap="tabselect">待评价 ● {{commentList.length}}</text>
     <text class="done {{tabCur==1?'active':''}}" data-id='1' bindtap="tabselect">已评价</text>
   </view>
-  <view class='doing-comment' wx:if="{{tabCur==0}}">
-    <view class='doing-list' wx:for="{{[1,2]}}" wx:key="{{index}}">
+  <view class='doing-comment' wx:if="{{commentList.length!=0 && tabCur==0 }}">
+    <view class='doing-list' wx:for="{{commentList}}" wx:key="{{index}}">
       <view class='doing-box'>
-        <text class='doing-item'>美容</text>
-        <text class='doing-car-id'>粤BK3A15</text>
+        <text class='doing-item'>{{fiter.orderType(item.orderType)}}</text>
+        <text class='doing-car-id'>{{item.carNumber}}</text>
         <view class='doing-worker'>
           <image class='doing-worker-img' src='https://pic.qqtn.com/up/2019-6/15603291249200575.jpg!360_360'></image>
-          <text class='dong-worker-name'>技工：MARRY</text>
+          <text class='dong-worker-name'>技工：{{item.conStaffName}}</text>
 
         </view>
         <view class='doing-info'>
           <view>
             <view class='doing-time'>
-              订单时间：2018-08-15 19：02
+              订单时间：{{item.createTime}}
             </view>
             <view class='doing-id'>
-              订单编号：201808151902
+              订单编号：{{item.number}}
             </view>
           </view>
-          <view class='comment-go' bindtap='Gocomment'>评价</view>
+          <view class='comment-go' bindtap='Gocomment' data-staff='{{item}}'>评价</view>
         </view>
 
       </view>
@@ -30,29 +31,29 @@
 
   </view>
 
-  <view class='done-comment' wx:if="{{tabCur==1}}">
-    <view class='done-list' wx:for="{{[1,2]}}" wx:key="{{index}}">
+  <view class='done-comment' wx:if="{{commentedList.length!=0 && tabCur==1}}">
+    <view class='done-list' wx:for="{{commentedList}}" wx:key="{{index}}">
       <view class='done-box'>
         <view class='done-top'>
           <view class='done-top-left'>
-            <text class='done-item'>美容</text>
-            <text class='done-car-id'>粤BK3A45</text>
+            <text class='done-item'>{{fiter.orderType(item.orderType)}}</text>
+            <text class='done-car-id'>{{item.carNumber}}</text>
           </view>
           <view class='done-top-right'>
-            <view class='done-time'>订单时间：2018-08-18 19：20</view>
-            <view class='done-id'>订单编号：201808181920</view>
+            <view class='done-time'>订单时间：{{item.createTime}}</view>
+            <view class='done-id'>订单编号：{{item.number}}</view>
 
           </view>
 
         </view>
         <view class='done-worker'>
           <image src='https://pic.qqtn.com/up/2019-6/15603291249200575.jpg!360_360' class='done-worker-img'></image>
-          <text>技工：MARRY</text>
+          <text>技工：{{item.conStaffName}}</text>
         </view>
 
         <view class='done-star'>
           <text class='star-title'>评价</text>
-          <i-rate  value="{{starnum}}" size="20" disabled="true" >
+          <i-rate value="{{starnum}}" size="20" disabled="true">
           </i-rate>
         </view>
 
@@ -72,5 +73,15 @@
     </view>
 
   </view>
+
+  <view class='pay-empty' wx:if="{{commentList.length==0 && tabCur==0 }}">
+    暂时没有待评价订单
+  </view>
+
+  <view class='pay-empty' wx:if="{{commentedList.length==0 && tabCur==1}}">
+    暂时没有已评价订单
+  </view>
+
+
 
 </view>

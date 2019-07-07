@@ -6,5 +6,7 @@
     "aftersale":"../../../components/aftersale/aftersale",
     "evaluate":"../../../components/evaluate/evaluate"
   },
-  "navigationBarTitleText": "订单"
+  "navigationBarTitleText": "订单",
+  "enablePullDownRefresh": true
+  
 }

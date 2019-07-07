@@ -1,14 +1,15 @@
+<wxs src="../../fiter.wxs" module="fiter" />
 <view class="cancel">
   <view class='cancel-item'>
-    <text class='cancel-name'>美容</text>
-    <view class='cancel-car-id'>粤BK4815</view>
+    <text class='cancel-name'>{{fiter.orderType(orderinfo.orderType)}}</text>
+    <view class='cancel-car-id'>{{orderinfo.carNumber}}</view>
   </view>
   <view class='cancel-box'>
-    <view class='order-time'>订单时间：2018-08-15 19：20</view>
-    <view class='order-id'>订单编号：201614611</view>
+    <view class='order-time'>订单时间：{{orderinfo.createTime}}</view>
+    <view class='order-id'>订单编号：{{orderinfo.number}}</view>
     <view class='order-sum'>订单总价：
       <text class='rmb'>￥</text>
-      <text class='price'>128</text>
+      <text class='price'>{{orderinfo.payMoney}}</text>
     </view>
     <view class='order-reason-title'>取消原因：</view>
     <view class='order-reason'>
