@@ -1,0 +1,127 @@
+<view class="safe">
+
+  <view class='safe-top'>
+    <view class='safe-title'>年检专业极速代办</view>
+    <view class='safe-item'>
+      <view class='safe-item-list'>
+        <text class='cuIcon-timefill'></text>
+        <text>免预约</text>
+      </view>
+      <view class='safe-item-list'>
+        <text class='cuIcon-friendfill'></text>
+        <text>免排队</text>
+      </view>
+      <view class='safe-item-list'>
+        <text class='cuIcon-card'></text>
+        <text>免邮寄</text>
+      </view>
+    </view>
+  </view>
+  <view class='safe-mid'>
+    <view class='safe-tab'>
+      <view class="tab-item {{selectItem==0?'selectItem':''}} " data-id='0' bindtap='switchTab'>六年免检</view>
+      <view class="tab-item {{selectItem==1?'selectItem':''}} " data-id='1' style='margin-right:0' bindtap='switchTab'>上线检测</view>
+    </view>
+    <view class='tab-info' wx:if="{{selectItem==0}}">
+      <view class='info-title'>
+        <text class='cuIcon-infofill'></text>
+        <text>六年免检办理条件</text>
+      </view>
+      <view class='detail-box'>
+        <view class='box-item'>
+          ● 使用性质：非运营
+        </view>
+        <view class='box-item'>
+          ● 核定载人数：5人及以下
+        </view>
+        <view class='box-item'>
+          ● 注册登记日期在2015年7月1日（含）之后
+        </view>
+        <view class='box-item'>
+          ● 行驶证注明的9种车型
+        </view>
+        <view class='box-item'>
+          ● 免检期间未发生过致人伤亡事故的车辆
+        </view>
+      </view>
+
+    </view>
+
+
+
+    <view class='tab-info' wx:if="{{selectItem==1}}">
+      <view class='info-title'>
+        <text class='cuIcon-infofill'></text>
+        <text>上线检测办理条件</text>
+      </view>
+      <view class='detail-box'>
+        <view class='box-item'>
+          ● 外观与行驶证照片中车辆保持一致，保持车身整洁、漆面完整
+        </view>
+        <view class='box-item'>
+          ● 不能私自改装灯光系统，保证各灯光正常工作
+        </view>
+        <view class='box-item'>
+          ● 前排侧窗后视镜位置的三角区域不允许贴膜
+        </view>
+        <view class='box-item'>
+          ● 同轴轮胎花纹应一致，胎面磨损不严重，尺寸与原车一致
+        </view>
+        <view class='box-item'>
+          ● 灭火器和三角警告牌是必备物品
+        </view>
+      </view>
+
+    </view>
+
+
+  </view>
+
+  <view class='safe-step'>
+    <view class='step-top'>
+      <text class='cuIcon-infofill' style='margin-right:8rpx'></text>
+      <text>办理流程</text>
+    </view>
+
+    <view class="cu-timeline" style='margin-top:30rpx;margin-bottom:30rpx'>
+      <view class="cu-item cur cuIcon-edit mycolor">
+        <view class="content">
+          <view class='title-info'>下单付款</view>
+          <view class='warn-info'>填写联系方式和支付订单</view>
+        </view>
+      </view>
+      <view class="cu-item  cuIcon-camera mycolor">
+        <view class="content">
+          <view class='title-info'>拍照上传资料</view>
+          <view class='warn-info'>请将以下年检代办所需资料拍照上传</view>
+          <view class='warn-info'>1.在保期内的交强险副本原件；</view>
+          <view class='warn-info'>2.若交强险不包含车船税代缴的，需车船税纳（免）税证明；</view>
+          <view class='warn-info'>3.车辆行驶证原件正副本；</view>
+          <view class='warn-info'>4.车主身份证正反面；</view>
+        </view>
+      </view>
+      <view class="cu-item  cuIcon-punch mycolor">
+        <view class="content">
+          <view class='title-info'>代办年检</view>
+          <view class='warn-info'>确认年检资料无误后代办年检</view>
+        </view>
+      </view>
+      <view class="cu-item  cuIcon-peoplelist mycolor">
+        <view class="content">
+          <view class='title-info'>办理完成</view>
+          <view class='warn-info'>寄回检验合格标志</view>
+        </view>
+      </view>
+    </view>
+
+
+
+
+
+
+
+
+  </view>
+<view class='btn'>立即办理</view>
+
+</view>

@@ -60,25 +60,25 @@ Page({
     }).then((res) => {
       if (status == 0) {
         that.setData({
-          nopayList: nopayList.push(res.data.records)
+          nopayList: nopayList.concat(res.data.page.records)
         })
       } else if (status == 1) {
         that.setData({
-          orderingList: orderingList.push(res.data.records)
+          orderingList: orderingList.concat(res.data.page.records)
         })
       } else if (status == 2) {
         that.setData({
-          orderedList: orderedList.push(res.data.records)
+          orderedList: orderedList.concat(res.data.page.records)
         })
 
       } else if (status == 3 || status == 4) {
         that.setData({
-          commentList: commentList.push(res.data.records),
-          commentedList: commentedList.push(res.data.records)
+          commentList: commentList.concat(res.data.page.records),
+          commentedList: commentedList.concat(res.data.page.records)
         })
       } else if (status == 5) {
         that.setData({
-          afterList: afterList.push(res.data.records)
+          afterList: afterList.concat(res.data.page.records)
         })
       }
     })

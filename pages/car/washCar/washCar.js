@@ -3,6 +3,7 @@ import {
   staffList,
   myCars,
   saveOrder,
+  deleteCar,
   userCardList,
   userCouponList
 } from "../../../pages/request.js"
@@ -25,9 +26,10 @@ Page({
     remark: "",
     cuurtDetail: {},
     sumMoreny: 0,
-    userCardList:[],
+    userCardList: [],
     userCouponList: [],
     rechargeCarList: [],
+    userId:""
   },
 
   onLoad() {
@@ -78,7 +80,25 @@ Page({
       }
     })
   },
-  saveOrder(orderSource, carBrandName, conStaffId, orderType, storeId, userId, userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard) {
+  deleteCar(carIds) {
+    console.log(carIds)
+    deleteCar({
+      carIds
+    }).then((res) => {
+      if (res.code == 200) {
+        wx.showToast({
+          title: '移除成功',
+        })
+        this.findAllCar();
+      } else {
+        wx.showToast({
+          title: '移除失败',
+          icon: "none"
+        })
+      }
+    })
+  },
+  saveOrder(orderSource, carBrandName, conStaffId, orderType, storeId, userId,userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard) {
     saveOrder({
       orderSource,
       carBrandName,
@@ -100,9 +120,15 @@ Page({
         wx.showToast({
           title: '保存订单成功',
         })
-      } else {
+      } else if(res.code==500){
+        wx.showToast({
+          title: res.msg,
+          icon:"none"
+        })
+      }else{
         wx.showToast({
           title: '保存订单失败',
+          icon: 'none'
         })
       }
     })
@@ -111,7 +137,9 @@ Page({
     myCars().then((res) => {
       this.setData({
         userCarList: res.data,
-        carIndex: res.data[0].id
+        carIndex: res.data[0].id,
+        selectCarInfo:res.data[0],
+        userId: res.data[0].userId
       })
     })
   },
@@ -122,15 +150,15 @@ Page({
       carNumber,
       serviceId
     }).then((res) => {
-     if(type==0){
-       this.setData({
-         rechargeCarList:res.data
-       })
-     }else{
-       this.setData({
-         userCardList: res.data
-       })
-     }
+      if (type == 0) {
+        this.setData({
+          rechargeCarList: res.data
+        })
+      } else {
+        this.setData({
+          userCardList: res.data
+        })
+      }
     })
   },
   userCouponList(carNumber, storeId) {
@@ -139,7 +167,7 @@ Page({
       storeId
     }).then((res) => {
       this.setData({
-        userCouponList:res.data
+        userCouponList: res.data
       })
     })
   },
@@ -155,7 +183,8 @@ Page({
       mobile,
       remark,
       timeIndex,
-      cuurtDetail
+      cuurtDetail,
+      userId
     } = this.data;
     let that = this;
     if (userName == "" || mobile == "") {
@@ -164,11 +193,11 @@ Page({
         content: '请填写姓名或手机号',
       })
     } else {
-      that.saveOrder(2, selectCarInfo.brandName, currStaff.id, timeIndex, currtshop.id, userName, mobile, remark, selectCarInfo.id, selectCarInfo.carModel, selectCarInfo.number, {
+      that.saveOrder(2, selectCarInfo.brandName, currStaff.id, timeIndex, currtshop.id, userId,userName, mobile, remark, selectCarInfo.brandId, selectCarInfo.carModel, selectCarInfo.number, [{
         storeServiceId: cuurtDetail.id,
         serviceTime: cuurtDetail.serviceTime,
         price: cuurtDetail.price
-      }, 0)
+      }], 0)
     }
   },
   selectCar(e) {
@@ -256,11 +285,16 @@ Page({
     })
   },
   delCar() {
+    let {
+      selectCarInfo
+    } = this.data;
+    let that=this;
+    console.log(selectCarInfo)
     wx.showModal({
       title: '移除提示',
       content: '你确定要移除本辆爱车吗？',
       success(res) {
-        console.log(res)
+        that.deleteCar(selectCarInfo.id)
       },
       fail(err) {
         console.log(err)

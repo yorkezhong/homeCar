@@ -3,7 +3,8 @@ import {
   storeInfo,
   banner,
   lineNum,
-  getCarBands
+  getCarBands,
+  orderList
 } from "../../../pages/request.js"
 Page({
   data: {
@@ -26,17 +27,36 @@ Page({
       "status": 1,
       "createTime": 1555300462000,
       "updateTime": 1554818336000,
-      "img": null
+      "img": null,
     },
     banner: [],
     lineNum: 0,
-    unlogin: false
+    unlogin: false,
+    orderingInfo: null
+
   },
+  //当前门店信息
   storeInfo(storeId, token) {
     storeInfo({
       storeId
     }, token).then((res) => {
       console.log(res)
+    })
+  },
+  //进行中的订单
+  orderList(storeId, status, currentPage, pageSize) {
+    orderList({
+      storeId,
+      status,
+      currentPage,
+      pageSize
+    }).then((res) => {
+      if (res.data.page.records.length == 0) {} else {
+        this.setData({
+          orderingInfo: res.data.page.records[0]
+        })
+      }
+
     })
   },
   lineNum(storeId, token) {
@@ -60,7 +80,8 @@ Page({
           currtshop: currtshop
         })
         this.storeInfo(currtshop.id, token)
-        this.lineNum(currtshop.id, token)
+        this.lineNum(currtshop.id, token);
+        this.orderList(currtshop.id, 1, 1, 1);
       } else {
         this.shopList(longitude, latitude, token)
       }
@@ -84,7 +105,6 @@ Page({
   },
   onLoad() {
     let that = this;
-    //轮播图
     wx.checkSession({
       success(res) {
         //登录状态有效
@@ -133,8 +153,12 @@ Page({
                       token: res.data.data.token
                     })
                     let token = res.data.data.token
-                    resolve({ token });
-                  }).then(({ token }) => {
+                    resolve({
+                      token
+                    });
+                  }).then(({
+                    token
+                  }) => {
                     wx.getLocation({
                       type: 'wgs84',
                       success(res) {
@@ -242,16 +266,23 @@ Page({
       url: '../switchShop/switchShop',
     })
   },
-  scanCode(){
+  scanCode() {
     wx.scanCode({
       success(res) {
         console.log(res)
       }
     })
   },
-  goOderDetail(){
+  goOderDetail() {
+    let {
+      orderingInfo
+    } = this.data;
+    if (orderingInfo == null) {
+    } else {
+      orderingInfo = JSON.stringify(orderingInfo)
+    }
     wx.navigateTo({
-      url: '../../order/detail/detail',
+      url: '../../order/detail/detail?orderinfo=' + orderingInfo,
     })
   }
 

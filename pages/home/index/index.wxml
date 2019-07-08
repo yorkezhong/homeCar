@@ -36,10 +36,10 @@
       <text class='cuIcon-location' style="color:rgb(10,138,254);font-size:32rpx;"></text>
       <text class='currtshop'> {{currtshop.address}}</text>
       <view class='loacl' bindtap='goKey'>
-      <image src='../../../img/address_key.png' style='width:140rpx;height:100rpx;'></image>
-      <!-- <text style='font-size:24rpx;color:#333;'>钥匙柜位置</text> -->
+        <image src='../../../img/address_key.png' style='width:140rpx;height:100rpx;'></image>
+        <!-- <text style='font-size:24rpx;color:#333;'>钥匙柜位置</text> -->
       </view>
-       </view>
+    </view>
   </view>
 
   <view class='service'>
@@ -49,7 +49,7 @@
     </view>
     <view class='service-item'>
       <image src='../../../img/insurance.png' mode='aspectFit'></image>
-      <text>车险</text>
+      <text>车检</text>
     </view>
     <view class='service-item'>
       <image src='../../../img/paint.png' mode='aspectFit'></image>
@@ -68,28 +68,28 @@
     </view>
     <view class='order-stauts'>
       <view class='step'>
-        <image src='../../../img/circular.png'></image>
+        <image src="{{orderingInfo.conStatus==1?'../../../img/circular.png':'../../../img/circular_gray.png'}}"></image>
         <text>下单</text>
         <text>9：00</text>
       </view>
       <view class='step'>
-        <image src='../../../img/circular.png'></image>
+        <image src="{{orderingInfo.conStatus==2?'../../../img/circular.png':'../../../img/circular_gray.png'}}"></image>
         <text>交车</text>
         <text>10：00</text>
       </view>
       <view class='step step-repai' bindtap='goOderDetail'>
         <image src='../../../img/repai.png' class='repai' style='width:120rpx;height:120rpx'></image>
-        <text>施工中</text>
-        <text>11：00</text>
+        <text style="{{orderingInfo.conStatus==3?'color:rgb(10,138,254)':''}}">施工中</text>
+        <text style="{{orderingInfo.conStatus==3?'color:rgb(10,138,254)':''}}">11：00</text>
       </view>
       <view class='step'>
-        <image src='../../../img/circular_gray.png'></image>
+        <image src="{{orderingInfo.conStatus==4?'../../../img/circular.png':'../../../img/circular_gray.png'}}"></image>
         <text>完工</text>
         <text>18：00</text>
       </view>
       <view class='step'>
-        <image src='../../../img/circular_gray.png'></image>
-        <text>交车</text>
+        <image src="{{orderingInfo.conStatus==5?'../../../img/circular.png':'../../../img/circular_gray.png'}}"></image>
+        <text>技师交车</text>
         <text>19：00</text>
       </view>
 

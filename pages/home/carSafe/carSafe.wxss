@@ -1,0 +1,147 @@
+page {
+  background: #fff;
+}
+
+.safe {
+  width: 100%;
+  height: 100%;
+}
+
+.safe-top {
+  width: 702rpx;
+  height: 200rpx;
+  border: 1rpx solid rgb(204, 204, 204);
+  border-radius: 8rpx;
+  margin: 20rpx auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.safe-title {
+  text-align: center;
+  font-size: 36rpx;
+  color: rgb(102, 102, 102);
+  font-weight: 400;
+}
+
+.safe-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 28rpx;
+  color: rgb(102, 102, 102);
+  margin: 30rpx;
+}
+
+.safe-item-list {
+  display: flex;
+  align-items: center;
+}
+
+.safe-item-list text {
+  display: block;
+  margin-right: 8rpx;
+  font-size: 28rpx;
+}
+
+.safe-mid {
+  margin-top: 40rpx;
+}
+
+.safe-tab {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  font-weight: 400;
+  color: rgb(102, 102, 102);
+  justify-content: center;
+}
+
+.tab-item {
+  margin-right: 50rpx;
+  padding-bottom: 10rpx;
+}
+
+.selectItem {
+  border-bottom: 5rpx solid rgb(10, 138, 254) !important;
+  color: rgb(10, 138, 254) !important;
+  font-size: 30rpx;
+  font-weight: 400;
+}
+
+.tab-info {
+  width: 702rpx;
+  min-height: 400rpx;
+  margin: 20rpx auto;
+  padding: 25rpx;
+  background: rgb(245, 249, 252);
+  color: rgb(102, 102, 102);
+  font-size: 28rpx;
+  border-radius: 8rpx;
+}
+
+.info-title {
+  display: flex;
+  font-size: 34rpx;
+  color: #333;
+  align-items: center;
+}
+
+.info-title text {
+  display: block;
+  margin-right: 8rpx;
+}
+
+.detail-box {
+  margin-left: 44rpx;
+  margin-top: 15rpx;
+}
+
+.box-item {
+  line-height: 60rpx;
+}
+
+.safe-step {
+  margin-top: 20rpx;
+}
+
+.step-top {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  padding-left: 45rpx;
+}
+
+.step-top text {
+  font-size: 34rpx;
+  color: #333;
+}
+
+
+.mycolor{
+  font-size: 50rpx !important;
+  color: rgb(137, 195, 245) !important;
+}
+
+.title-info{
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 400;
+}
+.warn-info{
+  font-size: 24rpx;
+  color: rgb(102, 102, 102);
+  line-height: 40rpx;
+}
+.btn{
+  background: rgb(233, 233, 233);
+  color: #fff;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  border: 1rpx solid #ccc;
+  border-left:none;
+  border-right:none;  
+}

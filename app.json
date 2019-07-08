@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/index/index",
+    "pages/home/carSafe/carSafe",
     "pages/car/carList/carList",
     "pages/city/city",
     "pages/my/applyMoney/applyMoney",

@@ -160,7 +160,7 @@ align-items:center;
 }
 
 .step-repai text {
-  color: rgb(10, 130, 254);
+  /* color: rgb(10, 130, 254); */
 }
 
 .step {

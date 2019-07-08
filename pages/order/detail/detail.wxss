@@ -108,3 +108,10 @@ page {
   font-size: 36rpx;
   color: #333;
 }
+.empty{
+  font-size: 36rpx;
+  color: rgb(102, 102, 102);
+  font-weight: 400;
+  margin-top: 250rpx;
+  text-align: center;
+}
