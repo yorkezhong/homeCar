@@ -2,5 +2,6 @@
   "usingComponents": {
     "i-rate": "../../../components/rate/index"
   },
-  "navigationBarTitleText": "下订单"
+  "navigationBarTitleText": "下订单",
+  "disableScroll": true
 }

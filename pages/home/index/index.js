@@ -202,6 +202,11 @@ Page({
     }, 2000)
   },
 
+  goCarSafe(){
+    wx.navigateTo({
+      url: '../carSafe/carSafe',
+    })
+  },
   showMask() {
     this.setData({
       mask: true
@@ -248,7 +253,7 @@ Page({
   },
   goWashCar() {
     wx.navigateTo({
-      url: '../../car/washCar/washCar',
+      url: '../../car/washCar/washCar?type=1',
     })
   },
   goRecharge() {

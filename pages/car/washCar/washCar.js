@@ -29,10 +29,10 @@ Page({
     userCardList: [],
     userCouponList: [],
     rechargeCarList: [],
-    userId:""
+    userId: ""
   },
 
-  onLoad() {
+  onLoad(option) {
     let currtshop = wx.getStorageSync("currtshop");
     this.findAllCar();
     this.setData({
@@ -53,12 +53,16 @@ Page({
         for (var i = 0; i < keyArry.length; i++) {
           detailServerList.push(res.data[keyArry[i]])
         }
+        if (option.type == 1) {
+          this.setData({
+            serverIndex: 1
+          })
+        }
         this.setData({
           detailServerList: detailServerList,
           detailItem: res.data[keyArry[0]][0].id,
           cuurtDetail: res.data[keyArry[0]][0],
           sumMoreny: res.data[keyArry[0]][0].price
-
         })
       }
 
@@ -98,7 +102,7 @@ Page({
       }
     })
   },
-  saveOrder(orderSource, carBrandName, conStaffId, orderType, storeId, userId,userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard) {
+  saveOrder(orderSource, carBrandName, conStaffId, orderType, storeId, userId, userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard) {
     saveOrder({
       orderSource,
       carBrandName,
@@ -120,12 +124,12 @@ Page({
         wx.showToast({
           title: '保存订单成功',
         })
-      } else if(res.code==500){
+      } else if (res.code == 500) {
         wx.showToast({
           title: res.msg,
-          icon:"none"
+          icon: "none"
         })
-      }else{
+      } else {
         wx.showToast({
           title: '保存订单失败',
           icon: 'none'
@@ -138,7 +142,7 @@ Page({
       this.setData({
         userCarList: res.data,
         carIndex: res.data[0].id,
-        selectCarInfo:res.data[0],
+        selectCarInfo: res.data[0],
         userId: res.data[0].userId
       })
     })
@@ -193,7 +197,7 @@ Page({
         content: '请填写姓名或手机号',
       })
     } else {
-      that.saveOrder(2, selectCarInfo.brandName, currStaff.id, timeIndex, currtshop.id, userId,userName, mobile, remark, selectCarInfo.brandId, selectCarInfo.carModel, selectCarInfo.number, [{
+      that.saveOrder(2, selectCarInfo.brandName, currStaff.id, timeIndex, currtshop.id, userId, userName, mobile, remark, selectCarInfo.brandId, selectCarInfo.carModel, selectCarInfo.number, [{
         storeServiceId: cuurtDetail.id,
         serviceTime: cuurtDetail.serviceTime,
         price: cuurtDetail.price
@@ -288,7 +292,7 @@ Page({
     let {
       selectCarInfo
     } = this.data;
-    let that=this;
+    let that = this;
     console.log(selectCarInfo)
     wx.showModal({
       title: '移除提示',

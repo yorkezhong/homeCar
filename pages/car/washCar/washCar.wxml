@@ -20,9 +20,10 @@
       <view class='my-car'>
         <view class='my-car-title'>
           <text>我的车辆</text>
-          <text style='color:rgb(10,138,245)' bindtap='addNewCar'>增加车辆</text>
+          <text style='color:rgb(10,138,245)' bindtap='addNewCar' >增加车辆</text>
         </view>
-        <view class="scroll_box">
+        <view class='car-empty' wx:if="{{userCarList.length==0}}">sorry，你当前没有任何车辆，去添加车辆吧！</view>
+        <view class="scroll_box" wx:if="{{userCarList.length!=0}}">
           <scroll-view class="scroll-view_x" scroll-x="true" style=" white-space: nowrap; display: flex;">
             <block wx:for="{{userCarList}}" wx:key="{{index}}">
               <view class="car-id  {{carIndex==item.id?'carSelect':''}}" bindtap='selectCar' data-id='{{item}}'>
@@ -42,13 +43,34 @@
       <view class='hr'></view>
 
       <view class='datashow' wx:if="{{shopServerList.length!=0}}">
-        <view class='wash-box'>
-          <view class='wash-item'>洗车</view>
 
+<view class='getcar'>
+          <view class='getcar-title'>订单类型</view>
+          <view class='getcar-list'>
+            <view class='getcar-box' data-selecttime='0' bindtap='selectTime'>
+              <view class="getcar-item {{timeIndex==0?'selectTime':''}}">到店服务</view>
+              <!-- <view class='getcar-tip' wx:if="{{timeIndex==0}}">前面等待6位</view> -->
+            </view>
+            <view class='getcar-box' data-selecttime='1' bindtap='selectTime'>
+              <view class="getcar-item {{timeIndex==1?'selectTime':''}}">夜洗晨取</view>
+              <!-- <view class='getcar-tip' wx:if="{{timeIndex==1}}">前面等待6位</view> -->
+            </view>
+            <view class='getcar-box' data-selecttime='2' bindtap='selectTime'>
+              <view class="getcar-item {{timeIndex==2?'selectTime':''}}">上门自取</view>
+              <!-- <view class='getcar-tip' wx:if="{{timeIndex==2}}">前面等待6位</view> -->
+
+            </view>
+
+          </view>
+
+        </view>
+
+        <view class='wash-box'>
+          <view class='wash-item'>服务内容</view>
           <view class='wash-car-box'>
             <view class='wash-box-list'>
               <block wx:for="{{shopServerList}}" wx:key="{{index}}">
-                <text style="border-bottom:none;{{shopServerList.length>2?'height:60rpx':'height:100rpx'}}" data-serverIndex='{{index}}' bindtap='selectServer' class="{{serverIndex==index?'selectItem':''}}">{{item}}</text>
+                <text data-serverIndex='{{index}}' bindtap='selectServer' class="{{serverIndex==index?'selectItem':''}}">{{item}}</text>
               </block>
             </view>
             <view class='wash-car-detail'>
@@ -74,29 +96,7 @@
 
         </view>
 
-        <view class='getcar'>
-          <view class='getcar-title'>接车时间</view>
-
-          <view class='getcar-list'>
-            <view class='getcar-box' data-selecttime='0' bindtap='selectTime'>
-              <view class="getcar-item {{timeIndex==0?'selectTime':''}}">到店服务</view>
-              <view class='getcar-tip' wx:if="{{timeIndex==0}}">前面等待6位</view>
-            </view>
-            <view class='getcar-box' data-selecttime='1' bindtap='selectTime'>
-              <view class="getcar-item {{timeIndex==1?'selectTime':''}}">夜洗晨取</view>
-              <view class='getcar-tip' wx:if="{{timeIndex==1}}">前面等待6位</view>
-
-
-            </view>
-            <view class='getcar-box' data-selecttime='2' bindtap='selectTime'>
-              <view class="getcar-item {{timeIndex==2?'selectTime':''}}">上门自取</view>
-              <view class='getcar-tip' wx:if="{{timeIndex==2}}">前面等待6位</view>
-
-            </view>
-
-          </view>
-
-        </view>
+        
         <view class='worker-title'>技师</view>
         <view class='getworker'>
 
