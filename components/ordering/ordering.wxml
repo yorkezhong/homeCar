@@ -1,7 +1,7 @@
 <wxs src="../../pages/fiter.wxs" module="fiter" />
 <view class="ordering">
   <view class='ordering-list' wx:if="{{orderingList.length!=0}}">
-    <block wx:for="orderingList" wx:key="{{index}}">
+    <block wx:for="{{orderingList}}" wx:key="{{index}}">
       <view class='ordering-box'>
         <image src='../../img/order_bg.png' class="order_bg"></image>
         <view class='odering-info'>
@@ -13,7 +13,7 @@
               <image src='../../img/phone.png' class='phone'></image>13268954562</view>
           </view>
           <view class='odering-time'>
-            订单时间：{{item.createTime}}
+            订单时间：{{fiter.dateFormat(item.createTime,'yyyy-MM-dd hh:mm:ss')}}
           </view>
           <view class='odering-id'>
             订单编号：{{item.number}}
@@ -25,31 +25,31 @@
             <view class='step'>
               <text class="step-biao {{item.conStatus==1?'steping':''}}">●</text>
               <text class="status-name {{item.conStatus==1?'steping':''}}">下单</text>
-              <text class="status-time {{item.conStatus==1?'steping':''}}">8：00</text>
+              <text class="status-time {{item.conStatus==1?'steping':''}}">{{fiter.dateFormat(item.createTime)}}</text>
             </view>
             <view class='step'>
               <text class="step-biao {{item.conStatus==2?'steping':''}}">●</text>
               <text class="status-name {{item.conStatus==2?'steping':''}}">交车</text>
-              <text class="status-time {{item.conStatus==2?'steping':''}}">8：10</text>
+              <text class="status-time {{item.conStatus==2?'steping':''}}">{{fiter.dateFormat(item.userSubmitTime)}}</text>
             </view>
             <view class='step' style='margin-left:10rpx;'>
               <text class="step-biao {{item.conStatus==3?'steping':''}}">●</text>
               <text class="status-name {{item.conStatus==3?'steping':''}}">施工中</text>
-              <text class="status-time {{item.conStatus==3?'steping':''}}">8：30-9：50</text>
+              <text class="status-time {{item.conStatus==3?'steping':''}}">{{fiter.dateFormat(item.serviceBeginTime)}}-{{fiter.dateFormat(item.serviceEndTime)}}</text>
             </view>
             <view class='step'>
               <text class="step-biao {{item.conStatus==4?'steping':''}}">●</text>
               <text class="status-name {{item.conStatus==4?'steping':''}}">完工</text>
-              <text class="status-time {{item.conStatus==4?'steping':''}}">10：10</text>
+              <text class="status-time {{item.conStatus==4?'steping':''}}">{{fiter.dateFormat(item.finishTime)}}</text>
             </view>
             <view class='step'>
               <text class="step-biao {{item.conStatus==5?'steping':''}}">●</text>
               <text class="status-name {{item.conStatus==5?'steping':''}}">技师交车</text>
-              <text class="status-time {{item.conStatus==5?'steping':''}}">10：30</text>
+              <text class="status-time {{item.conStatus==5?'steping':''}}">{{fiter.dateFormat(item.staffSubmitTime)}}</text>
             </view>
 
             <view class='time-line'>-----------------------------</view>
-              <!-- <view class='key-info'>
+            <!-- <view class='key-info'>
               <text class='key-title'>取车码</text>
               <text class='key-code'></text>
               </view> -->
@@ -57,8 +57,8 @@
           <view class='ordering-footer'>
             <view class='ordering-sum'>
               订单总价：
-              <text class='money'>￥{{item.payMoney}}</text>
-              <text class='other-info'>优惠券抵扣{{item.couponMoney}}元</text>
+              <text class='money'>￥{{fiter.formatMoeny(item.payMoney)}}</text>
+              <text class='other-info'>优惠券抵扣{{fiter.formatMoeny(item.couponMoney)}}元</text>
             </view>
             <view class='back-money' bindtap='backPay' wx:if="{{item.conStatus!=5}}">退款</view>
             <view class='getcar' bindtap='getCar' wx:if="{{item.conStatus==5}}">立即取车</view>

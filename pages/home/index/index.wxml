@@ -1,3 +1,4 @@
+<wxs src="../../fiter.wxs" module="fiter" />
 <view class="home">
   <view class='top'>
     <view class="city" wx:if="{{!selectCity}}">
@@ -43,7 +44,7 @@
   </view>
 
   <view class='service'>
-    <view class='service-item' bindtap='goWashCar'>
+    <view class='service-item' bindtap='goWashCar1'>
       <image src='../../../img/cosmetology.png' mode='aspectFit'></image>
       <text>美容</text>
     </view>
@@ -51,11 +52,11 @@
       <image src='../../../img/insurance.png' mode='aspectFit'></image>
       <text>车检</text>
     </view>
-    <view class='service-item'>
+    <view class='service-item' bindtap='goPaint'>
       <image src='../../../img/paint.png' mode='aspectFit'></image>
       <text>喷漆</text>
     </view>
-    <view class='service-item'>
+    <view class='service-item' bindtap='goTube'>
       <image src='../../../img/vehicle_tube.png' mode='aspectFit'></image>
       <text>车管</text>
     </view>
@@ -70,27 +71,27 @@
       <view class='step'>
         <image src="{{orderingInfo.conStatus==1?'../../../img/circular.png':'../../../img/circular_gray.png'}}"></image>
         <text>下单</text>
-        <text>9：00</text>
+        <text>{{fiter.dateFormat(orderingInfo.createTime)}}</text>
       </view>
       <view class='step'>
         <image src="{{orderingInfo.conStatus==2?'../../../img/circular.png':'../../../img/circular_gray.png'}}"></image>
         <text>交车</text>
-        <text>10：00</text>
+        <text>{{fiter.dateFormat(orderingInfo.userSubmitTime)}}</text>
       </view>
       <view class='step step-repai' bindtap='goOderDetail'>
         <image src='../../../img/repai.png' class='repai' style='width:120rpx;height:120rpx'></image>
         <text style="{{orderingInfo.conStatus==3?'color:rgb(10,138,254)':''}}">施工中</text>
-        <text style="{{orderingInfo.conStatus==3?'color:rgb(10,138,254)':''}}">11：00</text>
+        <text style="{{orderingInfo.conStatus==3?'color:rgb(10,138,254)':''}}">{{fiter.dateFormat(orderingInfo.serviceBeginTime)}}</text>
       </view>
       <view class='step'>
         <image src="{{orderingInfo.conStatus==4?'../../../img/circular.png':'../../../img/circular_gray.png'}}"></image>
         <text>完工</text>
-        <text>18：00</text>
+        <text>{{fiter.dateFormat(orderingInfo.finishTime)}}</text>
       </view>
       <view class='step'>
         <image src="{{orderingInfo.conStatus==5?'../../../img/circular.png':'../../../img/circular_gray.png'}}"></image>
         <text>技师交车</text>
-        <text>19：00</text>
+        <text>{{fiter.dateFormat(orderingInfo.staffSubmitTime)}}</text>
       </view>
 
     </view>
@@ -107,43 +108,42 @@
     </view>
   </view>
 
-  <view class='login' wx:if="{{unlogin}}">
 
-    <view class='login-box'>
 
-      <view class='login-title'>登录提示</view>
+</view>
+<view class='login' wx:if="{{unlogin}}">
 
-      <view class='login-tip'>未登录不能正常使用,请先登录！</view>
+  <view class='login-box'>
 
-      <view class='login-btn'>
-        <button class='login-cancel' bindtap='cancelLogin'>取消</button>
-        <button class='login-submit' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="submitLogin">登录</button>
-      </view>
-    </view>
+    <view class='login-title'>登录提示</view>
 
-  </view>
-  <view class='mask' wx:if="{{mask}}">
-    <view class='mask-box'>
-      <view class='mask-top'>洗车排队进度</view>
-      <view class='mask-item' wx:for="{{[1,2,3,4]}}" wx:key="{{index}}">
-        <view class='mask-worker'>
-          <image src='https://pic.qqtn.com/up/2018-2/15195209116319273.jpg'></image>
-          <view class='line-info'>
-            <view class='worker-name'>波西米亚</view>
-            <view class='line-num'>前面有4人</view>
-          </view>
-        </view>
-        <view class='car-list'>
-          <view class='line-list' wx:for="{{[1,2,3,4]}}" wx:key="{{index}}">
-            <view class='car-id'>粤BKA454</view>
-            <view class='time'>预计等待11分钟</view>
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class='close' bindtap='closeMask'>
-      <image src='../../../img/close_popup.png'></image>
+    <view class='login-tip'>未登录不能正常使用,请先登录！</view>
+
+    <view class='login-btn'>
+      <button class='login-cancel' bindtap='cancelLogin'>取消</button>
+      <button class='login-submit' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="submitLogin">登录</button>
     </view>
   </view>
 
+</view>
+<view class='mask' wx:if="{{mask}}">
+  <view class='mask-box'>
+    <view class='mask-top'>洗车排队进度</view>
+    <view class='mask-item'>
+      <view class='mask-worker'>
+    <view class='worker-title'>车牌</view>
+          <view class='worker-title'>预计结束时间</view>
+      </view>
+      <view class='car-list'>
+   
+        <view class='line-list' wx:for="{{lineInfo}}" wx:key="{{index}}">
+          <view class='car-id'>{{item.carNumber}}</view>
+          <view class='time'>{{fiter.dateFormat(item.serviceExEndTime)}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='close' bindtap='closeMask'>
+    <image src='../../../img/close_popup.png'></image>
+  </view>
 </view>

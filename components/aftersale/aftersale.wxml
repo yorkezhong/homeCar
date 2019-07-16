@@ -16,13 +16,13 @@
         <text>退款原因：{{item.cancelReason}}</text>
       </view>
 
-      <view class='aftersale-time'>订单时间：{{item.createTime}}</view>
+      <view class='aftersale-time'>订单时间：{{fiter.dateFormat(item.createTime,'yyyy-MM-dd hh:mm:ss')}}</view>
       <view class='aftersale-id'>订单编号：{{item.createTime}}</view>
 
       <view class='aftersale-footer'>
         <view>
           <text class='order-sum'>订单总价：</text>
-          <text class='money'>￥{{item.payMoney}}</text>
+          <text class='money'>￥{{fiter.formatMoeny(item.payMoney)}}</text>
         </view>
         <view class='order-again'>
           <image src='../../img/phone.png'></image>

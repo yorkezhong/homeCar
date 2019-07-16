@@ -1,7 +1,7 @@
 <wxs src="../../pages/fiter.wxs" module="fiter" />
 <view class=" nopay ">
   <view wx:if="{{nopayList.length!=0}}">
-    <view class='pay-list' wx:for="{{nopayList}} " wx:key="{{index}} ">
+    <view class='pay-list' wx:for="{{nopayList}}" wx:key="{{index}}">
       <view class='list-item'>
         <image src='../../img/title.png' style='width:702rpx;height:60rpx' mode='scaleToFill'></image>
         <view class='pay-info'>
@@ -12,13 +12,14 @@
             <text class='worker-phone'>电话：13279604836</text>
           </view>
           <view class='order-info'>
-            <text class='order-time'>订单时间：{{item.createTime}}</text>
+           
+            <text class='order-time'> 订单时间：{{fiter.dateFormat(item.createTime,'yyyy-MM-dd hh:mm:ss')}}</text>
             <text class='order-id'>订单编号：{{item.number}}</text>
           </view>
           <view class='order-footer'>
             <view class='order-sum'>
               订单总价：
-              <text class='money'>￥{{item.totalMoney}}</text>
+              <text class='money'>￥{{fiter.formatMoeny(item.payMoney)}}</text>
             </view>
             <view class='order-btn'>
               <button class='cancel' bindtap='cancelOrder' data-orderid='{{item}}'>取消订单</button>

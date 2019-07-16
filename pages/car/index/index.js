@@ -4,7 +4,7 @@ Page({
     userCarList:[],
     carIndex:0
   },
-  onLoad(){
+  onShow(){
     this.findAllCar();
   },
   addNewCar(){

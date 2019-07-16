@@ -40,9 +40,9 @@ Page({
       })
     }
   },
-  addCars(carNumber, status, brandId, brandName, carModel, frameNo, displacement, intakeForm, fuelType, issueYear, dischargeStandard, vehicleGrade, oilLift, gear, frontTire, backTire, domestic, engineNo, travelNumber, maintainNumber, insuranceExpireDate, annualReviewExpireDate, greenLabelExpireDate) {
+  addCars(number, status, brandId, brandName, carModel, frameNo, displacement, intakeForm, fuelType, issueYear, dischargeStandard, vehicleGrade, oilLift, gear, frontTire, backTire, domestic, engineNo, travelNumber, maintainNumber, insuranceExpireDate, annualReviewExpireDate, greenLabelExpireDate) {
     addCars({
-      carNumber,
+      number,
       status,
       brandId,
       brandName,
@@ -71,8 +71,8 @@ Page({
           title: '新增车辆成功',
         })
         setTimeout(() => {
-          wx.switchTab({
-            url: '../index/index',
+          wx.navigateBack({
+            delta: 4,
           })
         }, 2000)
       } else {

@@ -29,12 +29,16 @@ Page({
     userCardList: [],
     userCouponList: [],
     rechargeCarList: [],
-    userId: ""
+    userId: "",
+    canScroll:true
+  },
+  onShow(){
+    this.findAllCar();
+
   },
 
   onLoad(option) {
     let currtshop = wx.getStorageSync("currtshop");
-    this.findAllCar();
     this.setData({
       currtshop: currtshop
     })
@@ -55,12 +59,17 @@ Page({
         }
         if (option.type == 1) {
           this.setData({
-            serverIndex: 1
+            serverIndex: 1,
+            detailItem: res.data[keyArry[1]][0].id,
+          })
+   
+        }else{
+          this.setData({
+            detailItem: res.data[keyArry[0]][0].id,
           })
         }
         this.setData({
           detailServerList: detailServerList,
-          detailItem: res.data[keyArry[0]][0].id,
           cuurtDetail: res.data[keyArry[0]][0],
           sumMoreny: res.data[keyArry[0]][0].price
         })
@@ -102,14 +111,13 @@ Page({
       }
     })
   },
-  saveOrder(orderSource, carBrandName, conStaffId, orderType, storeId, userId, userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard) {
+  saveOrder(orderSource, carBrandName, conStaffId, orderType, storeId,  userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard) {
     saveOrder({
       orderSource,
       carBrandName,
       conStaffId,
       orderType,
       storeId,
-      userId,
       userName,
       mobile,
       remark,
@@ -189,15 +197,15 @@ Page({
       timeIndex,
       cuurtDetail,
       userId
-    } = this.data;
-    let that = this;
+      } = this.data;            
+      let that = this;
     if (userName == "" || mobile == "") {
       wx.showModal({
         title: '提示',
         content: '请填写姓名或手机号',
       })
     } else {
-      that.saveOrder(2, selectCarInfo.brandName, currStaff.id, timeIndex, currtshop.id, userId, userName, mobile, remark, selectCarInfo.brandId, selectCarInfo.carModel, selectCarInfo.number, [{
+      that.saveOrder(2, selectCarInfo.brandName, currStaff.id, timeIndex, currtshop.id,  userName, mobile, remark, selectCarInfo.brandId, selectCarInfo.carModel, selectCarInfo.number, [{
         storeServiceId: cuurtDetail.id,
         serviceTime: cuurtDetail.serviceTime,
         price: cuurtDetail.price
@@ -248,13 +256,15 @@ Page({
   },
   closeMask() {
     this.setData({
-      mask: false
+      mask: false,
+      canScroll:true
     })
   },
   goDetail(e) {
     this.setData({
       mask: true,
-      detailid: e.currentTarget.dataset.detailid
+      detailid: e.currentTarget.dataset.detailid,
+      canScroll:false
     })
 
   },

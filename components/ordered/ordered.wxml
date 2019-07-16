@@ -17,11 +17,11 @@
         <text>技工：{{item.conStaffName}}</text>
       </view>
 
-      <view class='ordered-time'>订单时间：{{item.createTime}}</view>
+      <view class='ordered-time'>订单时间：{{fiter.dateFormat(item.createTime,'yyyy-MM-dd hh:mm:ss')}}</view>
       <view class='ordered-id'>订单编号：{{item.number}}</view>
 
       <view class='ordered-footer'>
-        <text class='money'>￥{{item.payMoney}}</text>
+        <text class='money'>￥{{fiter.formatMoeny(item.payMoney)}}</text>
         <view class='order-again' bindtap='againOrder'>再来一单</view>
       </view>
     </view>

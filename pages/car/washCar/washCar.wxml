@@ -1,6 +1,7 @@
+<wxs src="../../fiter.wxs" module="fiter"/>
 <view class='content' style='display: flex; flex-direction: column;width: 100%; height:100%;'>
   <view class="wash" style=' flex: 1;position: relative; margin-bottom: 0rpx;'>
-    <scroll-view scroll-y="true" style="height: 100%;position: absolute;left: 0;right: 0;top: 0;bottom: 0rpx;">
+    <scroll-view scroll-y="{{canScroll}}" style="height: 100%;position: absolute;left: 0;right: 0;top: 0;bottom: 0rpx;">
       <view class='wash-top'>
         <view class='wash-info'>
           <view class='wash-shop'>
@@ -79,7 +80,7 @@
                   <text class="{{detailItem==item.id?'selectdeatil':''}}" data-detailindex='{{item}}' bindtap='selectDetail'>{{item.catalogDetailName}}</text>
                   <view class='detail-footer'>
                     <text class='yuan'>￥</text>
-                    <text class='pay-num'>{{item.price}}</text>
+                    <text class='pay-num'>{{fiter.formatMoeny(item.price)}}</text>
                     <text class='link-detail' bindtap='goDetail' data-detailid='{{index}}'>详情</text>
                   </view>
                 </view>
@@ -126,7 +127,7 @@
         </view>
         <view class="cu-form-group">
           <view class="title">手机号码</view>
-          <input placeholder="必填" value='{{mobile}}' bindinput="mobile"></input>
+          <input placeholder="必填" value='{{mobile}}' bindinput="mobile" type='number'></input>
           <view class="cu-capsule radius">
             <view class="cu-tag bg-blue">
               +86
@@ -203,7 +204,7 @@
 
   <view class='footer'>
     <view class='footer-all' bindtap='allSelected'>
-      <text class='yuan' style='font-size:30rpx'>￥</text>{{sumMoreny}}</view>
+      <text class='yuan' style='font-size:30rpx'>￥</text>{{fiter.formatMoeny(sumMoreny)}}</view>
     <view class='footer-submit' bindtap='submitApply'>保存订单</view>
   </view>
 

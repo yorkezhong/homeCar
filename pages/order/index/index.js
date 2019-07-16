@@ -37,18 +37,53 @@ Page({
     let that = this;
     let TabCur = e.currentTarget.dataset.id
     if (TabCur == 0) {
-      that.orderList(storeId, 0, currtPage, 5)
+      that.orderList1(storeId, 0, currtPage, 5)
     } else if (TabCur == 1) {
-      that.orderList(storeId, 1, currtPage, 5)
+      that.orderList1(storeId, 1, currtPage, 5)
     } else if (TabCur == 2) {
-      that.orderList(storeId, 2, currtPage, 5)
+      that.orderList1(storeId, 2, currtPage, 5)
     } else if (TabCur == 3) {
-      that.orderList(storeId, 3, currtPage, 5)
-      that.orderList(storeId, 4, currtPage, 5)
+      that.orderList1(storeId, 3, currtPage, 5)
+      that.orderList1(storeId, 4, currtPage, 5)
     } else if (TabCur == 4) {
-      that.orderList(storeId, 5, currtPage, 5)
+      that.orderList1(storeId, 5, currtPage, 5)
     }
   },
+  orderList1(storeId, status, currentPage, pageSize) {
+    let that = this;
+    let { nopayList, orderingList, orderedList, commentList, afterList, commentedList } = this.data;
+    orderList({
+      storeId,
+      status,
+      currentPage,
+      pageSize
+    }).then((res) => {
+      if (status == 0) {
+        that.setData({
+          nopayList: res.data.page.records
+        })
+      } else if (status == 1) {
+        that.setData({
+          orderingList: res.data.page.records
+        })
+      } else if (status == 2) {
+        that.setData({
+          orderedList: res.data.page.records
+        })
+
+      } else if (status == 3 || status == 4) {
+        that.setData({
+          commentList: res.data.page.records,
+          commentedList: res.data.page.records,
+        })
+      } else if (status == 5) {
+        that.setData({
+          afterList: res.data.page.records
+        })
+      }
+    })
+  },
+
   orderList(storeId, status, currentPage, pageSize) {
     let that = this;
     let { nopayList, orderingList, orderedList, commentList, afterList, commentedList}=this.data;

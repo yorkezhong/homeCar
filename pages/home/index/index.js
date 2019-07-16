@@ -32,7 +32,8 @@ Page({
     banner: [],
     lineNum: 0,
     unlogin: false,
-    orderingInfo: null
+    orderingInfo: null,
+    lineInfo:[]
 
   },
   //当前门店信息
@@ -64,7 +65,8 @@ Page({
       storeId
     }, token).then((res) => {
       this.setData({
-        lineNum: res.data.sort
+        lineNum: res.data.sort,
+        lineInfo:res.data.pushList
       })
     })
   },
@@ -251,9 +253,26 @@ Page({
       url: '../localkey/localkey',
     })
   },
-  goWashCar() {
+  goWashCar1() {
     wx.navigateTo({
       url: '../../car/washCar/washCar?type=1',
+    })
+  },
+  goWashCar() {
+    wx.navigateTo({
+      url: '../../car/washCar/washCar',
+    })
+  },
+  goPaint(){
+    wx.showToast({
+      title: '正在开发中，敬请期待 !',
+      icon:"none"
+    })
+  },
+  goTube(){
+    wx.showToast({
+      title: '正在开发中，敬请期待 !',
+      icon: "none"
     })
   },
   goRecharge() {

@@ -131,6 +131,8 @@
         <view class='id-item' bindtap='handleFocus'>{{plateNumber[3]}}</view>
         <view class='id-item' bindtap='handleFocus'>{{plateNumber[4]}}</view>
         <view class='id-item' bindtap='handleFocus'>{{plateNumber[5]}}</view>
+        <view class='id-item' bindtap='handleFocus'>{{plateNumber[6]}}</view>
+
       </view>
       <view class='add-car-id' wx:if="{{selectIndex==1}}">
         <view class='id-item' bindtap='handleFocus'>{{plateNumber[0]}}</view>

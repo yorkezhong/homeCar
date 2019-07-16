@@ -17,7 +17,7 @@
         <view class='doing-info'>
           <view>
             <view class='doing-time'>
-              订单时间：{{item.createTime}}
+              订单时间：{{fiter.dateFormat(item.createTime,'yyyy-MM-dd hh:mm:ss')}}
             </view>
             <view class='doing-id'>
               订单编号：{{item.number}}
@@ -40,7 +40,7 @@
             <text class='done-car-id'>{{item.carNumber}}</text>
           </view>
           <view class='done-top-right'>
-            <view class='done-time'>订单时间：{{item.createTime}}</view>
+            <view class='done-time'>订单时间：{{fiter.dateFormat(item.createTime,'yyyy-MM-dd hh:mm:ss')}}</view>
             <view class='done-id'>订单编号：{{item.number}}</view>
 
           </view>

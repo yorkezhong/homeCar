@@ -1,34 +1,80 @@
 var fiters = {
-    carname: function(name) {
-      var car = name.split('-')[1];
-      return car
-    },
-    orderType: function(num) {
-      var type = "立即服务";
-      if (num == 1) {
-        type = "夜洗晨取"
-      } else if (num == 2) {
-        type = "下班取车"
+  carname: function (name) {
+    var car = name.split('-')[1];
+    return car
+  },
+  orderType: function (num) {
+    var type = "立即服务";
+    if (num == 1) {
+      type = "夜洗晨取"
+    } else if (num == 2) {
+      type = "下班取车"
 
-      }
-      return type;
-    },
-  payType:function(type){
-    var typename="微信";
-    if (type==2){
-   typename="支付宝"
-    }else if(type==3){
-      typename="现金"
-    }else if(type==4){
-        typename="余额"
+    }
+    return type;
+  },
+  payType: function (type) {
+    var typename = "微信";
+    if (type == 2) {
+      typename = "支付宝"
+    } else if (type == 3) {
+      typename = "现金"
+    } else if (type == 4) {
+      typename = "余额"
     }
 
     return typename;
   },
+  formatMoeny: function (price) {
+    var moeny = price / 100;
+    return moeny.toFixed(2)
+  },
+  dateFormat: function (timestamp, format) {
+    var regYear = getRegExp("(y+)", "i");
+    if (!format) {
+      format = "hh:mm";
+    }
+    if (timestamp==null){
+      return "暂无"
+    }
+    timestamp = parseInt(timestamp);
+    var realDate = getDate(timestamp);
+    function timeFormat(num) {
+      return num < 10 ? '0' + num : num;
+    }
+    var date = [
+      ["M+", timeFormat(realDate.getMonth() + 1)],
+      ["d+", timeFormat(realDate.getDate())],
+      ["h+", timeFormat(realDate.getHours())],
+      ["m+", timeFormat(realDate.getMinutes())],
+      ["s+", timeFormat(realDate.getSeconds())],
+      ["q+", Math.floor((realDate.getMonth() + 3) / 3)],
+      ["S+", realDate.getMilliseconds()],
+    ];
+    var reg1 = regYear.exec(format);
+    // console.log(reg1[0]);
+    if (reg1) {
+
+      format = format.replace(reg1[1], (realDate.getFullYear() + '').substring(4 - reg1[1].length));
+    }
+    for (var i = 0; i < date.length; i++) {
+      var k = date[i][0];
+      var v = date[i][1];
+      // getRegExp初始化一个正则表达式对象
+      var reg2 = getRegExp("(" + k + ")").exec(format);
+      if (reg2) {
+        format = format.replace(reg2[1], reg2[1].length == 1
+          ? v : ("00" + v).substring(("" + v).length));
+      }
+    }
+    return format;
+  }
 }
 
-    module.exports = {
-      carname: fiters.carname,
-      orderType: fiters.orderType,
-      payType: fiters.payType
-    }
+module.exports = {
+  carname: fiters.carname,
+  orderType: fiters.orderType,
+  payType: fiters.payType,
+  formatMoeny: fiters.formatMoeny,
+  dateFormat: fiters.dateFormat
+}
