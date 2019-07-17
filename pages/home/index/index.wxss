@@ -43,7 +43,7 @@ page {
 }
 
 .shop-info {
- margin-top:20rpx;
+ margin-top:30rpx;
 display:flex;
 justify-content:space-between;
 line-height:40rpx;
@@ -54,6 +54,7 @@ align-items:center;
 .shop-name {
   font-size: 28rpx;
   color: #333;
+  display: block;
 }
 
 .shop-people {
@@ -83,16 +84,20 @@ align-items:center;
 .shop-time {
   font-size: 26rpx;
   color: #ccc;
+  display: block;
+  margin-top:15rpx; 
 }
 
 .shop-site {
   font-size: 28rpx;
   color: #333;
   line-height: 40rpx;
-  margin-top: 20rpx;
+  margin-top: 40rpx;
   display: flex;
   align-items: center;
   position: relative;
+
+
 }
 
 .currtshop {
@@ -107,6 +112,8 @@ align-items:center;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 80rpx;
+
 }
 
 .service-item {
@@ -177,7 +184,7 @@ align-items:center;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 40rpx;
+  margin-top: 50rpx;
   margin-bottom: 10rpx;
 }
 
@@ -208,7 +215,6 @@ align-items:center;
   background: #fff;
   border-radius: 8rpx;
   margin:230rpx auto 30rpx;
-  overflow-y: scroll;
 }
 
 .mask-top {
@@ -297,7 +303,7 @@ margin-left:50rpx;
 
 .login {
   width: 100%;
-  height: 100%;
+  height: 1000%;
   position: absolute;
   z-index: 20;
   background: rgba(92, 92, 92, 0.5);
@@ -310,6 +316,7 @@ margin-left:50rpx;
   background: #fff;
   border-radius: 8rpx;
   margin: 400rpx auto 30rpx;
+  position: relative;
 }
 
 .login-title {
@@ -337,6 +344,9 @@ margin-left:50rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .login-btn button {

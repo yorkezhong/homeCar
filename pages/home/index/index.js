@@ -5,7 +5,7 @@ import {
   lineNum,
   getCarBands,
   orderList
-} from "../../../pages/request.js"
+} from "../../../pages/request.js";
 Page({
   data: {
     city: "深圳市",
@@ -33,7 +33,7 @@ Page({
     lineNum: 0,
     unlogin: false,
     orderingInfo: null,
-    lineInfo:[]
+    lineInfo: []
 
   },
   //当前门店信息
@@ -66,7 +66,7 @@ Page({
     }, token).then((res) => {
       this.setData({
         lineNum: res.data.sort,
-        lineInfo:res.data.pushList
+        lineInfo: res.data.pushList
       })
     })
   },
@@ -115,6 +115,13 @@ Page({
         that.submitLogin()
       }
     })
+    let nowTime = parseInt(new Date().getTime() / 1000);
+    let getServerTime = wx.getStorageSync("getServerTime");
+    if (Boolean(getServerTime) == true) {
+      if (nowTime >= getServerTime) {
+        that.submitLogin()
+      }
+    }
     let userinfo = wx.getStorageSync("userinfo");
     if (Boolean(userinfo) == false) {
       that.setData({
@@ -152,9 +159,13 @@ Page({
                     wx.setStorageSync("userAuth", {
                       openid: res.data.data.openid,
                       session_key: res.data.data.session_key,
-                      token: res.data.data.token
+                      token: res.data.data.token,
+                      expire: res.data.data.expire
                     })
-                    let token = res.data.data.token
+                    let token = res.data.data.token;
+                    let getServerTime = parseInt(new Date().getTime() / 1000);
+                    getServerTime = getServerTime + res.data.data.expire;
+                    wx.setStorageSync("getServerTime", getServerTime)
                     resolve({
                       token
                     });
@@ -204,7 +215,7 @@ Page({
     }, 2000)
   },
 
-  goCarSafe(){
+  goCarSafe() {
     wx.navigateTo({
       url: '../carSafe/carSafe',
     })
@@ -263,13 +274,13 @@ Page({
       url: '../../car/washCar/washCar',
     })
   },
-  goPaint(){
+  goPaint() {
     wx.showToast({
       title: '正在开发中，敬请期待 !',
-      icon:"none"
+      icon: "none"
     })
   },
-  goTube(){
+  goTube() {
     wx.showToast({
       title: '正在开发中，敬请期待 !',
       icon: "none"
@@ -301,8 +312,7 @@ Page({
     let {
       orderingInfo
     } = this.data;
-    if (orderingInfo == null) {
-    } else {
+    if (orderingInfo == null) {} else {
       orderingInfo = JSON.stringify(orderingInfo)
     }
     wx.navigateTo({

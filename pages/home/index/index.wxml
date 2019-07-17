@@ -126,7 +126,7 @@
   </view>
 
 </view>
-<view class='mask' wx:if="{{mask}}">
+<view class='mask' wx:if="{{mask}}" catchtouchmove="ture">
   <view class='mask-box'>
     <view class='mask-top'>洗车排队进度</view>
     <view class='mask-item'>

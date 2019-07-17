@@ -5,11 +5,11 @@
     <view class='cancel-car-id'>{{orderinfo.carNumber}}</view>
   </view>
   <view class='cancel-box'>
-    <view class='order-time'>订单时间：{{orderinfo.createTime}}</view>
+    <view class='order-time'>订单时间：{{fiter.dateFormat(orderinfo.createTime,'yyyy-MM-dd hh:mm:ss')}}</view>
     <view class='order-id'>订单编号：{{orderinfo.number}}</view>
     <view class='order-sum'>订单总价：
       <text class='rmb'>￥</text>
-      <text class='price'>{{orderinfo.payMoney}}</text>
+      <text class='price'>{{fiter.formatMoeny(orderinfo.payMoney)}}</text>
     </view>
     <view class='order-reason-title'>取消原因：</view>
     <view class='order-reason'>

@@ -7,7 +7,7 @@
         <view class='detail-car-id'>{{orderinfo.carNumber}}</view>
       </view>
       <view class='detail-worker'>服务技师：{{orderinfo.carNumber}}</view>
-      <view class='detail-time'>订单时间：{{orderinfo.createTime}}</view>
+      <view class='detail-time'>订单时间：{{fiter.dateFormat(orderinfo.createTime,'yyyy-MM-dd hh:mm:ss')}}</view>
       <view class='detail-orderid'>订单编号：{{orderinfo.number}}</view>
     </view>
 
@@ -27,19 +27,19 @@
       </view>
       <view class='pay-method'>
         <text class='pay-left'>优惠券折扣</text>
-        <text class='pay-right'>{{orderinfo.couponMoney==0?'暂无':'-'+orderinfo.couponMoney}}</text>
+        <text class='pay-right'>{{orderinfo.couponMoney==0?'暂无':'-'+fiter.formatMoeny(orderinfo.couponMoney)}}</text>
       </view>
     </view>
     <view class='detiail-sum'>
       <view class='discount'>
         <text class='discounted'>已折扣:</text>
         <text class='rmb'>￥</text>
-        <text class='sum'>{{(orderinfo.totalMoney)-(orderinfo.payMoney)}}</text>
+        <text class='sum'>{{fiter.formatMoeny((orderinfo.totalMoney)-(orderinfo.payMoney))}}</text>
       </view>
        <view class='discount'>
         <text class='discounted'>订单总价:</text>
         <text class='rmb'>￥</text>
-        <text class='sum'>{{orderinfo.payMoney}}</text>
+        <text class='sum'>{{fiter.formatMoeny(orderinfo.payMoney)}}</text>
       </view>
     </view>
   </view>

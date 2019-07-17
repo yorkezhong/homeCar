@@ -132,6 +132,11 @@ Page({
         wx.showToast({
           title: '保存订单成功',
         })
+        setTimeout(()=>{
+          wx.switchTab({
+            url: '../../order/index/index',
+          })
+        },2000)
       } else if (res.code == 500) {
         wx.showToast({
           title: res.msg,
