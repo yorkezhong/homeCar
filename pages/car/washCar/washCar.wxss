@@ -133,6 +133,7 @@ page {
 .wash-box {
   padding: 25rpx;
   padding-right: 0rpx;
+  padding-left: 0;
 }
 
 .car-empty {
@@ -146,6 +147,7 @@ page {
   font-weight: 400;
   color: #333;
   margin-bottom: 8rpx;
+  padding-left: 25rpx;
 }
 
 .wash-car-box {
@@ -542,4 +544,27 @@ page {
 
 .canuse {
   color: rgb(10, 138, 245) !important;
+}
+.item-box-list{
+  display:flex;
+align-items:center;
+text-align:center;
+justify-content:space-around;
+margin-bottom:10rpx;
+
+}
+.item-box-list text{
+  display:flex;
+font-size:26rpx;
+color:rgb(102, 102, 102);
+width:160rpx;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding-bottom:10rpx;
+border-bottom:3rpx solid #fff;
+
+}
+.selectItemName{
+  border-bottom: 3rpx solid rgb(255, 133, 82) !important;
 }

@@ -2,7 +2,14 @@
 Page({
 
   data: {
-    cancel:true
+    cancel:true,
+    orderinfo:{}
+  },
+  onLoad(option){
+    let orderinfo = JSON.parse(option.orderinfo);
+    this.setData({
+      orderinfo:orderinfo
+    })
   },
   showOrder(){
     wx.redirectTo({

@@ -74,14 +74,19 @@
                 <text data-serverIndex='{{index}}' bindtap='selectServer' class="{{serverIndex==index?'selectItem':''}}">{{item}}</text>
               </block>
             </view>
+            <view class='item-box-list'>
+              <block wx:for="{{serverItemName[serverIndex]}}" wx:key="{{index}}"  wx:for-index='key' >
+                <text data-serveritem='{{key}}' bindtap='selectItemName' class="{{serverItem==key?'selectItemName':''}}">{{key}}</text>
+              </block>
+            </view>
             <view class='wash-car-detail'>
-              <block wx:for="{{detailServerList[serverIndex]}}" wx:key="{{index}}">
+              <block wx:for="{{serverItemName[serverIndex][serverItem]}}" wx:key="{{index}}">
                 <view class='detail-item'>
                   <text class="{{detailItem==item.id?'selectdeatil':''}}" data-detailindex='{{item}}' bindtap='selectDetail'>{{item.catalogDetailName}}</text>
                   <view class='detail-footer'>
                     <text class='yuan'>￥</text>
                     <text class='pay-num'>{{fiter.formatMoeny(item.price)}}</text>
-                    <text class='link-detail' bindtap='goDetail' data-detailid='{{index}}'>详情</text>
+                    <text class='link-detail' bindtap='goDetail' data-detailitem='{{item}}'>详情</text>
                   </view>
                 </view>
               </block>
@@ -178,20 +183,20 @@
   <view class='mask' wx:if="{{mask}}">
     <view class='mask-main'>
       <view class='mask-box'>
-        <view class='mask-top'>{{detailServerList[serverIndex][detailid].catalogDetailName}}</view>
+        <view class='mask-top'>{{detailitem.catalogDetailName}}</view>
 
         <view class='mask-detail'>
           <view class='mask-item'>
             <view class='mask-title'>服务时长</view>
-            <view class='mask-info'>{{detailServerList[serverIndex][detailid].serviceTime}}</view>
+            <view class='mask-info'>{{detailitem.serviceTime}}</view>
           </view>
           <view class='mask-item'>
             <view class='mask-title'>服务耗材</view>
-            <view class='mask-info'>{{detailServerList[serverIndex][detailid].serviceIntroduce}}</view>
+            <view class='mask-info'>{{detailitem.serviceIntroduce}}</view>
           </view>
           <view class='mask-item'>
             <view class='mask-title'>服务介绍</view>
-            <view class='mask-info'>{{detailServerList[serverIndex][detailid].serviceConsumeMaterial}}</view>
+            <view class='mask-info'>{{detailitem.serviceConsumeMaterial}}</view>
           </view>
         </view>
 

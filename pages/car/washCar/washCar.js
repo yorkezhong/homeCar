@@ -14,7 +14,7 @@ Page({
     serverIndex: 0,
     detailItem: 0,
     timeIndex: 0,
-    detailid: 0,
+    detailitem: 0,
     mask: false,
     shopServerList: [],
     detailServerList: [],
@@ -30,9 +30,12 @@ Page({
     userCouponList: [],
     rechargeCarList: [],
     userId: "",
-    canScroll:true
+    canScroll: true,
+    serverItemName: [],
+    serverItem: 0
+
   },
-  onShow(){
+  onShow() {
     this.findAllCar();
 
   },
@@ -44,6 +47,7 @@ Page({
     })
     let storeId = currtshop.id;
     let detailServerList = [];
+    let serverItemName = []
     serviceList({
       storeId
     }).then((res) => {
@@ -54,24 +58,37 @@ Page({
           shopServerList: Object.keys(res.data)
         })
         let keyArry = Object.keys(res.data);
-        for (var i = 0; i < keyArry.length; i++) {
-          detailServerList.push(res.data[keyArry[i]])
+
+        for (var j = 0; j < keyArry.length; j++) {
+          serverItemName.push(res.data[keyArry[j]])
         }
+        console.log(serverItemName)
+        this.setData({
+          serverItemName: serverItemName
+        })
+        // for (var i = 0; i < keyArry.length; i++) {
+        //   detailServerList.push(res.data[keyArry[i]])
+        // }
         if (option.type == 1) {
+          let keyArry = Object.keys(serverItemName[1])
           this.setData({
             serverIndex: 1,
-            detailItem: res.data[keyArry[1]][0].id,
+            detailItem: serverItemName[1][keyArry[0]][0].id,
+            serverItem: keyArry[0]
           })
-   
-        }else{
+
+        } else {
+          let keyArry = Object.keys(serverItemName[0]);
           this.setData({
-            detailItem: res.data[keyArry[0]][0].id,
+            detailItem: serverItemName[0][keyArry[0]][0].id,
+            serverItem:keyArry[0]
           })
         }
         this.setData({
           detailServerList: detailServerList,
-          cuurtDetail: res.data[keyArry[0]][0],
-          sumMoreny: res.data[keyArry[0]][0].price
+          cuurtDetail: serverItemName[0][keyArry[0]][0],
+          sumMoreny: serverItemName[0][keyArry[0]][0].price,
+          
         })
       }
 
@@ -111,7 +128,7 @@ Page({
       }
     })
   },
-  saveOrder(orderSource, carBrandName, conStaffId, orderType, storeId,  userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard) {
+  saveOrder(orderSource, carBrandName, conStaffId, orderType, storeId, userName, mobile, remark, carBrandId, carModel, carNumber, detail, hasCard) {
     saveOrder({
       orderSource,
       carBrandName,
@@ -132,11 +149,11 @@ Page({
         wx.showToast({
           title: '保存订单成功',
         })
-        setTimeout(()=>{
+        setTimeout(() => {
           wx.switchTab({
             url: '../../order/index/index',
           })
-        },2000)
+        }, 2000)
       } else if (res.code == 500) {
         wx.showToast({
           title: res.msg,
@@ -202,15 +219,15 @@ Page({
       timeIndex,
       cuurtDetail,
       userId
-      } = this.data;            
-      let that = this;
+    } = this.data;
+    let that = this;
     if (userName == "" || mobile == "") {
       wx.showModal({
         title: '提示',
         content: '请填写姓名或手机号',
       })
     } else {
-      that.saveOrder(2, selectCarInfo.brandName, currStaff.id, timeIndex, currtshop.id,  userName, mobile, remark, selectCarInfo.brandId, selectCarInfo.carModel, selectCarInfo.number, [{
+      that.saveOrder(2, selectCarInfo.brandName, currStaff.id, timeIndex, currtshop.id, userName, mobile, remark, selectCarInfo.brandId, selectCarInfo.carModel, selectCarInfo.number, [{
         storeServiceId: cuurtDetail.id,
         serviceTime: cuurtDetail.serviceTime,
         price: cuurtDetail.price
@@ -232,8 +249,15 @@ Page({
 
   },
   selectServer(e) {
+    let keyArry = Object.keys(this.data.serverItemName[e.currentTarget.dataset.serverindex])
     this.setData({
-      serverIndex: e.currentTarget.dataset.serverindex
+      serverIndex: e.currentTarget.dataset.serverindex,
+      serverItem: keyArry[0]
+    })
+  },
+  selectItemName(e) {
+    this.setData({
+      serverItem: e.currentTarget.dataset.serveritem
     })
   },
   selectDetail(e) {
@@ -262,14 +286,14 @@ Page({
   closeMask() {
     this.setData({
       mask: false,
-      canScroll:true
+      canScroll: true
     })
   },
   goDetail(e) {
     this.setData({
       mask: true,
-      detailid: e.currentTarget.dataset.detailid,
-      canScroll:false
+      detailitem: e.currentTarget.dataset.detailitem,
+      canScroll: false
     })
 
   },

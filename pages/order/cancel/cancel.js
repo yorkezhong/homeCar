@@ -40,9 +40,11 @@ Page({
         wx.showToast({
           title: '取消订单成功！',
         })
+        let orderinfo = this.data.orderinfo;
+        orderinfo = JSON.stringify(orderinfo)
         setTimeout(() => {
           wx.navigateTo({
-            url: '../submitOrder/submitOrder',
+            url: '../submitOrder/submitOrder?orderinfo=' + orderinfo,
           })
         }, 2000)
       } else {

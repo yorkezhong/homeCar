@@ -12,11 +12,11 @@
     </view>
     <text class='cuIcon-scan scan' bindtap='scanCode'></text>
   </view>
-  <view class='banner'>
-    <swiper autoplay="true" indicator-dots="true" indicator-color="#fff" indicator-active-color="#333">
+  <view class='banner' style='height:{{winHeight}}rpx'>
+    <swiper autoplay="true" indicator-dots="true" indicator-color="#fff" indicator-active-color="#333" style="height:{{winHeight}}rpx">
       <block wx:for="{{banner}}" wx:key="{{index}}">
-        <swiper-item>
-          <image src="{{item.imgUrl}}" class="slide-image" mode='scaleToFill' style="width:100%" />
+        <swiper-item style="height:{{winHeight}}rpx">
+          <image src="{{item.imgUrl}}" class="slide-image" mode='scaleToFill' style="width:100%;height:100%" />
         </swiper-item>
       </block>
     </swiper>

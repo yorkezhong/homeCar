@@ -28,6 +28,7 @@ Page({
       "createTime": 1555300462000,
       "updateTime": 1554818336000,
       "img": null,
+      winHeight:0
     },
     banner: [],
     lineNum: 0,
@@ -107,6 +108,20 @@ Page({
   },
   onLoad() {
     let that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        var clientHeight = res.windowHeight,
+          clientWidth = res.windowWidth,
+          rpxR = 750 / clientWidth;
+        var helfH = clientHeight * 0.4 * rpxR;
+        that.setData({
+          winHeight: helfH,
+        });
+      }
+    });
+    -
+
+
     wx.checkSession({
       success(res) {
         //登录状态有效

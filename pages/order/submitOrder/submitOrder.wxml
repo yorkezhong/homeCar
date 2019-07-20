@@ -1,3 +1,4 @@
+<wxs src="../../fiter.wxs" module="fiter" />
 <view class="submit">
   <view class='submit-cancel' wx:if="{{cancel}}">
     <view class='submit-bg'>
@@ -6,8 +7,8 @@
     <view class='submit-info'>
       <view class='order-status'>订单已取消!</view>
       <view class='order-info'>
-        <text>订单编号：2314512545</text>
-        <text>订单时间：2019-05-26 19：20</text>
+        <text>订单编号：{{orderinfo.number}}</text>
+        <text>订单时间：{{fiter.dateFormat(orderinfo.createTime,'yyyy-MM-dd hh:mm:ss')}}</text>
       </view>
       <view class='order-btn'>
         <view class='show-order' bindtap='showOrder'>查看订单</view>

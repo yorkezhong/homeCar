@@ -63,6 +63,7 @@ margin-right: 30rpx;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 540rpx;
  
 }
 .car-point{
@@ -83,6 +84,11 @@ margin-right: 30rpx;
 }
 .car-result{
   margin-top: 30rpx;
+  height:500rpx;
+display:flex;
+flex-direction:column;
+justify-content:center;
+
 }
 .res-title{
   margin-left: 20rpx;
